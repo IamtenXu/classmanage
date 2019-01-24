@@ -8,8 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="148c5529-e527-48fa-9e84-a27a96c209cc" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/generator.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/generator.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/jdbc.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/jdbc.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,11 +18,38 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="228">
-              <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+              <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="57">
+              <caret line="3" selection-start-line="3" selection-end-line="4" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/generator.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1254">
+              <caret line="72" selection-start-line="72" selection-end-line="72" />
             </state>
           </provider>
         </entry>
@@ -37,8 +62,8 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/resources/jdbc.properties" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/resources/jdbc.properties" />
         <option value="$PROJECT_DIR$/src/main/resources/generator.properties" />
       </list>
     </option>
@@ -90,12 +115,31 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
               <item name="iamten" type="b2602c69:ProjectViewProjectNode" />
               <item name="classmanage" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="iamten" type="b2602c69:ProjectViewProjectNode" />
+              <item name="classmanage" type="462c0819:PsiDirectoryNode" />
+              <item name="mysql" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="iamten" type="b2602c69:ProjectViewProjectNode" />
+              <item name="classmanage" type="462c0819:PsiDirectoryNode" />
+              <item name="mysql" type="462c0819:PsiDirectoryNode" />
+              <item name="sql" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="iamten" type="b2602c69:ProjectViewProjectNode" />
+              <item name="classmanage" type="462c0819:PsiDirectoryNode" />
+              <item name="mysql" type="462c0819:PsiDirectoryNode" />
+              <item name="sql" type="462c0819:PsiDirectoryNode" />
+              <item name="总" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="iamten" type="b2602c69:ProjectViewProjectNode" />
@@ -128,6 +172,24 @@
               <item name="classmanage" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="iamten" type="462c0819:PsiDirectoryNode" />
+              <item name="dao" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="iamten" type="b2602c69:ProjectViewProjectNode" />
+              <item name="classmanage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="java" type="462c0819:PsiDirectoryNode" />
+              <item name="iamten" type="462c0819:PsiDirectoryNode" />
+              <item name="entity" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="iamten" type="b2602c69:ProjectViewProjectNode" />
+              <item name="classmanage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resources" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -148,19 +210,27 @@
             <path>
               <item name="iamten" type="b2602c69:ProjectViewProjectNode" />
               <item name="classmanage" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+              <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="iamten" type="b2602c69:ProjectViewProjectNode" />
+              <item name="classmanage" type="462c0819:PsiDirectoryNode" />
               <item name="target" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1548311145978" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
@@ -266,6 +336,9 @@
       <updated>1548075507912</updated>
       <workItem from="1548075509333" duration="1844000" />
       <workItem from="1548085228575" duration="933000" />
+      <workItem from="1548233054455" duration="643000" />
+      <workItem from="1548248435424" duration="1282000" />
+      <workItem from="1548308665495" duration="1039000" />
     </task>
     <task id="LOCAL-00001" summary="修改mybatis一些配置">
       <created>1548085461375</created>
@@ -274,11 +347,18 @@
       <option name="project" value="LOCAL" />
       <updated>1548085461375</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="修改mybatis于主1mysql服务器">
+      <created>1548233328353</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1548233328353</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2777000" />
+    <option name="totallyTimeSpent" value="5741000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -292,7 +372,7 @@
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2533512" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26340482" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -300,10 +380,9 @@
       <window_info id="UI Designer" order="5" />
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info id="Web" order="7" side_tool="true" />
-      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49865952" weight="0.3286119" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49798927" weight="0.3286119" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -311,10 +390,11 @@
       <window_info anchor="bottom" id="Spring" order="7" sideWeight="0.49932975" weight="0.3286119" />
       <window_info anchor="bottom" id="Terminal" order="8" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5013405" side_tool="true" visible="true" weight="0.3286119" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5020107" side_tool="true" visible="true" weight="0.3286119" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" />
+      <window_info anchor="bottom" id="Messages" order="14" />
       <window_info anchor="right" id="Palette" order="0" />
       <window_info anchor="right" id="Capture Analysis" order="1" />
       <window_info anchor="right" id="Database" order="2" />
@@ -331,12 +411,13 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="修改mybatis一些配置" />
-    <option name="LAST_COMMIT_MESSAGE" value="修改mybatis一些配置" />
+    <MESSAGE value="修改mybatis于主1mysql服务器" />
+    <option name="LAST_COMMIT_MESSAGE" value="修改mybatis于主1mysql服务器" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/src/main/resources/generatorConfig.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
+        <state relative-caret-position="-241">
           <caret line="10" column="19" selection-start-line="10" selection-start-column="19" selection-end-line="10" selection-end-column="19" />
         </state>
       </provider>
@@ -348,31 +429,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/generator.properties">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="15" column="10" lean-forward="true" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="10" />
+        <state relative-caret-position="228">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="1" column="43" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="43" />
+        <state relative-caret-position="57">
+          <caret line="3" selection-start-line="3" selection-end-line="4" selection-end-column="13" />
         </state>
       </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/generator.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mysql/sql/总/classmanage.sql">
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="78" column="39" selection-start-line="78" selection-start-column="39" selection-end-line="78" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="12" column="23" lean-forward="true" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+        <state relative-caret-position="1254">
+          <caret line="72" selection-start-line="72" selection-end-line="72" />
         </state>
       </provider>
     </entry>
