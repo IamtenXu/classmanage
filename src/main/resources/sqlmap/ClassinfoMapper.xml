@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="xin.iamten.dao.ClassinfoMapper" >
+  <resultMap id="BaseResultMap" type="xin.iamten.entity.Classinfo" >
+    <id column="classid" property="classid" jdbcType="CHAR" />
+    <result column="ccollege" property="ccollege" jdbcType="VARCHAR" />
+    <result column="major" property="major" jdbcType="VARCHAR" />
+    <result column="cgrade" property="cgrade" jdbcType="CHAR" />
+    <result column="instructor" property="instructor" jdbcType="CHAR" />
+    <result column="headmaster" property="headmaster" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    classid, ccollege, major, cgrade, instructor, headmaster
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from classinfo
+    where classid = #{classid,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from classinfo
+    where classid = #{classid,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="xin.iamten.entity.Classinfo" >
+    insert into classinfo (classid, ccollege, major, 
+      cgrade, instructor, headmaster
+      )
+    values (#{classid,jdbcType=CHAR}, #{ccollege,jdbcType=VARCHAR}, #{major,jdbcType=VARCHAR}, 
+      #{cgrade,jdbcType=CHAR}, #{instructor,jdbcType=CHAR}, #{headmaster,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="xin.iamten.entity.Classinfo" >
+    insert into classinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="classid != null" >
+        classid,
+      </if>
+      <if test="ccollege != null" >
+        ccollege,
+      </if>
+      <if test="major != null" >
+        major,
+      </if>
+      <if test="cgrade != null" >
+        cgrade,
+      </if>
+      <if test="instructor != null" >
+        instructor,
+      </if>
+      <if test="headmaster != null" >
+        headmaster,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="classid != null" >
+        #{classid,jdbcType=CHAR},
+      </if>
+      <if test="ccollege != null" >
+        #{ccollege,jdbcType=VARCHAR},
+      </if>
+      <if test="major != null" >
+        #{major,jdbcType=VARCHAR},
+      </if>
+      <if test="cgrade != null" >
+        #{cgrade,jdbcType=CHAR},
+      </if>
+      <if test="instructor != null" >
+        #{instructor,jdbcType=CHAR},
+      </if>
+      <if test="headmaster != null" >
+        #{headmaster,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="xin.iamten.entity.Classinfo" >
+    update classinfo
+    <set >
+      <if test="ccollege != null" >
+        ccollege = #{ccollege,jdbcType=VARCHAR},
+      </if>
+      <if test="major != null" >
+        major = #{major,jdbcType=VARCHAR},
+      </if>
+      <if test="cgrade != null" >
+        cgrade = #{cgrade,jdbcType=CHAR},
+      </if>
+      <if test="instructor != null" >
+        instructor = #{instructor,jdbcType=CHAR},
+      </if>
+      <if test="headmaster != null" >
+        headmaster = #{headmaster,jdbcType=CHAR},
+      </if>
+    </set>
+    where classid = #{classid,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="xin.iamten.entity.Classinfo" >
+    update classinfo
+    set ccollege = #{ccollege,jdbcType=VARCHAR},
+      major = #{major,jdbcType=VARCHAR},
+      cgrade = #{cgrade,jdbcType=CHAR},
+      instructor = #{instructor,jdbcType=CHAR},
+      headmaster = #{headmaster,jdbcType=CHAR}
+    where classid = #{classid,jdbcType=CHAR}
+  </update>
+</mapper>

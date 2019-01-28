@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="xin.iamten.dao.TeainfoMapper" >
+  <resultMap id="BaseResultMap" type="xin.iamten.entity.Teainfo" >
+    <id column="teaid" property="teaid" jdbcType="CHAR" />
+    <result column="tname" property="tname" jdbcType="VARCHAR" />
+    <result column="tsex" property="tsex" jdbcType="CHAR" />
+    <result column="tbirthday" property="tbirthday" jdbcType="VARCHAR" />
+    <result column="tpolitical" property="tpolitical" jdbcType="VARCHAR" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="tphone" property="tphone" jdbcType="CHAR" />
+    <result column="temail" property="temail" jdbcType="VARCHAR" />
+    <result column="trole" property="trole" jdbcType="INTEGER" />
+    <result column="tphoto" property="tphoto" jdbcType="VARCHAR" />
+    <result column="taddress" property="taddress" jdbcType="VARCHAR" />
+    <result column="tcollege" property="tcollege" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    teaid, tname, tsex, tbirthday, tpolitical, title, tphone, temail, trole, tphoto, 
+    taddress, tcollege
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from teainfo
+    where teaid = #{teaid,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from teainfo
+    where teaid = #{teaid,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="xin.iamten.entity.Teainfo" >
+    insert into teainfo (teaid, tname, tsex, 
+      tbirthday, tpolitical, title, 
+      tphone, temail, trole, 
+      tphoto, taddress, tcollege
+      )
+    values (#{teaid,jdbcType=CHAR}, #{tname,jdbcType=VARCHAR}, #{tsex,jdbcType=CHAR}, 
+      #{tbirthday,jdbcType=VARCHAR}, #{tpolitical,jdbcType=VARCHAR}, #{title,jdbcType=VARCHAR}, 
+      #{tphone,jdbcType=CHAR}, #{temail,jdbcType=VARCHAR}, #{trole,jdbcType=INTEGER}, 
+      #{tphoto,jdbcType=VARCHAR}, #{taddress,jdbcType=VARCHAR}, #{tcollege,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="xin.iamten.entity.Teainfo" >
+    insert into teainfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="teaid != null" >
+        teaid,
+      </if>
+      <if test="tname != null" >
+        tname,
+      </if>
+      <if test="tsex != null" >
+        tsex,
+      </if>
+      <if test="tbirthday != null" >
+        tbirthday,
+      </if>
+      <if test="tpolitical != null" >
+        tpolitical,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="tphone != null" >
+        tphone,
+      </if>
+      <if test="temail != null" >
+        temail,
+      </if>
+      <if test="trole != null" >
+        trole,
+      </if>
+      <if test="tphoto != null" >
+        tphoto,
+      </if>
+      <if test="taddress != null" >
+        taddress,
+      </if>
+      <if test="tcollege != null" >
+        tcollege,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="teaid != null" >
+        #{teaid,jdbcType=CHAR},
+      </if>
+      <if test="tname != null" >
+        #{tname,jdbcType=VARCHAR},
+      </if>
+      <if test="tsex != null" >
+        #{tsex,jdbcType=CHAR},
+      </if>
+      <if test="tbirthday != null" >
+        #{tbirthday,jdbcType=VARCHAR},
+      </if>
+      <if test="tpolitical != null" >
+        #{tpolitical,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="tphone != null" >
+        #{tphone,jdbcType=CHAR},
+      </if>
+      <if test="temail != null" >
+        #{temail,jdbcType=VARCHAR},
+      </if>
+      <if test="trole != null" >
+        #{trole,jdbcType=INTEGER},
+      </if>
+      <if test="tphoto != null" >
+        #{tphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="taddress != null" >
+        #{taddress,jdbcType=VARCHAR},
+      </if>
+      <if test="tcollege != null" >
+        #{tcollege,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="xin.iamten.entity.Teainfo" >
+    update teainfo
+    <set >
+      <if test="tname != null" >
+        tname = #{tname,jdbcType=VARCHAR},
+      </if>
+      <if test="tsex != null" >
+        tsex = #{tsex,jdbcType=CHAR},
+      </if>
+      <if test="tbirthday != null" >
+        tbirthday = #{tbirthday,jdbcType=VARCHAR},
+      </if>
+      <if test="tpolitical != null" >
+        tpolitical = #{tpolitical,jdbcType=VARCHAR},
+      </if>
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="tphone != null" >
+        tphone = #{tphone,jdbcType=CHAR},
+      </if>
+      <if test="temail != null" >
+        temail = #{temail,jdbcType=VARCHAR},
+      </if>
+      <if test="trole != null" >
+        trole = #{trole,jdbcType=INTEGER},
+      </if>
+      <if test="tphoto != null" >
+        tphoto = #{tphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="taddress != null" >
+        taddress = #{taddress,jdbcType=VARCHAR},
+      </if>
+      <if test="tcollege != null" >
+        tcollege = #{tcollege,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where teaid = #{teaid,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="xin.iamten.entity.Teainfo" >
+    update teainfo
+    set tname = #{tname,jdbcType=VARCHAR},
+      tsex = #{tsex,jdbcType=CHAR},
+      tbirthday = #{tbirthday,jdbcType=VARCHAR},
+      tpolitical = #{tpolitical,jdbcType=VARCHAR},
+      title = #{title,jdbcType=VARCHAR},
+      tphone = #{tphone,jdbcType=CHAR},
+      temail = #{temail,jdbcType=VARCHAR},
+      trole = #{trole,jdbcType=INTEGER},
+      tphoto = #{tphoto,jdbcType=VARCHAR},
+      taddress = #{taddress,jdbcType=VARCHAR},
+      tcollege = #{tcollege,jdbcType=VARCHAR}
+    where teaid = #{teaid,jdbcType=CHAR}
+  </update>
+</mapper>

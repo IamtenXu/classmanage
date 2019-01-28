@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="xin.iamten.dao.StuinfoMapper" >
+  <resultMap id="BaseResultMap" type="xin.iamten.entity.Stuinfo" >
+    <id column="stuid" property="stuid" jdbcType="CHAR" />
+    <result column="sname" property="sname" jdbcType="VARCHAR" />
+    <result column="ssex" property="ssex" jdbcType="CHAR" />
+    <result column="sbirthday" property="sbirthday" jdbcType="VARCHAR" />
+    <result column="students" property="students" jdbcType="VARCHAR" />
+    <result column="spolitical" property="spolitical" jdbcType="VARCHAR" />
+    <result column="sphone" property="sphone" jdbcType="CHAR" />
+    <result column="semail" property="semail" jdbcType="VARCHAR" />
+    <result column="srole" property="srole" jdbcType="INTEGER" />
+    <result column="sphoto" property="sphoto" jdbcType="VARCHAR" />
+    <result column="sadress" property="sadress" jdbcType="VARCHAR" />
+    <result column="sclass" property="sclass" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    stuid, sname, ssex, sbirthday, students, spolitical, sphone, semail, srole, sphoto, 
+    sadress, sclass
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from stuinfo
+    where stuid = #{stuid,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from stuinfo
+    where stuid = #{stuid,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="xin.iamten.entity.Stuinfo" >
+    insert into stuinfo (stuid, sname, ssex, 
+      sbirthday, students, spolitical, 
+      sphone, semail, srole, 
+      sphoto, sadress, sclass
+      )
+    values (#{stuid,jdbcType=CHAR}, #{sname,jdbcType=VARCHAR}, #{ssex,jdbcType=CHAR}, 
+      #{sbirthday,jdbcType=VARCHAR}, #{students,jdbcType=VARCHAR}, #{spolitical,jdbcType=VARCHAR}, 
+      #{sphone,jdbcType=CHAR}, #{semail,jdbcType=VARCHAR}, #{srole,jdbcType=INTEGER}, 
+      #{sphoto,jdbcType=VARCHAR}, #{sadress,jdbcType=VARCHAR}, #{sclass,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="xin.iamten.entity.Stuinfo" >
+    insert into stuinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="stuid != null" >
+        stuid,
+      </if>
+      <if test="sname != null" >
+        sname,
+      </if>
+      <if test="ssex != null" >
+        ssex,
+      </if>
+      <if test="sbirthday != null" >
+        sbirthday,
+      </if>
+      <if test="students != null" >
+        students,
+      </if>
+      <if test="spolitical != null" >
+        spolitical,
+      </if>
+      <if test="sphone != null" >
+        sphone,
+      </if>
+      <if test="semail != null" >
+        semail,
+      </if>
+      <if test="srole != null" >
+        srole,
+      </if>
+      <if test="sphoto != null" >
+        sphoto,
+      </if>
+      <if test="sadress != null" >
+        sadress,
+      </if>
+      <if test="sclass != null" >
+        sclass,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="stuid != null" >
+        #{stuid,jdbcType=CHAR},
+      </if>
+      <if test="sname != null" >
+        #{sname,jdbcType=VARCHAR},
+      </if>
+      <if test="ssex != null" >
+        #{ssex,jdbcType=CHAR},
+      </if>
+      <if test="sbirthday != null" >
+        #{sbirthday,jdbcType=VARCHAR},
+      </if>
+      <if test="students != null" >
+        #{students,jdbcType=VARCHAR},
+      </if>
+      <if test="spolitical != null" >
+        #{spolitical,jdbcType=VARCHAR},
+      </if>
+      <if test="sphone != null" >
+        #{sphone,jdbcType=CHAR},
+      </if>
+      <if test="semail != null" >
+        #{semail,jdbcType=VARCHAR},
+      </if>
+      <if test="srole != null" >
+        #{srole,jdbcType=INTEGER},
+      </if>
+      <if test="sphoto != null" >
+        #{sphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="sadress != null" >
+        #{sadress,jdbcType=VARCHAR},
+      </if>
+      <if test="sclass != null" >
+        #{sclass,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="xin.iamten.entity.Stuinfo" >
+    update stuinfo
+    <set >
+      <if test="sname != null" >
+        sname = #{sname,jdbcType=VARCHAR},
+      </if>
+      <if test="ssex != null" >
+        ssex = #{ssex,jdbcType=CHAR},
+      </if>
+      <if test="sbirthday != null" >
+        sbirthday = #{sbirthday,jdbcType=VARCHAR},
+      </if>
+      <if test="students != null" >
+        students = #{students,jdbcType=VARCHAR},
+      </if>
+      <if test="spolitical != null" >
+        spolitical = #{spolitical,jdbcType=VARCHAR},
+      </if>
+      <if test="sphone != null" >
+        sphone = #{sphone,jdbcType=CHAR},
+      </if>
+      <if test="semail != null" >
+        semail = #{semail,jdbcType=VARCHAR},
+      </if>
+      <if test="srole != null" >
+        srole = #{srole,jdbcType=INTEGER},
+      </if>
+      <if test="sphoto != null" >
+        sphoto = #{sphoto,jdbcType=VARCHAR},
+      </if>
+      <if test="sadress != null" >
+        sadress = #{sadress,jdbcType=VARCHAR},
+      </if>
+      <if test="sclass != null" >
+        sclass = #{sclass,jdbcType=CHAR},
+      </if>
+    </set>
+    where stuid = #{stuid,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="xin.iamten.entity.Stuinfo" >
+    update stuinfo
+    set sname = #{sname,jdbcType=VARCHAR},
+      ssex = #{ssex,jdbcType=CHAR},
+      sbirthday = #{sbirthday,jdbcType=VARCHAR},
+      students = #{students,jdbcType=VARCHAR},
+      spolitical = #{spolitical,jdbcType=VARCHAR},
+      sphone = #{sphone,jdbcType=CHAR},
+      semail = #{semail,jdbcType=VARCHAR},
+      srole = #{srole,jdbcType=INTEGER},
+      sphoto = #{sphoto,jdbcType=VARCHAR},
+      sadress = #{sadress,jdbcType=VARCHAR},
+      sclass = #{sclass,jdbcType=CHAR}
+    where stuid = #{stuid,jdbcType=CHAR}
+  </update>
+</mapper>
