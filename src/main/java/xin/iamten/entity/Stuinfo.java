@@ -25,6 +25,8 @@ public class Stuinfo {
 
     private String sclass;
 
+    private Roleinfo roleinfo;
+
     public String getStuid() {
         return stuid;
     }
@@ -119,5 +121,13 @@ public class Stuinfo {
 
     public void setSclass(String sclass) {
         this.sclass = sclass;
+    }
+
+    public Roleinfo getRoleinfo() {
+        return roleinfo;
+    }
+
+    public void setRoleinfo(Roleinfo roleinfo) {
+        this.roleinfo = roleinfo;
     }
 }

@@ -25,6 +25,8 @@ public class Teainfo {
 
     private String tcollege;
 
+    private Roleinfo roleinfo;
+
     public String getTeaid() {
         return teaid;
     }
@@ -119,5 +121,13 @@ public class Teainfo {
 
     public void setTcollege(String tcollege) {
         this.tcollege = tcollege;
+    }
+
+    public Roleinfo getRoleinfo() {
+        return roleinfo;
+    }
+
+    public void setRoleinfo(Roleinfo roleinfo) {
+        this.roleinfo = roleinfo;
     }
 }

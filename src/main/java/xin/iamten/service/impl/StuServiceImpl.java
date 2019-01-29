@@ -1,10 +1,12 @@
 package xin.iamten.service.impl;
 
+import org.springframework.stereotype.Service;
 import xin.iamten.entity.Stuinfo;
 import xin.iamten.service.StuService;
 
 import java.util.List;
 
+@Service
 public class StuServiceImpl implements StuService {
     @Override
     public Stuinfo queryStu(Stuinfo stuinfo) {

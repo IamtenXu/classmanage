@@ -180,8 +180,8 @@ $(function(){
 					$.ajax({
 			            url: '/user/login',
 			            type: 'post',
-			            dataType: 'json',
-			            async: true,
+			            // dataType: 'json',
+			            // async: true,
 			            data: ldata,
 			            success:
                         // function(data){
@@ -214,12 +214,14 @@ $(function(){
 			            //     }
 			            // },
                             function(data){
-                                if (data.code === '200') {
+                                if (data.code === 200) {
                                     alert("登录成功");
-                                    window.location = "iframe";
-                                } else if(data.code !== '200') {
+                                    window.location = "/iframe";
+                                } else if(data.code === 500) {
                                     alert(data.msg);
-                                }
+                                } else{
+									alert("什么情况？");
+								}
                             },
                         error:function(){
                             alert("服务器错误");
