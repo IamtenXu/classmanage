@@ -8,6 +8,10 @@ public class Login {
 
     private String role;
 
+    private String photo;
+
+    private String status;
+
     public String getUsername() {
         return username;
     }
@@ -30,5 +34,21 @@ public class Login {
 
     public void setRole(String role) {
         this.role = role;
+    }
+
+    public String getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(String photo) {
+        this.photo = photo;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

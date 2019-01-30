@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import xin.iamten.entity.Loginuser;
+import xin.iamten.entity.Stuinfo;
 import xin.iamten.entity.Teainfo;
 import xin.iamten.service.LoginuserService;
 import xin.iamten.service.StuService;
@@ -49,16 +50,34 @@ public class UserController {
             if(username.length()==5){
                 Teainfo tea = new Teainfo();
                 tea.setTeaid(username);
-                if(teaService.queryTea(tea)==null)
+                if(teaService.queryTea(tea)==null){
                     return R.error("用户名信息缺失，请联系管理员！");
+                }
                 Teainfo queryTea = teaService.queryTea(tea);
                 session.setAttribute("userinfo",queryTea);
                 login.setName(queryTea.getTname());
                 login.setUsername(queryTea.getTeaid());
                 login.setRole(queryTea.getRoleinfo().getRname());
+                login.setPhoto(queryTea.getTphoto());
+                login.setStatus("200");
                 return R.ok().put("login",login);
+            }else if (username.length()==8){
+                Stuinfo stu = new Stuinfo();
+                stu.setStuid(username);
+                if(stuService.queryStu(stu)==null){
+                    return R.error("用户名信息缺失，请联系管理员！");
+                }
+                Stuinfo queryStu = stuService.queryStu(stu);
+                session.setAttribute("userinfo",queryStu);
+                login.setName(queryStu.getSname());
+                login.setUsername(queryStu.getStuid());
+                login.setRole(queryStu.getRoleinfo().getRname());
+                login.setPhoto(queryStu.getSphoto());
+                login.setStatus("200");
+                return R.ok().put("login",login);
+            }else {
+                return R.error("非法用户！请联系管理员核实信息！");
             }
-            return R.error("非法用户！请联系管理员核实信息！");
         }
         return R.error("未知错误");
     }

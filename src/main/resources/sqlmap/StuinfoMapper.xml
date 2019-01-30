@@ -15,15 +15,42 @@
     <result column="sadress" property="sadress" jdbcType="VARCHAR" />
     <result column="sclass" property="sclass" jdbcType="CHAR" />
   </resultMap>
+
+  <resultMap id="AddRoleResultMap" type="xin.iamten.entity.Stuinfo" >
+    <id column="stuid" property="stuid" jdbcType="CHAR" />
+    <result column="sname" property="sname" jdbcType="VARCHAR" />
+    <result column="ssex" property="ssex" jdbcType="CHAR" />
+    <result column="sbirthday" property="sbirthday" jdbcType="VARCHAR" />
+    <result column="students" property="students" jdbcType="VARCHAR" />
+    <result column="spolitical" property="spolitical" jdbcType="VARCHAR" />
+    <result column="sphone" property="sphone" jdbcType="CHAR" />
+    <result column="semail" property="semail" jdbcType="VARCHAR" />
+    <result column="srole" property="srole" jdbcType="INTEGER" />
+    <result column="sphoto" property="sphoto" jdbcType="VARCHAR" />
+    <result column="sadress" property="sadress" jdbcType="VARCHAR" />
+    <result column="sclass" property="sclass" jdbcType="CHAR" />
+
+    <association property="roleinfo" javaType="xin.iamten.entity.Roleinfo">
+      <id column="rcode" property="rcode" jdbcType="INTEGER" />
+      <result column="rname" property="rname" jdbcType="VARCHAR" />
+    </association>
+
+  </resultMap>
+
   <sql id="Base_Column_List" >
     stuid, sname, ssex, sbirthday, students, spolitical, sphone, semail, srole, sphoto, 
     sadress, sclass
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+
+  <sql id="Role_Column_List" >
+    stuinfo.*, roleinfo.*
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="AddRoleResultMap" parameterType="java.lang.String" >
     select 
-    <include refid="Base_Column_List" />
-    from stuinfo
-    where stuid = #{stuid,jdbcType=CHAR}
+    <include refid="Role_Column_List" />
+    from stuinfo,roleinfo
+    where stuid = #{stuid,jdbcType=CHAR} AND stuinfo.srole = roleinfo.rcode
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from stuinfo

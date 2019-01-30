@@ -33,8 +33,8 @@ function getCookie(name)
 
 function loginCookie() {
     var login = getCookie("login");
-    if(login !== "1"){
+    if(login !== "200"){
         alert("请登录！");
-        window.location = "login.html";
+        window.location = "/exit";
     }
 }

@@ -28,16 +28,18 @@
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
                 <a href="javascript:;">
-                    <img src="${sessionScope.user.photo}" class="layui-nav-img">
-                    ${sessionScope.user.name}
-                    ${sessionScope.user.role}
+                    <img src="" class="layui-nav-img" id="photo">
+                    <font id="user"></font> <font id="role"></font>
+                    <%--<img src="${sessionScope.user.photo}" class="layui-nav-img">--%>
+                    <%--${sessionScope.user.name}--%>
+                    <%--${sessionScope.user.role}--%>
                 </a>
                 <dl class="layui-nav-child">
                     <dd><a href="userinfo">基本资料</a></dd>
                     <dd><a href="">安全设置</a></dd>
                 </dl>
             </li>
-            <li class="layui-nav-item"><a href="tologin">退出</a></li>
+            <li class="layui-nav-item"><a href="javascript:void(0)" id="click">退出</a></li>
         </ul>
     </div>
 
@@ -53,7 +55,7 @@
                     </a>
 
                     <dl class="layui-nav-child">
-                        <dd class="layui-this"><a href="userinfo" target="main_self_frame">基本信息</a></dd>
+                        <dd><a href="userinfo" target="main_self_frame">基本信息</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
@@ -99,4 +101,15 @@
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="layui/layui.js"></script>
 <script type="text/javascript" src="js/index.js"></script>
+<script type="text/javascript" src="js/cookie.js"></script>
+<script>
+    $("#user").html(getCookie("name"));
+    $("#photo").attr("src",getCookie("photo"));
+    $("#role").html(getCookie("role"));
+    loginCookie();
+    $("#click").click(function (){
+        setCookie("login","0");
+        window.location.href="/exit";
+    });
+</script>
 </html>

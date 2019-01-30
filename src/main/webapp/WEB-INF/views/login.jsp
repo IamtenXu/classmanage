@@ -72,5 +72,6 @@
 <script src="js/jquery.js"></script>
 <script src="js/agree.js"></script>
 <script src="js/login.js"></script>
+<script src="js/cookie.js"></script>
 </body>
 </html>

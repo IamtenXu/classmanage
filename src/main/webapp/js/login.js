@@ -216,6 +216,10 @@ $(function(){
                             function(data){
                                 if (data.code === 200) {
                                     alert("登录成功");
+									setCookie("name",data.login.name);
+									setCookie("login",data.login.status);
+									setCookie("photo",data.login.photo);
+									setCookie("role",data.login.role);
                                     window.location = "/iframe";
                                 } else if(data.code === 500) {
                                     alert(data.msg);

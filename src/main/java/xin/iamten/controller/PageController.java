@@ -13,9 +13,9 @@ public class PageController {
     }
 
     //主页
-    @RequestMapping("/index")
+    @RequestMapping("/exit")
     public String toindex(){
-        return "index";
+        return "login";
     }
 
 }
