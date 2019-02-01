@@ -12,10 +12,23 @@ public class PageController {
         return "iframe";
     }
 
-    //主页
+    //退出
     @RequestMapping("/exit")
     public String toindex(){
         return "login";
     }
+
+    //学生个人信息
+    @RequestMapping("/stuinfo")
+    public String tostuinfo(){
+        return "stuinfo";
+    }
+
+    //班级信息
+    @RequestMapping("/classinfo")
+    public String toclassinfo(){
+        return "classinfo";
+    }
+
 
 }

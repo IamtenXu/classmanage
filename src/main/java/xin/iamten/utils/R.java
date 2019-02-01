@@ -22,7 +22,7 @@ public class R extends HashMap<String, Object> {
     }
 
     public static R error(String msg) {
-        System.out.println(msg);
+//        System.out.println(msg);
         return error(500, msg);
     }
 
@@ -30,7 +30,7 @@ public class R extends HashMap<String, Object> {
         R r = new R();
         r.put("code", code);
         r.put("msg", msg);
-        System.out.println(r);
+//        System.out.println(r);
         return r;
     }
 
@@ -52,7 +52,7 @@ public class R extends HashMap<String, Object> {
 
     public R put(String key, Object value) {
         super.put(key, value);
-        System.out.println(this);
+//        System.out.println(this);
         return this;
     }
 }

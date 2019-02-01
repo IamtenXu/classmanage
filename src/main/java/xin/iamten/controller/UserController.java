@@ -6,12 +6,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import xin.iamten.entity.Classinfo;
 import xin.iamten.entity.Loginuser;
 import xin.iamten.entity.Stuinfo;
 import xin.iamten.entity.Teainfo;
+import xin.iamten.service.ClassService;
 import xin.iamten.service.LoginuserService;
 import xin.iamten.service.StuService;
 import xin.iamten.service.TeaService;
+import xin.iamten.utils.ClassTea;
 import xin.iamten.utils.Login;
 import xin.iamten.utils.R;
 
@@ -30,12 +33,15 @@ public class UserController {
     @Autowired
     private StuService stuService;
 
+    @Autowired
+    private ClassService classService;
+
     //登录
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     @ResponseBody
     public R login(@RequestParam String username, @RequestParam String password, HttpSession session) {
-        System.out.println(username);
-        System.out.println(password);
+//        System.out.println(username);
+//        System.out.println(password);
         Loginuser loginuser = new Loginuser();
         loginuser.setUsername(username);
         loginuser.setPassword(password);
@@ -55,6 +61,9 @@ public class UserController {
                 }
                 Teainfo queryTea = teaService.queryTea(tea);
                 session.setAttribute("userinfo",queryTea);
+//                if(queryTea.getTrole()==3){
+//
+//                }
                 login.setName(queryTea.getTname());
                 login.setUsername(queryTea.getTeaid());
                 login.setRole(queryTea.getRoleinfo().getRname());
@@ -68,6 +77,27 @@ public class UserController {
                     return R.error("用户名信息缺失，请联系管理员！");
                 }
                 Stuinfo queryStu = stuService.queryStu(stu);
+                Classinfo classinfo = classService.queryClassinfo(queryStu.getSclass());
+                ClassTea classTea = new ClassTea();
+                Teainfo instructor = new Teainfo();
+                instructor.setTeaid(classinfo.getInstructor());
+                instructor = teaService.queryTea(instructor);
+                Teainfo headmaster = new Teainfo();
+                headmaster.setTeaid(classinfo.getHeadmaster());
+                headmaster = teaService.queryTea(headmaster);
+                classTea.setClassid(classinfo.getClassid());
+                classTea.setCcollege(classinfo.getCcollege());
+                classTea.setMajor(classinfo.getMajor());
+                classTea.setCgrade(classinfo.getCgrade());
+                classTea.setInstructor(classinfo.getInstructor());
+                classTea.setInstructorname(instructor.getTname());
+                classTea.setInstructorphone(instructor.getTphone());
+                classTea.setInstructoraddress(instructor.getTaddress());
+                classTea.setHeadmaster(classinfo.getHeadmaster());
+                classTea.setHeadmastername(headmaster.getTname());
+                classTea.setHeadmasterphone(headmaster.getTphone());
+                classTea.setHeadmasteraddress(headmaster.getTaddress());
+                session.setAttribute("classinfo",classTea);
                 session.setAttribute("userinfo",queryStu);
                 login.setName(queryStu.getSname());
                 login.setUsername(queryStu.getStuid());

@@ -34,10 +34,10 @@
                     <%--${sessionScope.user.name}--%>
                     <%--${sessionScope.user.role}--%>
                 </a>
-                <dl class="layui-nav-child">
-                    <dd><a href="userinfo">基本资料</a></dd>
-                    <dd><a href="">安全设置</a></dd>
-                </dl>
+                <%--<dl class="layui-nav-child">--%>
+                    <%--<dd><a href="userinfo">基本资料</a></dd>--%>
+                    <%--<dd><a href="">安全设置</a></dd>--%>
+                <%--</dl>--%>
             </li>
             <li class="layui-nav-item"><a href="javascript:void(0)" id="click">退出</a></li>
         </ul>
@@ -55,7 +55,10 @@
                     </a>
 
                     <dl class="layui-nav-child">
-                        <dd><a href="userinfo" target="main_self_frame">基本信息</a></dd>
+                        <dd><a href="/stuinfo" target="main_self_frame">个人信息</a></dd>
+                    </dl>
+                    <dl class="layui-nav-child">
+                        <dd><a href="/classinfo" target="main_self_frame">班级信息</a></dd>
                     </dl>
                 </li>
                 <li class="layui-nav-item">
