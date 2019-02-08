@@ -84,6 +84,7 @@ public class UserController {
                     classTea.setHeadmasteraddress(headmaster.getTaddress());
                     session.setAttribute("classinfo",classTea);
                 }
+                login.setUsername(queryTea.getTeaid());
                 login.setName(queryTea.getTname());
                 login.setUsername(queryTea.getTeaid());
                 login.setRole(queryTea.getRoleinfo().getRname());
@@ -119,6 +120,7 @@ public class UserController {
                 classTea.setHeadmasteraddress(headmaster.getTaddress());
                 session.setAttribute("classinfo",classTea);
                 session.setAttribute("userinfo",queryStu);
+                login.setUsername(queryStu.getStuid());
                 login.setName(queryStu.getSname());
                 login.setUsername(queryStu.getStuid());
                 login.setRole(queryStu.getRoleinfo().getRname());
@@ -130,6 +132,22 @@ public class UserController {
             }
         }
         return R.error("未知错误");
+    }
+
+    @RequestMapping(value = "/updateallpassword", method = RequestMethod.POST)
+    @ResponseBody
+    public R updateallpassword(@RequestParam String username, @RequestParam String password, @RequestParam String password2,HttpSession session) {
+        Loginuser queryUser = new Loginuser();
+        queryUser.setUsername(username);
+        Loginuser qUsers = loginuserService.queryLoginuser(queryUser);
+        if(!qUsers.getPassword().equals(password)) {
+            return R.error("原密码错误，请重新输入");
+        }
+        else{
+            qUsers.setPassword(password2);
+            loginuserService.updateLoginuser(qUsers);
+            return R.ok();
+        }
     }
 
 

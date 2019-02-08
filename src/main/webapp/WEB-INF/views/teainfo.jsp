@@ -98,7 +98,7 @@
                 <div class="layui-form-item">
                     <div class="layui-input-block">
                         <button class="layui-btn" lay-submit="" lay-filter="updateinfo">立即修改</button>
-                        <input type="button" class="layui-btn layui-btn-danger dw-dailog" dw-url="toupdatepassword" dw-title="修改密码" value="修改密码">
+                        <input type="button" class="layui-btn layui-btn-danger dw-dailog" dw-url="updatepassword" dw-title="修改密码" value="修改密码">
                         <input type="button" class="layui-btn layui-btn-warm" value="刷新" onclick="location.href='teainfo'">
                     </div>
                 </div>
@@ -135,8 +135,8 @@
                 layer.msg("请给button加上dw-title属性");
                 return false;
             }
-            if(dw_width == undefined) dw_width = '50%';
-            if(dw_height == undefined) dw_height = '50%';
+            if(dw_width == undefined) dw_width = '30%';
+            if(dw_height == undefined) dw_height = '60%';
             layer.open({
                 type: 2,
                 title: dw_title,

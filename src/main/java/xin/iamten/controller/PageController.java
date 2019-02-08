@@ -40,5 +40,11 @@ public class PageController {
         return "classinfo";
     }
 
+    //修改密码
+    @RequestMapping("/updatepassword")
+    public String toupdatepassword(){
+        return "updatepassword";
+    }
+
 
 }

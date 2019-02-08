@@ -30,7 +30,7 @@
                         <img src="${sessionScope.userinfo.sphoto}" width="200" height="200" />
                         <button class="layui-btn layui-btn-small" id="uploadpic" >上传头像</button>
                         <div class="layui-upload-list">
-                            <img class="layui-upload-img" id="demopic" />
+                            <img class="layui-upload-img" id="demopic" src="" />
                             <p id="demoText"></p>
                         </div>
                     </div>
@@ -102,7 +102,7 @@
                 <div class="layui-form-item">
                     <div class="layui-input-block">
                         <button class="layui-btn" lay-submit="" lay-filter="updateinfo">立即修改</button>
-                        <input type="button" class="layui-btn layui-btn-danger dw-dailog" dw-url="toupdatepassword" dw-title="修改密码" value="修改密码">
+                        <input type="button" class="layui-btn layui-btn-danger dw-dailog" dw-url="updatepassword" dw-title="修改密码" value="修改密码">
                         <input type="button" class="layui-btn layui-btn-warm" value="刷新" onclick="location.href='stuinfo'">
                     </div>
                 </div>
@@ -139,8 +139,8 @@
                 layer.msg("请给button加上dw-title属性");
                 return false;
             }
-            if(dw_width == undefined) dw_width = '50%';
-            if(dw_height == undefined) dw_height = '50%';
+            if(dw_width == undefined) dw_width = '30%';
+            if(dw_height == undefined) dw_height = '60%';
             layer.open({
                 type: 2,
                 title: dw_title,
@@ -168,7 +168,7 @@
         //普通图片上传
         var uploadInst = upload.render({
             elem: '#uploadpic'
-            ,url: 'upload'
+            ,url: '/user/upload'
             ,before: function(obj){
                 //预读本地文件示例，不支持ie8
                 obj.preview(function(index, file, result){

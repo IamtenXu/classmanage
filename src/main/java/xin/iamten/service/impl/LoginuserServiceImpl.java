@@ -17,4 +17,12 @@ public class LoginuserServiceImpl implements LoginuserService {
     public Loginuser queryLoginuser(Loginuser loginuser) {
         return loginuserMapper.selectByPrimaryKey(loginuser.getUsername());
     }
+
+    @Override
+    public Boolean updateLoginuser(Loginuser loginuser) {
+        if(loginuser==null)
+            return false;
+        loginuserMapper.updateByPrimaryKeySelective(loginuser);
+        return null;
+    }
 }
