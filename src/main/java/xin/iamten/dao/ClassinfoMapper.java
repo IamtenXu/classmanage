@@ -11,6 +11,8 @@ public interface ClassinfoMapper {
 
     Classinfo selectByPrimaryKey(String classid);
 
+    Classinfo selectByHeadmaster(String headmaster);
+
     int updateByPrimaryKeySelective(Classinfo record);
 
     int updateByPrimaryKey(Classinfo record);

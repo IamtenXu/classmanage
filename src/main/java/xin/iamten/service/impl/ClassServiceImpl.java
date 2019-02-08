@@ -16,4 +16,9 @@ public class ClassServiceImpl implements ClassService {
     public Classinfo queryClassinfo(String classsid) {
         return classinfoMapper.selectByPrimaryKey(classsid);
     }
+
+    @Override
+    public Classinfo queryClassinfoByHeadmaster(String headmaster) {
+        return classinfoMapper.selectByHeadmaster(headmaster);
+    }
 }

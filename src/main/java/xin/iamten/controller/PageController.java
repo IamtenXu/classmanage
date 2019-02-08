@@ -3,6 +3,8 @@ package xin.iamten.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import javax.servlet.http.HttpSession;
+
 @Controller
 public class PageController {
 
@@ -14,7 +16,9 @@ public class PageController {
 
     //退出
     @RequestMapping("/exit")
-    public String toindex(){
+    public String toindex(HttpSession session){
+        session.removeAttribute("userinfo");
+        session.removeAttribute("classinfo");
         return "login";
     }
 
@@ -22,6 +26,12 @@ public class PageController {
     @RequestMapping("/stuinfo")
     public String tostuinfo(){
         return "stuinfo";
+    }
+
+    //老师个人信息
+    @RequestMapping("/teainfo")
+    public String toteainfo(){
+        return "teainfo";
     }
 
     //班级信息

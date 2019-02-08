@@ -61,9 +61,29 @@ public class UserController {
                 }
                 Teainfo queryTea = teaService.queryTea(tea);
                 session.setAttribute("userinfo",queryTea);
-//                if(queryTea.getTrole()==3){
-//
-//                }
+                if(queryTea.getTrole()==3){
+                    Classinfo classinfo = classService.queryClassinfoByHeadmaster(queryTea.getTeaid());
+                    ClassTea classTea = new ClassTea();
+                    Teainfo instructor = new Teainfo();
+                    instructor.setTeaid(classinfo.getInstructor());
+                    instructor = teaService.queryTea(instructor);
+                    Teainfo headmaster = new Teainfo();
+                    headmaster.setTeaid(classinfo.getHeadmaster());
+                    headmaster = teaService.queryTea(headmaster);
+                    classTea.setClassid(classinfo.getClassid());
+                    classTea.setCcollege(classinfo.getCcollege());
+                    classTea.setMajor(classinfo.getMajor());
+                    classTea.setCgrade(classinfo.getCgrade());
+                    classTea.setInstructor(classinfo.getInstructor());
+                    classTea.setInstructorname(instructor.getTname());
+                    classTea.setInstructorphone(instructor.getTphone());
+                    classTea.setInstructoraddress(instructor.getTaddress());
+                    classTea.setHeadmaster(classinfo.getHeadmaster());
+                    classTea.setHeadmastername(headmaster.getTname());
+                    classTea.setHeadmasterphone(headmaster.getTphone());
+                    classTea.setHeadmasteraddress(headmaster.getTaddress());
+                    session.setAttribute("classinfo",classTea);
+                }
                 login.setName(queryTea.getTname());
                 login.setUsername(queryTea.getTeaid());
                 login.setRole(queryTea.getRoleinfo().getRname());

@@ -7,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<c:set var="getrole" scope="page" value="${sessionScope.userinfo.roleinfo.rcode}"/>
 <!DOCTYPE html>
 <html>
 <head>
@@ -53,20 +54,37 @@
                         个人
                         <span class="layui-nav-more"></span>
                     </a>
-
                     <dl class="layui-nav-child">
-                        <dd><a href="/stuinfo" target="main_self_frame">个人信息</a></dd>
-                    </dl>
-                    <dl class="layui-nav-child">
-                        <dd><a href="/classinfo" target="main_self_frame">班级信息</a></dd>
-                    </dl>
-                </li>
-                <li class="layui-nav-item">
-                    <a href="javascript:">班级</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="tomember" target="main_self_frame">成员列表</a></dd>
+                        <c:if test="${getrole == '1'||getrole == '2'||getrole == '3'}">
+                            <dd><a href="/teainfo" target="main_self_frame">个人信息</a></dd>
+                        </c:if>
+                        <c:if test="${getrole != '1'&&getrole != '2'&&getrole != '3'}">
+                            <dd><a href="/stuinfo" target="main_self_frame">个人信息</a></dd>
+                        </c:if>
                     </dl>
                 </li>
+                <c:if test="${getrole != '1'&&getrole != '2'}">
+                    <li class="layui-nav-item">
+                        <a href="javascript:">班级</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="/classinfo" target="main_self_frame">班级信息</a></dd>
+                        </dl>
+                        <dl class="layui-nav-child">
+                            <dd><a href="tomember" target="main_self_frame">成员列表</a></dd>
+                        </dl>
+                    </li>
+                </c:if>
+                <c:if test="${getrole == '2'}">
+                    <li class="layui-nav-item">
+                        <a href="javascript:">班级</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="/classinfo" target="main_self_frame">班级列表</a></dd>
+                        </dl>
+                        <dl class="layui-nav-child">
+                            <dd><a href="tomember" target="main_self_frame">成员列表</a></dd>
+                        </dl>
+                    </li>
+                </c:if>
                 <li class="layui-nav-item">
                     <a href="javascript:;">班级事务</a>
                     <dl class="layui-nav-child">
@@ -75,19 +93,16 @@
                         <dd><a href="tofuture" target="main_self_frame">实习考研情况</a></dd>
                     </dl>
                 </li>
-                <c:set var="getpermission" scope="page" value="${sessionScope.user.permission}"/>
-                <c:if test="${getpermission == '1'}">
-                    <li class="layui-nav-item">
-                        <a href="javascript:;">管理</a>
-                        <dl class="layui-nav-child">
-                            <dd><a href="tomembermanage" target="main_self_frame">成员管理</a></dd>
-                            <dd><a href="toservicemanage" target="main_self_frame">接口管理</a></dd>
-                            <dd><a href="toholidaymanage" target="main_self_frame">离校登记管理</a></dd>
-                            <dd><a href="tovacationmanage" target="main_self_frame">寒暑假离校情况管理</a></dd>
-                            <dd><a href="tofuturemanage" target="main_self_frame">实习考研情况管理</a></dd>
-                        </dl>
-                    </li>
-                </c:if>
+                <li class="layui-nav-item">
+                    <a href="javascript:;">管理</a>
+                    <dl class="layui-nav-child">
+                        <dd><a href="tomembermanage" target="main_self_frame">成员管理</a></dd>
+                        <dd><a href="toservicemanage" target="main_self_frame">接口管理</a></dd>
+                        <dd><a href="toholidaymanage" target="main_self_frame">离校登记管理</a></dd>
+                        <dd><a href="tovacationmanage" target="main_self_frame">寒暑假离校情况管理</a></dd>
+                        <dd><a href="tofuturemanage" target="main_self_frame">实习考研情况管理</a></dd>
+                    </dl>
+                </li>
             </ul>
         </div>
     </div>

@@ -18,6 +18,14 @@
     from classinfo
     where classid = #{classid,jdbcType=CHAR}
   </select>
+
+  <select id="selectByHeadmaster" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from classinfo
+    where headmaster = #{headmaster,jdbcType=CHAR}
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from classinfo
     where classid = #{classid,jdbcType=CHAR}
