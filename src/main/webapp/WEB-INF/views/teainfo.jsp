@@ -29,6 +29,7 @@
                     <div class="layui-upload">
                         <img src="${sessionScope.userinfo.tphoto}" width="200" height="200" />
                         <button class="layui-btn layui-btn-small" id="uploadpic" >上传头像</button>
+                        <font color="red" size="1">（请使用IE操作，图片大小≤1M）</font>
                         <div class="layui-upload-list">
                             <img class="layui-upload-img" id="demopic" />
                             <p id="demoText"></p>
@@ -164,7 +165,10 @@
         //普通图片上传
         var uploadInst = upload.render({
             elem: '#uploadpic'
-            ,url: 'upload'
+            ,url: '/user/teaupload'
+            ,method: 'POST'
+            ,size:1024
+            ,accept:'images'
             ,before: function(obj){
                 //预读本地文件示例，不支持ie8
                 obj.preview(function(index, file, result){
@@ -173,10 +177,11 @@
             }
             ,done: function(res){
                 //上传成功
-                if(res.code === 0) {
+                if(res.code === 200) {
                     alert("上传成功，请稍等");
                     // layer.msg('上传成功，请稍等');
                     location.reload();
+                    setCookie("photo",data.login.photo);
                 }
                 //如果上传失败
                 else{

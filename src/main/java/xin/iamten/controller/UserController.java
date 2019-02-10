@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 import xin.iamten.entity.Classinfo;
 import xin.iamten.entity.Loginuser;
 import xin.iamten.entity.Stuinfo;
@@ -14,6 +15,7 @@ import xin.iamten.service.ClassService;
 import xin.iamten.service.LoginuserService;
 import xin.iamten.service.StuService;
 import xin.iamten.service.TeaService;
+import xin.iamten.utils.COSClientUtil;
 import xin.iamten.utils.ClassTea;
 import xin.iamten.utils.Login;
 import xin.iamten.utils.R;
@@ -133,7 +135,8 @@ public class UserController {
         }
         return R.error("未知错误");
     }
-
+    
+    //修改密码
     @RequestMapping(value = "/updateallpassword", method = RequestMethod.POST)
     @ResponseBody
     public R updateallpassword(@RequestParam String username, @RequestParam String password, @RequestParam String password2,HttpSession session) {
@@ -148,6 +151,40 @@ public class UserController {
             loginuserService.updateLoginuser(qUsers);
             return R.ok();
         }
+    }
+
+    //学生修改头像
+    @RequestMapping(value = "/stuupload", method = RequestMethod.POST)
+    @ResponseBody
+    public R stuupload(@RequestParam MultipartFile file,HttpSession httpSession)throws Exception{
+//        System.out.println(file.getSize());
+        String filename=uploadMethod(file);
+//        System.out.println(filename);
+        Stuinfo stuinfo = (Stuinfo)httpSession.getAttribute("userinfo");
+        stuinfo.setSphoto(filename);
+        stuService.updateStu(stuinfo);
+        httpSession.setAttribute("userinfo",stuinfo);
+        return R.ok();
+    }
+    public String uploadMethod(MultipartFile file) throws Exception {
+        COSClientUtil cosClientUtil = new COSClientUtil();
+        String name = cosClientUtil.uploadFile2Cos(file);
+        String imgUrl = cosClientUtil.getImgUrl(name);
+        String[] split = imgUrl.split("\\?");
+        return split[0];
+    }
+    //学生修改头像
+    @RequestMapping(value = "/teaupload", method = RequestMethod.POST)
+    @ResponseBody
+    public R teaupload(@RequestParam MultipartFile file,HttpSession httpSession)throws Exception{
+//        System.out.println(file.getSize());
+        String filename=uploadMethod(file);
+//        System.out.println(filename);
+        Teainfo teainfo = (Teainfo)httpSession.getAttribute("userinfo");
+        teainfo.setTphoto(filename);
+        teaService.updateTea(teainfo);
+        httpSession.setAttribute("userinfo",teainfo);
+        return R.ok(filename);
     }
 
 

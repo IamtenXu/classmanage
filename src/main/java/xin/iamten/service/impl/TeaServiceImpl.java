@@ -26,7 +26,10 @@ public class TeaServiceImpl implements TeaService {
 
     @Override
     public boolean updateTea(Teainfo teainfo) {
-        return false;
+        if(teainfo==null)
+            return false;
+        teainfoMapper.updateByPrimaryKeySelective(teainfo);
+        return true;
     }
 
     @Override

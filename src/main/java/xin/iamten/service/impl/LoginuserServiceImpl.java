@@ -23,6 +23,6 @@ public class LoginuserServiceImpl implements LoginuserService {
         if(loginuser==null)
             return false;
         loginuserMapper.updateByPrimaryKeySelective(loginuser);
-        return null;
+        return true;
     }
 }

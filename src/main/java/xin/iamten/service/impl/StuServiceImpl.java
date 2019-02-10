@@ -26,7 +26,10 @@ public class StuServiceImpl implements StuService {
 
     @Override
     public boolean updateStu(Stuinfo stuinfo) {
-        return false;
+        if(stuinfo==null)
+            return false;
+        stuinfoMapper.updateByPrimaryKeySelective(stuinfo);
+        return true;
     }
 
     @Override

@@ -22,14 +22,19 @@
     <div class="layui-header">
         <div class="layui-logo"><font size="5">班级事务处理系统</font></div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
-        <ul class="layui-nav layui-layout-left">
-            <li class="layui-nav-item"><a href="index" target="main_self_frame">照片墙</a></li>
-            <li class="layui-nav-item"><a href="index_video" target="main_self_frame">视频</a></li>
-        </ul>
+        <%--<ul class="layui-nav layui-layout-left">--%>
+            <%--<li class="layui-nav-item"><a href="index" target="main_self_frame">照片墙</a></li>--%>
+            <%--<li class="layui-nav-item"><a href="index_video" target="main_self_frame">视频</a></li>--%>
+        <%--</ul>--%>
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
                 <a href="javascript:;">
-                    <img src="" class="layui-nav-img" id="photo">
+                    <c:if test="${getrole == '1'||getrole == '2'||getrole == '3'}">
+                        <img src="${sessionScope.userinfo.tphoto}" class="layui-nav-img" id="photo">
+                    </c:if>
+                    <c:if test="${getrole != '1'&&getrole != '2'&&getrole != '3'}">
+                        <img src="${sessionScope.userinfo.sphoto}" class="layui-nav-img" id="photo">
+                    </c:if>
                     <font id="user"></font> <font id="role"></font>
                     <%--<img src="${sessionScope.user.photo}" class="layui-nav-img">--%>
                     <%--${sessionScope.user.name}--%>
@@ -122,7 +127,7 @@
 <script type="text/javascript" src="js/cookie.js"></script>
 <script>
     $("#user").html(getCookie("name"));
-    $("#photo").attr("src",getCookie("photo"));
+    // $("#photo").attr("src",getCookie("photo"));
     $("#role").html(getCookie("role"));
     loginCookie();
     $("#click").click(function (){

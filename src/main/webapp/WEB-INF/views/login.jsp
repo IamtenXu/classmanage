@@ -65,7 +65,7 @@
                 <a href="#" class="log-qq icon-weixin"></a>
                 <a href="#" class="log-qq icon-sina1"></a>
             </div>
-            <p class="right">Powered by Iamten© 2018</p>
+            <p class="right">Powered by Iamten© 2019</p>
         </div>
     </div>
 </div>

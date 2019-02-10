@@ -7,6 +7,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
@@ -29,6 +30,7 @@
                     <div class="layui-upload">
                         <img src="${sessionScope.userinfo.sphoto}" width="200" height="200" />
                         <button class="layui-btn layui-btn-small" id="uploadpic" >上传头像</button>
+                        <font color="red" size="1">（请使用IE操作，图片大小≤1M）</font>
                         <div class="layui-upload-list">
                             <img class="layui-upload-img" id="demopic" src="" />
                             <p id="demoText"></p>
@@ -168,7 +170,10 @@
         //普通图片上传
         var uploadInst = upload.render({
             elem: '#uploadpic'
-            ,url: '/user/upload'
+            ,url: '/user/stuupload'
+            ,method: 'POST'
+            ,size:1024
+            ,accept:'images'
             ,before: function(obj){
                 //预读本地文件示例，不支持ie8
                 obj.preview(function(index, file, result){
@@ -177,14 +182,15 @@
             }
             ,done: function(res){
                 //上传成功
-                if(res.code === 0) {
+                if(res.code === 200) {
                     alert("上传成功，请稍等");
                     // layer.msg('上传成功，请稍等');
                     location.reload();
+                    setCookie("photo",data.login.photo);
                 }
                 //如果上传失败
                 else{
-                    return layer.msg('上传失败');
+                    layer.msg('上传失败');
                 }
             }
             ,error: function(){
@@ -196,7 +202,6 @@
                 });
             }
         });
-
         //日期
         laydate.render({
             elem: '#date'
@@ -204,10 +209,8 @@
         laydate.render({
             elem: '#date1'
         });
-
         //创建一个编辑器
         var editIndex = layedit.build('LAY_demo_editor');
-
         //自定义验证规则
         form.verify({
 //            title: function(value){
@@ -220,7 +223,6 @@
                 layedit.sync(editIndex);
             }
         });
-
         form.on('submit(updateinfo)', function(data){
             var action = data.form.action;//表单提交URL地址
             console.log(JSON.stringify(data.field));//表单数据
@@ -243,12 +245,11 @@
             });
             layer.tips('温馨提示：请注意开关状态的文字可以随意定义，而不仅仅是ON|OFF', data.othis)
         });
-
         //监听提交
         form.on('submit(demo1)', function(data){
             layer.alert(JSON.stringify(data.field), {
                 title: '最终的提交信息'
-            })
+            });
             return false;
         });
     })
