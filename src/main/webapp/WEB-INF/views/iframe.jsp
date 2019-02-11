@@ -28,7 +28,12 @@
         <%--</ul>--%>
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
-                <a href="javascript:;">
+                <c:if test="${getrole == '1'||getrole == '2'||getrole == '3'}">
+                    <a href="/teainfo" target="main_self_frame">
+                </c:if>
+                <c:if test="${getrole != '1'&&getrole != '2'&&getrole != '3'}">
+                    <a href="/stuinfo" target="main_self_frame">
+                </c:if>
                     <c:if test="${getrole == '1'||getrole == '2'||getrole == '3'}">
                         <img src="${sessionScope.userinfo.tphoto}" class="layui-nav-img" id="photo">
                     </c:if>
