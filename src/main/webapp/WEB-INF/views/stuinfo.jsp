@@ -23,22 +23,24 @@
             <fieldset class="layui-elem-field layui-field-title" style="margin-top: 15px;">
                 <legend>个人信息</legend>
             </fieldset>
-
-            <form class="layui-form" action="" lay-filter="example">
+            <form class="layui-form">
                 <div class="layui-form-item">
-                    <label class="layui-form-label">头像</label>
+                    <label class="layui-form-label">照片</label>
                     <div class="layui-upload">
                         <img src="${sessionScope.userinfo.sphoto}" width="200" height="200" />
-                        <button class="layui-btn layui-btn-small" id="uploadpic" >上传头像</button>
-                        <font color="red" size="1">（请使用IE操作，图片大小≤1M）</font>
-                        <div class="layui-upload-list">
-                            <img class="layui-upload-img" id="demopic" src="" />
-                            <p id="demoText"></p>
-                        </div>
                     </div>
                 </div>
             </form>
-            <form class="layui-form" action="updateinfo" lay-filter="example">
+            <form class="layui-form" id="uploadForm" enctype="multipart/form-data">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">修改照片</label>
+                    <div class="layui-input-inline">
+                        <input class="layui-input" id="file" type="file" name="file"/>
+                    </div>
+                    <button class="layui-btn layui-btn-small" id="upload" type="button" onclick="uploadImg()">上传</button>
+                </div>
+            </form>
+            <form class="layui-form" action="/user/updatestu" lay-filter="example">
                 <div class="layui-form-item">
                     <div class="layui-inline">
                         <label class="layui-form-label">学号</label>
@@ -116,6 +118,22 @@
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="layui/layui.js"></script>
 <script>
+    //上传头像
+    function uploadImg() {
+        $.ajax({
+            type: "post",
+            url: '/user/stuupload',
+            data: new FormData($('#uploadForm')[0]),
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                alert(data.msg)
+            },
+            error:function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("请求失败！");
+            }
+        });
+    }
     layui.use(['form', 'layedit', 'laydate','upload'], function(){
         var form = layui.form
             ,layer = layui.layer
@@ -168,40 +186,40 @@
         });
 
         //普通图片上传
-        var uploadInst = upload.render({
-            elem: '#uploadpic'
-            ,url: '/user/stuupload'
-            ,method: 'POST'
-            ,size:1024
-            ,accept:'images'
-            ,before: function(obj){
-                //预读本地文件示例，不支持ie8
-                obj.preview(function(index, file, result){
-                    $('#demopic').attr('src', result); //图片链接（base64）
-                });
-            }
-            ,done: function(res){
-                //上传成功
-                if(res.code === 200) {
-                    alert("上传成功，请稍等");
-                    // layer.msg('上传成功，请稍等');
-                    location.reload();
-                    setCookie("photo",data.login.photo);
-                }
-                //如果上传失败
-                else{
-                    layer.msg('上传失败');
-                }
-            }
-            ,error: function(){
-                //演示失败状态，并实现重传
-                var demoText = $('#demoText');
-                demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-mini demo-reload">重试</a>');
-                demoText.find('.demo-reload').on('click', function(){
-                    uploadInst.upload();
-                });
-            }
-        });
+        // var uploadInst = upload.render({
+        //     elem: '#uploadpic'
+        //     ,url: '/user/stuupload'
+        //     ,method: 'POST'
+        //     ,size:1024
+        //     ,accept:'images'
+        //     ,before: function(obj){
+        //         //预读本地文件示例，不支持ie8
+        //         obj.preview(function(index, file, result){
+        //             $('#demopic').attr('src', result); //图片链接（base64）
+        //         });
+        //     }
+        //     ,done: function(res){
+        //         //上传成功
+        //         if(res.code === 200) {
+        //             alert("上传成功，请稍等");
+        //             // layer.msg('上传成功，请稍等');
+        //             location.reload();
+        //             setCookie("photo",data.login.photo);
+        //         }
+        //         //如果上传失败
+        //         else{
+        //             layer.msg('上传失败');
+        //         }
+        //     }
+        //     ,error: function(){
+        //         //演示失败状态，并实现重传
+        //         var demoText = $('#demoText');
+        //         demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-mini demo-reload">重试</a>');
+        //         demoText.find('.demo-reload').on('click', function(){
+        //             uploadInst.upload();
+        //         });
+        //     }
+        // });
         //日期
         laydate.render({
             elem: '#date'
@@ -227,11 +245,11 @@
             var action = data.form.action;//表单提交URL地址
             console.log(JSON.stringify(data.field));//表单数据
             $.post(action,data.field,function(obj){
-                if(obj.code!==0){
-                    alert(obj.msg);
+                if(obj.code!==200){
+                    alert("服务器错误，请联系服务器管理员！");
                     return false;
                 }else{
-                    alert("修改成功");
+                    alert(obj.msg);
                     location.reload();
                     return false;
                 }

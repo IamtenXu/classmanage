@@ -1,5 +1,6 @@
 package xin.iamten.controller;
 
+import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -173,7 +174,7 @@ public class UserController {
         String[] split = imgUrl.split("\\?");
         return split[0];
     }
-    //学生修改头像
+    //老师修改头像
     @RequestMapping(value = "/teaupload", method = RequestMethod.POST)
     @ResponseBody
     public R teaupload(@RequestParam MultipartFile file,HttpSession httpSession)throws Exception{
@@ -185,6 +186,43 @@ public class UserController {
         teaService.updateTea(teainfo);
         httpSession.setAttribute("userinfo",teainfo);
         return R.ok(filename);
+    }
+    //学生修改个人信息
+    @RequestMapping(value = "/updatestu", method = RequestMethod.POST)
+    @ResponseBody
+    public R updatestu(@RequestParam String stuid, @RequestParam String sbirthday,@RequestParam String ssex, @RequestParam String students,@RequestParam String militarists,
+                       @RequestParam String sphone,@RequestParam String semail,@RequestParam String dormitory,HttpSession session){
+        Stuinfo stuinfo = new Stuinfo();
+        stuinfo.setStuid(stuid);
+        stuinfo=stuService.queryStu(stuinfo);
+        stuinfo.setSbirthday(sbirthday);
+        stuinfo.setSsex(ssex);
+        stuinfo.setStudents(students);
+        stuinfo.setSpolitical(militarists);
+        stuinfo.setSphone(sphone);
+        stuinfo.setSemail(semail);
+        stuinfo.setSadress(dormitory);
+        session.setAttribute("userinfo",stuinfo);
+        stuService.updateStu(stuinfo);
+        return R.ok("修改成功！");
+    }
+    //老师修改个人信息
+    @RequestMapping(value = "/updatetea", method = RequestMethod.POST)
+    @ResponseBody
+    public R updatetea(@RequestParam String ttuid, @RequestParam String tbirthday,@RequestParam String tsex,@RequestParam String militarists,
+                       @RequestParam String tphone,@RequestParam String temail,@RequestParam String taddress,HttpSession session){
+        Teainfo teainfo = new Teainfo();
+        teainfo.setTeaid(ttuid);
+        teainfo=teaService.queryTea(teainfo);
+        teainfo.setTbirthday(tbirthday);
+        teainfo.setTsex(tsex);
+        teainfo.setTpolitical(militarists);
+        teainfo.setTphone(tphone);
+        teainfo.setTemail(temail);
+        teainfo.setTaddress(taddress);
+        session.setAttribute("userinfo",teainfo);
+        teaService.updateTea(teainfo);
+        return R.ok("修改成功！");
     }
 
 

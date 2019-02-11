@@ -46,5 +46,12 @@ public class PageController {
         return "updatepassword";
     }
 
+    //主页
+    @RequestMapping("/index")
+    public String toindex(){
+        return "index";
+    }
+
+
 
 }

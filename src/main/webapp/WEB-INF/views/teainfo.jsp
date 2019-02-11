@@ -22,22 +22,24 @@
             <fieldset class="layui-elem-field layui-field-title" style="margin-top: 15px;">
                 <legend>个人信息</legend>
             </fieldset>
-
-            <form class="layui-form" action="" lay-filter="example">
+            <form class="layui-form">
                 <div class="layui-form-item">
-                    <label class="layui-form-label">头像</label>
+                    <label class="layui-form-label">照片</label>
                     <div class="layui-upload">
                         <img src="${sessionScope.userinfo.tphoto}" width="200" height="200" />
-                        <button class="layui-btn layui-btn-small" id="uploadpic" >上传头像</button>
-                        <font color="red" size="1">（请使用IE操作，图片大小≤1M）</font>
-                        <div class="layui-upload-list">
-                            <img class="layui-upload-img" id="demopic" />
-                            <p id="demoText"></p>
-                        </div>
                     </div>
                 </div>
             </form>
-            <form class="layui-form" action="updateinfo" lay-filter="example">
+            <form class="layui-form" id="uploadForm" enctype="multipart/form-data">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">修改照片</label>
+                    <div class="layui-input-inline">
+                        <input class="layui-input" id="file" type="file" name="file"/>
+                    </div>
+                    <button class="layui-btn layui-btn-small" id="upload" type="button" onclick="uploadImg()">上传</button>
+                </div>
+            </form>
+            <form class="layui-form" action="/user/updatetea" lay-filter="example">
                 <div class="layui-form-item">
                     <div class="layui-inline">
                         <label class="layui-form-label">工号</label>
@@ -50,7 +52,7 @@
                         </div>
                         <label class="layui-form-label">职称</label>
                         <div class="layui-input-inline">
-                            <input name="tname"  autocomplete="off" readonly class="layui-input" type="text" value="${sessionScope.userinfo.title}">
+                            <input name="title"  autocomplete="off" readonly class="layui-input" type="text" value="${sessionScope.userinfo.title}">
                         </div>
                     </div>
                 </div>
@@ -58,15 +60,15 @@
                     <label class="layui-form-label">性别</label>
                     <div class="layui-input-block">
                         <c:set var="getsex" scope="page" value="${sessionScope.userinfo.tsex}"/>
-                        <input name="ssex" value="男" title="男" <c:if test="${getsex == '男'}">checked="checked"</c:if> type="radio">
-                        <input name="ssex" value="女" title="女" <c:if test="${getsex == '女'}">checked="checked"</c:if> type="radio">
+                        <input name="tsex" value="男" title="男" <c:if test="${getsex == '男'}">checked="checked"</c:if> type="radio">
+                        <input name="tsex" value="女" title="女" <c:if test="${getsex == '女'}">checked="checked"</c:if> type="radio">
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <div class="layui-inline">
                         <label class="layui-form-label">出生日期</label>
                         <div class="layui-input-inline">
-                            <input name="sbirthday" class="layui-input" id="date" type="text" placeholder="yyyy-MM-dd" autocomplete="off" lay-verify="date" value="${sessionScope.userinfo.tbirthday}">
+                            <input name="tbirthday" class="layui-input" id="date" type="text" placeholder="yyyy-MM-dd" autocomplete="off" lay-verify="date" value="${sessionScope.userinfo.tbirthday}">
                         </div>
                         <label class="layui-form-label">政治面貌</label>
                         <div class="layui-input-inline">
@@ -84,15 +86,15 @@
                     <div class="layui-inline">
                         <label class="layui-form-label">手机号</label>
                         <div class="layui-input-inline">
-                            <input name="sphone"  autocomplete="off" class="layui-input" type="text" maxlength="11" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" value="${sessionScope.userinfo.tphone}">
+                            <input name="tphone"  autocomplete="off" class="layui-input" type="text" maxlength="11" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" value="${sessionScope.userinfo.tphone}">
                         </div>
                         <label class="layui-form-label">邮箱</label>
                         <div class="layui-input-inline">
-                            <input name="semail"  autocomplete="off" class="layui-input" type="email" value="${sessionScope.userinfo.temail}">
+                            <input name="temail"  autocomplete="off" class="layui-input" type="email" value="${sessionScope.userinfo.temail}">
                         </div>
                         <label class="layui-form-label">办公室</label>
                         <div class="layui-input-inline">
-                            <input name="dormitory"  autocomplete="off" class="layui-input" type="text" value="${sessionScope.userinfo.taddress}">
+                            <input name="taddress"  autocomplete="off" class="layui-input" type="text" value="${sessionScope.userinfo.taddress}">
                         </div>
                     </div>
                 </div>
@@ -111,6 +113,23 @@
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="layui/layui.js"></script>
 <script>
+    //上传头像
+    function uploadImg() {
+        $.ajax({
+            type: "post",
+            url: '/user/teaupload',
+            data: new FormData($('#uploadForm')[0]),
+            processData: false,
+            contentType: false,
+            success: function (data) {
+                alert(data.msg);
+                location.reload();
+            },
+            error:function (XMLHttpRequest, textStatus, errorThrown) {
+                alert("请求失败！");
+            }
+        });
+    }
     layui.use(['form', 'layedit', 'laydate','upload'], function(){
         var form = layui.form
             ,layer = layui.layer
@@ -162,41 +181,41 @@
             location.href = location.href;
         });
 
-        //普通图片上传
-        var uploadInst = upload.render({
-            elem: '#uploadpic'
-            ,url: '/user/teaupload'
-            ,method: 'POST'
-            ,size:1024
-            ,accept:'images'
-            ,before: function(obj){
-                //预读本地文件示例，不支持ie8
-                obj.preview(function(index, file, result){
-                    $('#demopic').attr('src', result); //图片链接（base64）
-                });
-            }
-            ,done: function(res){
-                //上传成功
-                if(res.code === 200) {
-                    alert("上传成功，请稍等");
-                    // layer.msg('上传成功，请稍等');
-                    location.reload();
-                    setCookie("photo",data.login.photo);
-                }
-                //如果上传失败
-                else{
-                    return layer.msg('上传失败');
-                }
-            }
-            ,error: function(){
-                //演示失败状态，并实现重传
-                var demoText = $('#demoText');
-                demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-mini demo-reload">重试</a>');
-                demoText.find('.demo-reload').on('click', function(){
-                    uploadInst.upload();
-                });
-            }
-        });
+        // //普通图片上传
+        // var uploadInst = upload.render({
+        //     elem: '#uploadpic'
+        //     ,url: '/user/teaupload'
+        //     ,method: 'POST'
+        //     ,size:1024
+        //     ,accept:'images'
+        //     ,before: function(obj){
+        //         //预读本地文件示例，不支持ie8
+        //         obj.preview(function(index, file, result){
+        //             $('#demopic').attr('src', result); //图片链接（base64）
+        //         });
+        //     }
+        //     ,done: function(res){
+        //         //上传成功
+        //         if(res.code === 200) {
+        //             // alert("上传成功，请稍等");
+        //             // layer.msg('上传成功，请稍等');
+        //             layer.msg(res.msg, { icon: 6, time: 1000 });
+        //             location.reload();
+        //         }
+        //         //如果上传失败
+        //         else{
+        //             return layer.msg('上传失败');
+        //         }
+        //     }
+        //     ,error: function(){
+        //         //演示失败状态，并实现重传
+        //         var demoText = $('#demoText');
+        //         demoText.html('<span style="color: #FF5722;">上传失败</span> <a class="layui-btn layui-btn-mini demo-reload">重试</a>');
+        //         demoText.find('.demo-reload').on('click', function(){
+        //             uploadInst.upload();
+        //         });
+        //     }
+        // });
 
         //日期
         laydate.render({
@@ -226,11 +245,11 @@
             var action = data.form.action;//表单提交URL地址
             console.log(JSON.stringify(data.field));//表单数据
             $.post(action,data.field,function(obj){
-                if(obj.code!==0){
-                    alert(obj.msg);
+                if(obj.code!==200){
+                    alert("服务器错误，请联系服务器管理员！");
                     return false;
                 }else{
-                    alert("修改成功");
+                    alert(obj.msg);
                     location.reload();
                     return false;
                 }
