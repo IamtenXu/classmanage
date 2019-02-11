@@ -52,6 +52,16 @@ public class PageController {
         return "index";
     }
 
+    //班委信息
+    @RequestMapping("/classmanager")
+    public String toclassmanager(){
+        return "classmanager";
+    }
 
+    //成员列表
+    @RequestMapping("/classmember")
+    public String toclassmember(){
+        return "classmember";
+    }
 
 }

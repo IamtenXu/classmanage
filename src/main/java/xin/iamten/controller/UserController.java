@@ -22,6 +22,7 @@ import xin.iamten.utils.Login;
 import xin.iamten.utils.R;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequestMapping("/user")
@@ -224,6 +225,33 @@ public class UserController {
         teaService.updateTea(teainfo);
         return R.ok("修改成功！");
     }
+    //班委信息
+    @RequestMapping(value = "/classmanager", method = RequestMethod.GET)
+    @ResponseBody
+    public R classmanager(@RequestParam(value = "sclass",required=false,defaultValue="") String sclass) {
+        Stuinfo getuser = new Stuinfo();
+        if(sclass.equals("")){
+            sclass = null;
+        }
+        getuser.setSclass(sclass);
+        List<Stuinfo> userList = stuService.queryClassmanagerList(getuser);
+        int count = userList.size();
+        return R.ok().put("data", userList).put("count",count);
+    }
+    //成员列表
+    @RequestMapping(value = "/classmember", method = RequestMethod.GET)
+    @ResponseBody
+    public R classmember(@RequestParam(value = "sclass",required=false,defaultValue="") String sclass) {
+        Stuinfo getuser = new Stuinfo();
+        if(sclass.equals("")){
+            sclass = null;
+        }
+        getuser.setSclass(sclass);
+        List<Stuinfo> userList = stuService.queryStuList(getuser);
+        int count = userList.size();
+        return R.ok().put("data", userList).put("count",count);
+    }
+
 
 
 }

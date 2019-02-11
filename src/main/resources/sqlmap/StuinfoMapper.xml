@@ -52,6 +52,21 @@
     from stuinfo,roleinfo
     where stuid = #{stuid,jdbcType=CHAR} AND stuinfo.srole = roleinfo.rcode
   </select>
+
+  <select id="selectclassmanager" resultMap="AddRoleResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Role_Column_List" />
+    from stuinfo,roleinfo
+    where sclass = #{sclass,jdbcType=VARCHAR} AND srole != 13 AND stuinfo.srole = roleinfo.rcode
+  </select>
+
+  <select id="selectclassmember" resultMap="AddRoleResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Role_Column_List" />
+    from stuinfo,roleinfo
+    where sclass = #{sclass,jdbcType=VARCHAR} AND stuinfo.srole = roleinfo.rcode
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from stuinfo
     where stuid = #{stuid,jdbcType=CHAR}

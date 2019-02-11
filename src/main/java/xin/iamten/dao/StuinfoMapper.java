@@ -2,6 +2,8 @@ package xin.iamten.dao;
 
 import xin.iamten.entity.Stuinfo;
 
+import java.util.List;
+
 public interface StuinfoMapper {
     int deleteByPrimaryKey(String stuid);
 
@@ -14,4 +16,10 @@ public interface StuinfoMapper {
     int updateByPrimaryKeySelective(Stuinfo record);
 
     int updateByPrimaryKey(Stuinfo record);
+
+    List<Stuinfo> selectclassmanager(Stuinfo record);
+
+    List<Stuinfo> selectclassmember(Stuinfo record);
+
+
 }

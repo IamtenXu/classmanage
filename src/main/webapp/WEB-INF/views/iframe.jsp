@@ -75,7 +75,10 @@
                             <dd><a href="/classinfo" target="main_self_frame">班级信息</a></dd>
                         </dl>
                         <dl class="layui-nav-child">
-                            <dd><a href="tomember" target="main_self_frame">成员列表</a></dd>
+                            <dd><a href="/classmanager" target="main_self_frame">班委信息</a></dd>
+                        </dl>
+                        <dl class="layui-nav-child">
+                            <dd><a href="/classmember" target="main_self_frame">成员列表</a></dd>
                         </dl>
                     </li>
                 </c:if>

@@ -21,7 +21,12 @@ public class StuServiceImpl implements StuService {
 
     @Override
     public List<Stuinfo> queryStuList(Stuinfo stuinfo) {
-        return null;
+        return stuinfoMapper.selectclassmember(stuinfo);
+    }
+
+    @Override
+    public List<Stuinfo> queryClassmanagerList(Stuinfo stuinfo) {
+        return stuinfoMapper.selectclassmanager(stuinfo);
     }
 
     @Override
