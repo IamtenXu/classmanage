@@ -19,6 +19,11 @@
     where classid = #{classid,jdbcType=CHAR}
   </select>
 
+  <select id="selectAllCollege" resultMap="BaseResultMap">
+    select DISTINCT ccollege
+    from classinfo
+  </select>
+
   <select id="selectByHeadmaster" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select
     <include refid="Base_Column_List" />

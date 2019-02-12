@@ -101,6 +101,17 @@
                         </dl>
                     </li>
                 </c:if>
+                <c:if test="${getrole == '1'}">
+                    <li class="layui-nav-item">
+                        <a href="javascript:">人员信息</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="/allteainfo" target="main_self_frame">教师信息</a></dd>
+                        </dl>
+                        <dl class="layui-nav-child">
+                            <dd><a href="/instructorclassinfo" target="main_self_frame">学生信息</a></dd>
+                        </dl>
+                    </li>
+                </c:if>
                 <li class="layui-nav-item">
                     <a href="javascript:;">班级事务</a>
                     <dl class="layui-nav-child">

@@ -11,14 +11,16 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>班级成员</title>
+    <title>教师信息</title>
     <link rel="stylesheet" href="layui/css/layui.css">
+
     <style type="text/css">
         .layui-table-cell {
             height: auto;
             line-height: 28px;
         }
     </style>
+
 </head>
 <body>
 <div>
@@ -26,14 +28,14 @@
         <!-- 内容主体区域 -->
         <div>
             <fieldset class="layui-elem-field layui-field-title" style="margin-top: 15px;">
-                <legend>班级成员</legend>
+                <legend>教师信息</legend>
             </fieldset>
             <form class="layui-form" action="" lay-filter="example">
                 <div class="layui-form-item">
                     <div class="layui-inline">
-                        <label class="layui-form-label">班级号</label>
+                        <label class="layui-form-label">学院</label>
                         <div class="layui-input-inline">
-                            <select name="classid"  lay-verify="required" id="classid" lay-filter="classidFilter">
+                            <select name="college"  lay-verify="required" id="college" lay-filter="collegeFilter">
                                 <option value=""></option>
                             </select>
                         </div>
@@ -57,12 +59,12 @@
 
         //添加下拉框选项
         $.ajax({
-            url: '/instructor/instructorselect',
+            url: '/dean/collegeselect',
             dataType: 'json',
             type: 'get',
             success: function (data) {
-                $.each(data.classinfo, function (index, item) {
-                    $('#classid').append(new Option(item.classid, item.classid));// 下拉菜单里添加元素
+                $.each(data.college, function (index, item) {
+                    $('#college').append(new Option(item.tcollege, item.tcollege));// 下拉菜单里添加元素
                 });
                 layui.form.render("select");//重新渲染 固定写法
             }
@@ -70,38 +72,40 @@
         //方法级渲染
         table.render({
             elem: '#LAY_table_user'
-            ,url: '/user/classmember'
+            ,url: '/dean/allteainfo'
+            ,method:'POST'
             ,response: {
                 statusCode: 200 //规定成功的状态码，默认：0
             }
             ,where: {
-                sclass:$('#classid').val()
+                college:$('#college').val()
             }
             ,cellMinWidth: 75
             ,cols: [[
                 // {checkbox: true, fixed: true},
-                {field:'stuid',  sort: true, title: '学号'}
-                ,{field:'sname',  title: '姓名'}
-                ,{field:'ssex',  sort: true, title: '性别'}
-                ,{field:'students',  sort: true, title: '生源地'}
-                ,{field:'sbirthday',  sort: true, align: 'left', title: '出生日期'}
-                ,{field:'spolitical', align: 'left', title: '政治面貌'}
-                ,{field:'sphone', title: '手机号码'}
-                ,{field:'sadress', align: 'left', title: '寝室'}
-                ,{field:'sphoto', title: '照片',templet: '<div><img src="{{d.sphoto}}"></div>'}
+                {field:'teaid',  sort: true, title: '工号'}
+                ,{field:'tname',  title: '姓名'}
+                ,{field:'tsex',  sort: true, title: '性别'}
+                ,{field:'tbirthday',  sort: true, align: 'left', title: '出生日期'}
+                ,{field:'tpolitical', align: 'left', title: '政治面貌'}
+                ,{field:'title', align: 'left', title: '职称'}
+                ,{field:'tphone', title: '手机号码'}
+                ,{field:'tcollege', align: 'left', title: '学院'}
+                ,{field:'taddress', align: 'left', title: '办公室'}
+                ,{field:'sphoto', title: '照片',templet: '<div><img src="{{d.tphoto}}"></div>'}
             ]]
             ,id: 'testReload'
             ,page: true
             ,height: 'full-140'
             ,limit: 50
         });
-        form.on('select(classidFilter)', function(data){
+        form.on('select(collegeFilter)', function(data){
             table.reload('testReload', {
                 page: {
                     curr: 1 //重新从第 1 页开始
                 }
                 ,where: {
-                    sclass:$('#classid').val()
+                    college:$('#college').val()
                 }
             });
         });

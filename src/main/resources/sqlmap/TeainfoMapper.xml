@@ -50,6 +50,25 @@
     from teainfo,roleinfo
     where teainfo.teaid = #{teaid,jdbcType=CHAR} AND teainfo.trole = roleinfo.rcode
   </select>
+
+  <select id="selectTeainfoByCollege" resultMap="AddRoleResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Role_Column_List" />
+    from teainfo,roleinfo
+    where teainfo.trole = roleinfo.rcode AND teainfo.tcollege = #{tcollege,jdbcType=CHAR}
+  </select>
+
+  <select id="selectAllTeainfo" resultMap="AddRoleResultMap" >
+    select
+    <include refid="Role_Column_List" />
+    from teainfo,roleinfo
+  </select>
+
+  <select id="selectAllCollege" resultMap="BaseResultMap">
+    select DISTINCT tcollege
+    from teainfo
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from teainfo
     where teaid = #{teaid,jdbcType=CHAR}

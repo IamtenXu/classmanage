@@ -20,8 +20,8 @@ public class TeaServiceImpl implements TeaService {
     }
 
     @Override
-    public List<Teainfo> queryTeaList(Teainfo teainfo) {
-        return null;
+    public List<Teainfo> queryTeaList() {
+        return teainfoMapper.selectAllTeainfo();
     }
 
     @Override
@@ -40,5 +40,15 @@ public class TeaServiceImpl implements TeaService {
     @Override
     public boolean deletTea(Teainfo teainfo) {
         return false;
+    }
+
+    @Override
+    public List<Teainfo> queryTeaListByCollege(Teainfo teainfo) {
+        return teainfoMapper.selectTeainfoByCollege(teainfo.getTcollege());
+    }
+
+    @Override
+    public List<Teainfo> queryAllcollege() {
+        return teainfoMapper.selectAllCollege();
     }
 }

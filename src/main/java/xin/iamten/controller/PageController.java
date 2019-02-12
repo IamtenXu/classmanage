@@ -82,4 +82,10 @@ public class PageController {
         return "instructorclassmember";
     }
 
+    //教务处教师信息
+    @RequestMapping("/allteainfo")
+    public String toallteainfo(){
+        return "allteainfo";
+    }
+
 }

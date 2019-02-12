@@ -28,4 +28,9 @@ public class ClassServiceImpl implements ClassService {
     public List<Classinfo> queryClassinfoByInstructor(String instructor) {
         return classinfoMapper.selectByInstructor(instructor);
     }
+
+    @Override
+    public List<Classinfo> queryAllcollege() {
+        return classinfoMapper.selectAllCollege();
+    }
 }

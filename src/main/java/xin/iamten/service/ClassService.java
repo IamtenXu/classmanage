@@ -10,4 +10,6 @@ public interface ClassService {
     Classinfo queryClassinfoByHeadmaster(String headmaster);
 
     List<Classinfo> queryClassinfoByInstructor(String instructor);
+
+    List<Classinfo> queryAllcollege();
 }

@@ -21,5 +21,7 @@ public interface ClassinfoMapper {
 
     int updateByPrimaryKey(Classinfo record);
 
+    List<Classinfo> selectAllCollege();
+
 
 }
