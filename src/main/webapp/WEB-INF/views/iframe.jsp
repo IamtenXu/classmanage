@@ -105,7 +105,7 @@
                     <li class="layui-nav-item">
                         <a href="javascript:">人员信息</a>
                         <dl class="layui-nav-child">
-                            <dd><a href="/allteainfo" target="main_self_frame">教师信息</a></dd>
+                            <dd><a href="/deanallteainfo" target="main_self_frame">教师信息</a></dd>
                         </dl>
                         <dl class="layui-nav-child">
                             <dd><a href="/instructorclassinfo" target="main_self_frame">学生信息</a></dd>

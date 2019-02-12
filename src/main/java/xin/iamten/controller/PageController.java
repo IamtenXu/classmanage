@@ -83,9 +83,9 @@ public class PageController {
     }
 
     //教务处教师信息
-    @RequestMapping("/allteainfo")
-    public String toallteainfo(){
-        return "allteainfo";
+    @RequestMapping("/deanallteainfo")
+    public String todeanallteainfo(){
+        return "deanallteainfo";
     }
 
 }

@@ -6,21 +6,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="148c5529-e527-48fa-9e84-a27a96c209cc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/xin/iamten/controller/DeanController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/allteainfo.jsp" afterDir="false" />
+    <list default="true" id="148c5529-e527-48fa-9e84-a27a96c209cc" name="Default Changelist" comment="修改名称">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/xin/iamten/controller/PageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xin/iamten/controller/PageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xin/iamten/dao/ClassinfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xin/iamten/dao/ClassinfoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xin/iamten/dao/TeainfoMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xin/iamten/dao/TeainfoMapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xin/iamten/service/ClassService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xin/iamten/service/ClassService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xin/iamten/service/TeaService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xin/iamten/service/TeaService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xin/iamten/service/impl/ClassServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xin/iamten/service/impl/ClassServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xin/iamten/service/impl/TeaServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xin/iamten/service/impl/TeaServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sqlmap/ClassinfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sqlmap/ClassinfoMapper.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/sqlmap/TeainfoMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sqlmap/TeainfoMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/allteainfo.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/deanallteainfo.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/iframe.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/iframe.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/instructorclassmember.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/instructorclassmember.jsp" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -31,84 +21,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/controller/UserController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="216" column="43" selection-start-line="216" selection-start-column="43" selection-end-line="216" selection-end-column="63" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/allteainfo.jsp">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="104" column="40" lean-forward="true" selection-start-line="104" selection-start-column="40" selection-end-line="104" selection-end-column="40" />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/controller/DeanController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/iframe.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/controller/InstructorContorller.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="355">
-              <caret line="58" column="48" lean-forward="true" selection-start-line="58" selection-start-column="48" selection-end-line="58" selection-end-column="48" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/service/TeaService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="342">
-              <caret line="20" column="36" lean-forward="true" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/service/ClassTeaService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="114">
-              <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/service/impl/TeaServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="51" column="17" lean-forward="true" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
-              <folding>
-                <element signature="e#1244#1245#0" expanded="true" />
-                <element signature="e#1299#1300#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="241">
+              <caret line="107" column="56" selection-start-line="107" selection-start-column="56" selection-end-line="107" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -187,9 +104,7 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/instructorclassinfo.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/instructorclassmanager.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/xin/iamten/controller/InstructorContorller.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/iframe.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/instructorclassmember.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/xin/iamten/controller/PageController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/sqlmap/ClassinfoMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/sqlmap/TeainfoMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/xin/iamten/service/TeaService.java" />
@@ -200,6 +115,8 @@
         <option value="$PROJECT_DIR$/src/main/java/xin/iamten/service/ClassService.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/allteainfo.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/xin/iamten/controller/DeanController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/xin/iamten/controller/PageController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/iframe.jsp" />
       </list>
     </option>
   </component>
@@ -409,7 +326,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549976654243" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1549976878559" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -553,7 +470,7 @@
       <workItem from="1549858920237" duration="6845000" />
       <workItem from="1549866591272" duration="7003000" />
       <workItem from="1549889470095" duration="8595000" />
-      <workItem from="1549950558905" duration="22637000" />
+      <workItem from="1549950558905" duration="22892000" />
     </task>
     <task id="LOCAL-00001" summary="修改mybatis一些配置">
       <created>1548085461375</created>
@@ -667,11 +584,18 @@
       <option name="project" value="LOCAL" />
       <updated>1549963311084</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="完成辅导员通过select查询班级成员的照片处理&#10;完成教务处按照学院搜索老师功能">
+      <created>1549976781110</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1549976781110</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120967000" />
+    <option name="totallyTimeSpent" value="121222000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -815,7 +739,8 @@
     <MESSAGE value="完成班委信息和成员列表查看" />
     <MESSAGE value="导航栏头像按钮" />
     <MESSAGE value="完成辅导员通过select查询班级信息、班委信息、班级成员（照片未处理）" />
-    <option name="LAST_COMMIT_MESSAGE" value="完成辅导员通过select查询班级信息、班委信息、班级成员（照片未处理）" />
+    <MESSAGE value="完成辅导员通过select查询班级成员的照片处理&#10;完成教务处按照学院搜索老师功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="完成辅导员通过select查询班级成员的照片处理&#10;完成教务处按照学院搜索老师功能" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -1097,28 +1022,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/iframe.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="241">
-          <caret line="107" column="52" selection-start-line="107" selection-start-column="42" selection-end-line="107" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/controller/PageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="485">
-          <caret line="88" column="5" lean-forward="true" selection-start-line="88" selection-start-column="5" selection-end-line="88" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#toindex#0;class#PageController#0" />
-            <element signature="e#1745#1746#0" expanded="true" />
-            <element signature="e#1791#1792#0" expanded="true" />
-            <element signature="e#1903#1904#0" expanded="true" />
-            <element signature="e#1949#1950#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/TeainfoMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="336">
@@ -1130,26 +1033,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="227">
           <caret line="24" column="11" lean-forward="true" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/service/TeaService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="20" column="36" lean-forward="true" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/service/ClassTeaService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1201,13 +1084,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/service/impl/TeaServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="51" column="17" lean-forward="true" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
+        <state relative-caret-position="56">
+          <caret line="216" column="63" lean-forward="true" selection-start-line="216" selection-start-column="63" selection-end-line="216" selection-end-column="63" />
           <folding>
-            <element signature="e#1244#1245#0" expanded="true" />
-            <element signature="e#1299#1300#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/deanallteainfo.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1577">
+          <caret line="104" column="40" selection-start-line="104" selection-start-column="40" selection-end-line="104" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/controller/PageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="279">
+          <caret line="87" column="30" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="30" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#toindex#0;class#PageController#0" />
+            <element signature="e#1745#1746#0" expanded="true" />
+            <element signature="e#1791#1792#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/controller/DeanController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="52" column="42" lean-forward="true" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1222,30 +1134,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/allteainfo.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/service/TeaService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="104" column="40" lean-forward="true" selection-start-line="104" selection-start-column="40" selection-end-line="104" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="216" column="43" selection-start-line="216" selection-start-column="43" selection-end-line="216" selection-end-column="63" />
+        <state relative-caret-position="342">
+          <caret line="20" column="36" lean-forward="true" selection-start-line="20" selection-start-column="36" selection-end-line="20" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/controller/DeanController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/service/ClassTeaService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="57" column="5" lean-forward="true" selection-start-line="57" selection-start-column="5" selection-end-line="57" selection-end-column="5" />
+        <state relative-caret-position="114">
+          <caret line="6" column="24" selection-start-line="6" selection-start-column="24" selection-end-line="6" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/service/impl/TeaServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="303">
+          <caret line="51" column="17" lean-forward="true" selection-start-line="51" selection-start-column="17" selection-end-line="51" selection-end-column="17" />
+          <folding>
+            <element signature="e#1244#1245#0" expanded="true" />
+            <element signature="e#1299#1300#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/iframe.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="241">
+          <caret line="107" column="56" selection-start-line="107" selection-start-column="56" selection-end-line="107" selection-end-column="56" />
         </state>
       </provider>
     </entry>
