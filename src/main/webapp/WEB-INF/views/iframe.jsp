@@ -91,10 +91,13 @@
                     <li class="layui-nav-item">
                         <a href="javascript:">班级</a>
                         <dl class="layui-nav-child">
-                            <dd><a href="/classinfo" target="main_self_frame">班级列表</a></dd>
+                            <dd><a href="/instructorclassinfo" target="main_self_frame">班级信息</a></dd>
                         </dl>
                         <dl class="layui-nav-child">
-                            <dd><a href="tomember" target="main_self_frame">成员列表</a></dd>
+                            <dd><a href="/instructorclassmanager" target="main_self_frame">班委信息</a></dd>
+                        </dl>
+                        <dl class="layui-nav-child">
+                            <dd><a href="/instructorclassmember" target="main_self_frame">成员列表</a></dd>
                         </dl>
                     </li>
                 </c:if>

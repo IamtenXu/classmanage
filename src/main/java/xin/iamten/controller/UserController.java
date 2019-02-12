@@ -12,10 +12,7 @@ import xin.iamten.entity.Classinfo;
 import xin.iamten.entity.Loginuser;
 import xin.iamten.entity.Stuinfo;
 import xin.iamten.entity.Teainfo;
-import xin.iamten.service.ClassService;
-import xin.iamten.service.LoginuserService;
-import xin.iamten.service.StuService;
-import xin.iamten.service.TeaService;
+import xin.iamten.service.*;
 import xin.iamten.utils.COSClientUtil;
 import xin.iamten.utils.ClassTea;
 import xin.iamten.utils.Login;
@@ -39,6 +36,9 @@ public class UserController {
 
     @Autowired
     private ClassService classService;
+
+    @Autowired
+    private ClassTeaService classTeaService;
 
     //登录
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -74,18 +74,7 @@ public class UserController {
                     Teainfo headmaster = new Teainfo();
                     headmaster.setTeaid(classinfo.getHeadmaster());
                     headmaster = teaService.queryTea(headmaster);
-                    classTea.setClassid(classinfo.getClassid());
-                    classTea.setCcollege(classinfo.getCcollege());
-                    classTea.setMajor(classinfo.getMajor());
-                    classTea.setCgrade(classinfo.getCgrade());
-                    classTea.setInstructor(classinfo.getInstructor());
-                    classTea.setInstructorname(instructor.getTname());
-                    classTea.setInstructorphone(instructor.getTphone());
-                    classTea.setInstructoraddress(instructor.getTaddress());
-                    classTea.setHeadmaster(classinfo.getHeadmaster());
-                    classTea.setHeadmastername(headmaster.getTname());
-                    classTea.setHeadmasterphone(headmaster.getTphone());
-                    classTea.setHeadmasteraddress(headmaster.getTaddress());
+                    classTea=classTeaService.setClassTea(classinfo,instructor,headmaster);
                     session.setAttribute("classinfo",classTea);
                 }
                 login.setUsername(queryTea.getTeaid());
@@ -110,18 +99,7 @@ public class UserController {
                 Teainfo headmaster = new Teainfo();
                 headmaster.setTeaid(classinfo.getHeadmaster());
                 headmaster = teaService.queryTea(headmaster);
-                classTea.setClassid(classinfo.getClassid());
-                classTea.setCcollege(classinfo.getCcollege());
-                classTea.setMajor(classinfo.getMajor());
-                classTea.setCgrade(classinfo.getCgrade());
-                classTea.setInstructor(classinfo.getInstructor());
-                classTea.setInstructorname(instructor.getTname());
-                classTea.setInstructorphone(instructor.getTphone());
-                classTea.setInstructoraddress(instructor.getTaddress());
-                classTea.setHeadmaster(classinfo.getHeadmaster());
-                classTea.setHeadmastername(headmaster.getTname());
-                classTea.setHeadmasterphone(headmaster.getTphone());
-                classTea.setHeadmasteraddress(headmaster.getTaddress());
+                classTea=classTeaService.setClassTea(classinfo,instructor,headmaster);
                 session.setAttribute("classinfo",classTea);
                 session.setAttribute("userinfo",queryStu);
                 login.setUsername(queryStu.getStuid());

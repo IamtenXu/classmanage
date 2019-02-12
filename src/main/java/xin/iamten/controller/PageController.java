@@ -64,4 +64,22 @@ public class PageController {
         return "classmember";
     }
 
+    //辅导员班级信息
+    @RequestMapping("/instructorclassinfo")
+    public String toinstructorclassinfo(){
+        return "instructorclassinfo";
+    }
+
+    //辅导员班委信息
+    @RequestMapping("/instructorclassmanager")
+    public String toinstructorclassmanager(){
+        return "instructorclassmanager";
+    }
+
+    //辅导员班级成员信息
+    @RequestMapping("/instructorclassmember")
+    public String toinstructorclassmember(){
+        return "instructorclassmember";
+    }
+
 }

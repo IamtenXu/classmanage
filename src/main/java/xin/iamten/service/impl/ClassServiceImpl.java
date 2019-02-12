@@ -6,6 +6,8 @@ import xin.iamten.dao.ClassinfoMapper;
 import xin.iamten.entity.Classinfo;
 import xin.iamten.service.ClassService;
 
+import java.util.List;
+
 @Service
 public class ClassServiceImpl implements ClassService {
 
@@ -20,5 +22,10 @@ public class ClassServiceImpl implements ClassService {
     @Override
     public Classinfo queryClassinfoByHeadmaster(String headmaster) {
         return classinfoMapper.selectByHeadmaster(headmaster);
+    }
+
+    @Override
+    public List<Classinfo> queryClassinfoByInstructor(String instructor) {
+        return classinfoMapper.selectByInstructor(instructor);
     }
 }
