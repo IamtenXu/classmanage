@@ -88,4 +88,10 @@ public class PageController {
         return "deanallteainfo";
     }
 
+    //教务处学生信息
+    @RequestMapping("/deanallstuinfo")
+    public String todeanallstuinfo(){
+        return "deanallstuinfo";
+    }
+
 }

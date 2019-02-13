@@ -24,6 +24,24 @@
     from classinfo
   </select>
 
+  <select id="selectMajorByCollege" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select DISTINCT major
+    from classinfo
+    WHERE ccollege = #{ccollege,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectGradeByMajor" resultMap="BaseResultMap" parameterType="java.lang.String">
+    select DISTINCT cgrade
+    from classinfo
+    WHERE major = #{major,jdbcType=VARCHAR}
+  </select>
+
+  <select id="selectClassByGradeAndMajor" resultMap="BaseResultMap" >
+    select DISTINCT classid
+    from classinfo
+    WHERE cgrade = #{cgrade,jdbcType=VARCHAR} AND major = #{major,jdbcType=VARCHAR}
+  </select>
+
   <select id="selectByHeadmaster" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select
     <include refid="Base_Column_List" />

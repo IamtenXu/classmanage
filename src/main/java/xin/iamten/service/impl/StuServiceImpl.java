@@ -30,6 +30,11 @@ public class StuServiceImpl implements StuService {
     }
 
     @Override
+    public List<Stuinfo> queryStuListByOthers(Stuinfo stuinfo) {
+        return stuinfoMapper.selectstuByOthers(stuinfo);
+    }
+
+    @Override
     public boolean updateStu(Stuinfo stuinfo) {
         if(stuinfo==null)
             return false;

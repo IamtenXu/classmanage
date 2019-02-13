@@ -33,4 +33,19 @@ public class ClassServiceImpl implements ClassService {
     public List<Classinfo> queryAllcollege() {
         return classinfoMapper.selectAllCollege();
     }
+
+    @Override
+    public List<Classinfo> queryMajorByCollege(String college) {
+        return classinfoMapper.selectMajorByCollege(college);
+    }
+
+    @Override
+    public List<Classinfo> queryGradeByMajor(String major) {
+        return classinfoMapper.selectGradeByMajor(major);
+    }
+
+    @Override
+    public List<Classinfo> queryClassByGrade(String grade,String major) {
+        return classinfoMapper.selectClassByGradeAndMajor(grade,major);
+    }
 }

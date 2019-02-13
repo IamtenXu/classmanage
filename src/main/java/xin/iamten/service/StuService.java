@@ -12,6 +12,8 @@ public interface StuService {
 
     List<Stuinfo> queryClassmanagerList(Stuinfo stuinfo);
 
+    List<Stuinfo> queryStuListByOthers(Stuinfo stuinfo);
+
     boolean updateStu(Stuinfo stuinfo);
 
     Stuinfo addStu(Stuinfo stuinfo);

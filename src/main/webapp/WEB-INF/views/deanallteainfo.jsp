@@ -73,7 +73,6 @@
         table.render({
             elem: '#LAY_table_user'
             ,url: '/dean/allteainfo'
-            ,method:'POST'
             ,response: {
                 statusCode: 200 //规定成功的状态码，默认：0
             }

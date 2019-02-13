@@ -12,4 +12,8 @@ public interface ClassService {
     List<Classinfo> queryClassinfoByInstructor(String instructor);
 
     List<Classinfo> queryAllcollege();
+    List<Classinfo> queryMajorByCollege(String college);
+    List<Classinfo> queryGradeByMajor(String major);
+    List<Classinfo> queryClassByGrade(String grade,String major);
+
 }

@@ -35,6 +35,15 @@
       <result column="rname" property="rname" jdbcType="VARCHAR" />
     </association>
 
+    <association property="classinfo" javaType="xin.iamten.entity.Classinfo">
+      <id column="classid" property="classid" jdbcType="CHAR" />
+      <result column="ccollege" property="ccollege" jdbcType="VARCHAR" />
+      <result column="major" property="major" jdbcType="VARCHAR" />
+      <result column="cgrade" property="cgrade" jdbcType="CHAR" />
+      <result column="instructor" property="instructor" jdbcType="CHAR" />
+      <result column="headmaster" property="headmaster" jdbcType="CHAR" />
+    </association>
+
   </resultMap>
 
   <sql id="Base_Column_List" >
@@ -44,6 +53,10 @@
 
   <sql id="Role_Column_List" >
     stuinfo.*, roleinfo.*
+  </sql>
+
+  <sql id="RoleClass_Column_List" >
+    stuinfo.*, roleinfo.*,classinfo.*
   </sql>
 
   <select id="selectByPrimaryKey" resultMap="AddRoleResultMap" parameterType="java.lang.String" >
@@ -65,6 +78,25 @@
     <include refid="Role_Column_List" />
     from stuinfo,roleinfo
     where sclass = #{sclass,jdbcType=VARCHAR} AND stuinfo.srole = roleinfo.rcode
+  </select>
+
+  <select id="selectstuByOthers" resultMap="AddRoleResultMap" parameterType="xin.iamten.entity.Stuinfo" >
+    select
+    <include refid="RoleClass_Column_List" />
+    from stuinfo,roleinfo,classinfo
+    where stuinfo.srole = roleinfo.rcode AND stuinfo.sclass = classinfo.classid
+    <if test="classinfo.classid != null" >
+      AND classinfo.classid = #{classinfo.classid,jdbcType=CHAR}
+    </if>
+    <if test="classinfo.ccollege != null" >
+      AND classinfo.ccollege = #{classinfo.ccollege,jdbcType=VARCHAR}
+    </if>
+    <if test="classinfo.major != null" >
+      AND classinfo.major = #{classinfo.major,jdbcType=VARCHAR}
+    </if>
+    <if test="classinfo.cgrade != null" >
+      AND classinfo.cgrade = #{classinfo.cgrade,jdbcType=VARCHAR}
+    </if>
   </select>
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >

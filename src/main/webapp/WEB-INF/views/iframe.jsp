@@ -108,7 +108,7 @@
                             <dd><a href="/deanallteainfo" target="main_self_frame">教师信息</a></dd>
                         </dl>
                         <dl class="layui-nav-child">
-                            <dd><a href="/instructorclassinfo" target="main_self_frame">学生信息</a></dd>
+                            <dd><a href="/deanallstuinfo" target="main_self_frame">学生信息</a></dd>
                         </dl>
                     </li>
                 </c:if>

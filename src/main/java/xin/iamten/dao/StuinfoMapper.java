@@ -21,5 +21,7 @@ public interface StuinfoMapper {
 
     List<Stuinfo> selectclassmember(Stuinfo record);
 
+    List<Stuinfo> selectstuByOthers(Stuinfo record);
+
 
 }

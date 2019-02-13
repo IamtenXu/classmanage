@@ -27,6 +27,16 @@ public class Stuinfo {
 
     private Roleinfo roleinfo;
 
+    private Classinfo classinfo;
+
+    public Classinfo getClassinfo() {
+        return classinfo;
+    }
+
+    public void setClassinfo(Classinfo classinfo) {
+        this.classinfo = classinfo;
+    }
+
     public String getStuid() {
         return stuid;
     }
