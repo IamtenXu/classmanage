@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="xin.iamten.dao.HomeinfoMapper" >
+  <resultMap id="BaseResultMap" type="xin.iamten.entity.Homeinfo" >
+    <id column="stuid" property="stuid" jdbcType="CHAR" />
+    <result column="fname" property="fname" jdbcType="VARCHAR" />
+    <result column="fphone" property="fphone" jdbcType="CHAR" />
+    <result column="mname" property="mname" jdbcType="VARCHAR" />
+    <result column="mphone" property="mphone" jdbcType="CHAR" />
+    <result column="emergencyname" property="emergencyname" jdbcType="VARCHAR" />
+    <result column="emergencyphone" property="emergencyphone" jdbcType="CHAR" />
+    <result column="hadress" property="hadress" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <resultMap id="AddStuResultMap" type="xin.iamten.entity.Homeinfo" >
+    <id column="stuid" property="stuid" jdbcType="CHAR" />
+    <result column="fname" property="fname" jdbcType="VARCHAR" />
+    <result column="fphone" property="fphone" jdbcType="CHAR" />
+    <result column="mname" property="mname" jdbcType="VARCHAR" />
+    <result column="mphone" property="mphone" jdbcType="CHAR" />
+    <result column="emergencyname" property="emergencyname" jdbcType="VARCHAR" />
+    <result column="emergencyphone" property="emergencyphone" jdbcType="CHAR" />
+    <result column="hadress" property="hadress" jdbcType="VARCHAR" />
+
+    <association property="stuinfo" javaType="xin.iamten.entity.Stuinfo">
+      <id column="stuid" property="stuid" jdbcType="CHAR" />
+      <result column="sname" property="sname" jdbcType="VARCHAR" />
+      <result column="ssex" property="ssex" jdbcType="CHAR" />
+      <result column="sbirthday" property="sbirthday" jdbcType="VARCHAR" />
+      <result column="students" property="students" jdbcType="VARCHAR" />
+      <result column="spolitical" property="spolitical" jdbcType="VARCHAR" />
+      <result column="sphone" property="sphone" jdbcType="CHAR" />
+      <result column="semail" property="semail" jdbcType="VARCHAR" />
+      <result column="srole" property="srole" jdbcType="INTEGER" />
+      <result column="sphoto" property="sphoto" jdbcType="VARCHAR" />
+      <result column="sadress" property="sadress" jdbcType="VARCHAR" />
+      <result column="sclass" property="sclass" jdbcType="CHAR" />
+      <association property="classinfo" javaType="xin.iamten.entity.Classinfo">
+        <id column="classid" property="classid" jdbcType="CHAR" />
+        <result column="ccollege" property="ccollege" jdbcType="VARCHAR" />
+        <result column="major" property="major" jdbcType="VARCHAR" />
+        <result column="cgrade" property="cgrade" jdbcType="CHAR" />
+        <result column="instructor" property="instructor" jdbcType="CHAR" />
+        <result column="headmaster" property="headmaster" jdbcType="CHAR" />
+      </association>
+    </association>
+
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    stuid, fname, fphone, mname, mphone, emergencyname, emergencyphone, hadress
+  </sql>
+
+  <sql id="Stu_Column_List" >
+    homeinfo.*,stuinfo.*,classinfo.*
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="AddStuResultMap" parameterType="java.lang.String" >
+    select
+    stuinfo.*,homeinfo.*
+    from homeinfo,stuinfo
+    where homeinfo.stuid = #{stuid,jdbcType=CHAR} AND homeinfo.stuid = stuinfo.stuid
+  </select>
+
+  <select id="selecthomeByOthers" resultMap="AddStuResultMap" parameterType="xin.iamten.entity.Homeinfo" >
+    select
+    <include refid="Stu_Column_List" />
+    from stuinfo,homeinfo,classinfo
+    where stuinfo.stuid = homeinfo.stuid AND stuinfo.sclass = classinfo.classid
+    <if test="stuinfo.classinfo.classid != null" >
+      AND classinfo.classid = #{classinfo.classid,jdbcType=CHAR}
+    </if>
+    <if test="stuinfo.classinfo.ccollege != null" >
+      AND classinfo.ccollege = #{classinfo.ccollege,jdbcType=VARCHAR}
+    </if>
+    <if test="stuinfo.classinfo.major != null" >
+      AND classinfo.major = #{classinfo.major,jdbcType=VARCHAR}
+    </if>
+    <if test="stuinfo.classinfo.cgrade != null" >
+      AND classinfo.cgrade = #{classinfo.cgrade,jdbcType=VARCHAR}
+    </if>
+  </select>
+
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from homeinfo
+    where stuid = #{stuid,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="xin.iamten.entity.Homeinfo" >
+    insert into homeinfo (stuid, fname, fphone, 
+      mname, mphone, emergencyname, 
+      emergencyphone, hadress)
+    values (#{stuid,jdbcType=CHAR}, #{fname,jdbcType=VARCHAR}, #{fphone,jdbcType=CHAR}, 
+      #{mname,jdbcType=VARCHAR}, #{mphone,jdbcType=CHAR}, #{emergencyname,jdbcType=VARCHAR}, 
+      #{emergencyphone,jdbcType=CHAR}, #{hadress,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="xin.iamten.entity.Homeinfo" >
+    insert into homeinfo
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="stuid != null" >
+        stuid,
+      </if>
+      <if test="fname != null" >
+        fname,
+      </if>
+      <if test="fphone != null" >
+        fphone,
+      </if>
+      <if test="mname != null" >
+        mname,
+      </if>
+      <if test="mphone != null" >
+        mphone,
+      </if>
+      <if test="emergencyname != null" >
+        emergencyname,
+      </if>
+      <if test="emergencyphone != null" >
+        emergencyphone,
+      </if>
+      <if test="hadress != null" >
+        hadress,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="stuid != null" >
+        #{stuid,jdbcType=CHAR},
+      </if>
+      <if test="fname != null" >
+        #{fname,jdbcType=VARCHAR},
+      </if>
+      <if test="fphone != null" >
+        #{fphone,jdbcType=CHAR},
+      </if>
+      <if test="mname != null" >
+        #{mname,jdbcType=VARCHAR},
+      </if>
+      <if test="mphone != null" >
+        #{mphone,jdbcType=CHAR},
+      </if>
+      <if test="emergencyname != null" >
+        #{emergencyname,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyphone != null" >
+        #{emergencyphone,jdbcType=CHAR},
+      </if>
+      <if test="hadress != null" >
+        #{hadress,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="xin.iamten.entity.Homeinfo" >
+    update homeinfo
+    <set >
+      <if test="fname != null" >
+        fname = #{fname,jdbcType=VARCHAR},
+      </if>
+      <if test="fphone != null" >
+        fphone = #{fphone,jdbcType=CHAR},
+      </if>
+      <if test="mname != null" >
+        mname = #{mname,jdbcType=VARCHAR},
+      </if>
+      <if test="mphone != null" >
+        mphone = #{mphone,jdbcType=CHAR},
+      </if>
+      <if test="emergencyname != null" >
+        emergencyname = #{emergencyname,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyphone != null" >
+        emergencyphone = #{emergencyphone,jdbcType=CHAR},
+      </if>
+      <if test="hadress != null" >
+        hadress = #{hadress,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where stuid = #{stuid,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="xin.iamten.entity.Homeinfo" >
+    update homeinfo
+    set fname = #{fname,jdbcType=VARCHAR},
+      fphone = #{fphone,jdbcType=CHAR},
+      mname = #{mname,jdbcType=VARCHAR},
+      mphone = #{mphone,jdbcType=CHAR},
+      emergencyname = #{emergencyname,jdbcType=VARCHAR},
+      emergencyphone = #{emergencyphone,jdbcType=CHAR},
+      hadress = #{hadress,jdbcType=VARCHAR}
+    where stuid = #{stuid,jdbcType=CHAR}
+  </update>
+</mapper>
