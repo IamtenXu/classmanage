@@ -8,10 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import xin.iamten.entity.Classinfo;
-import xin.iamten.entity.Loginuser;
-import xin.iamten.entity.Stuinfo;
-import xin.iamten.entity.Teainfo;
+import xin.iamten.entity.*;
 import xin.iamten.service.*;
 import xin.iamten.utils.COSClientUtil;
 import xin.iamten.utils.ClassTea;
@@ -39,6 +36,9 @@ public class UserController {
 
     @Autowired
     private ClassTeaService classTeaService;
+
+    @Autowired
+    private HomeService homeService;
 
     //登录
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -228,6 +228,13 @@ public class UserController {
         List<Stuinfo> userList = stuService.queryStuList(getuser);
         int count = userList.size();
         return R.ok().put("data", userList).put("count",count);
+    }
+    //个人家庭信息
+    @RequestMapping(value = "/stuhomeinfo", method = RequestMethod.POST)
+    @ResponseBody
+    public R stuhomeinfo(@RequestParam(value = "stuid",required=false,defaultValue="") String stuid) {
+        Homeinfo homeinfo = homeService.queryHomeinfoByStuid(stuid);
+        return R.ok().put("homeinfo", homeinfo);
     }
 
 

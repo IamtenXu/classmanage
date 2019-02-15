@@ -22,6 +22,12 @@ public class PageController {
         return "login";
     }
 
+    //学生家庭信息
+    @RequestMapping("/homeinfo")
+    public String tohomeinfo(){
+        return "homeinfo";
+    }
+
     //学生个人信息
     @RequestMapping("/stuinfo")
     public String tostuinfo(){

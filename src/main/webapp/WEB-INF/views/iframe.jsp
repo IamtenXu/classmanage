@@ -70,6 +70,7 @@
                         </c:if>
                         <c:if test="${getrole != '1'&&getrole != '2'&&getrole != '3'}">
                             <dd><a href="/stuinfo" target="main_self_frame">个人信息</a></dd>
+                            <dd><a href="/homeinfo" target="main_self_frame">家庭信息</a></dd>
                         </c:if>
                     </dl>
                 </li>
