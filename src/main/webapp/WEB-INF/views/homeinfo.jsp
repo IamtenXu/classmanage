@@ -13,6 +13,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     <title>班级信息</title>
     <link rel="stylesheet" href="layui/css/layui.css">
+    <style>
+        .layui-form-item .layui-input-block{
+            /*float:left;*/
+            /*margin-left: 0!important;*/
+            width: 80%;
+        }
+    </style>
 </head>
 <body>
 <div>
@@ -20,20 +27,20 @@
         <!-- 内容主体区域 -->
         <div>
             <fieldset class="layui-elem-field layui-field-title" style="margin-top: 15px;">
-                <legend>班级信息</legend>
+                <legend>家庭信息</legend>
             </fieldset>
 
             <form class="layui-form" action="/user/updatehome" lay-filter="example">
                 <div class="layui-form-item">
                     <div class="layui-inline">
-                        <label class="layui-form-label">学号</label>
+                        <label class="layui-form-label">学号<br>&nbsp;</label>
                         <div class="layui-input-inline">
-                            <input name="stuid" id="stuid" autocomplete="off" class="layui-input" type="text" value="" readonly>
+                            <input name="stuid" id="stuid" autocomplete="off" class="layui-input" type="text" value="${sessionScope.userinfo.stuid}" readonly>
                         </div>
                         <div class="layui-inline">
-                            <label class="layui-form-label">姓名</label>
+                            <label class="layui-form-label">姓名<br>&nbsp;</label>
                             <div class="layui-input-inline">
-                                <input name="name" id="name" autocomplete="off" class="layui-input" type="text" value="" readonly>
+                                <input name="name" id="name" autocomplete="off" class="layui-input" type="text" value="${sessionScope.userinfo.sname}" readonly>
                             </div>
                         </div>
                     </div>
@@ -47,21 +54,35 @@
                         <div class="layui-inline">
                             <label class="layui-form-label">父亲<br>联系方式</label>
                             <div class="layui-input-inline">
-                                <input name="fphone" id="fphone" autocomplete="off" class="layui-input" type="text" value="" >
+                                <input name="fphone" id="fphone" autocomplete="off" class="layui-input" type="text" value="" maxlength="11" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" >
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="layui-form-item">
                     <div class="layui-inline">
-                        <label class="layui-form-label">父亲姓名</label>
+                        <label class="layui-form-label">母亲姓名</label>
                         <div class="layui-input-inline">
                             <input name="mname" id="mname" autocomplete="off" class="layui-input" type="text" value="" >
                         </div>
                         <div class="layui-inline">
-                            <label class="layui-form-label">父亲<br>联系方式</label>
+                            <label class="layui-form-label">母亲<br>联系方式</label>
                             <div class="layui-input-inline">
-                                <input name="mphone" id="mphone" autocomplete="off" class="layui-input" type="text" value="" >
+                                <input name="mphone" id="mphone" autocomplete="off" class="layui-input" type="text" value="" maxlength="11" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">紧急联系人<br>姓名</label>
+                        <div class="layui-input-inline">
+                            <input name="emergencyname" id="emergencyname" autocomplete="off" lay-verify="required" class="layui-input" type="text" value="" >
+                        </div>
+                        <div class="layui-inline">
+                            <label class="layui-form-label">紧急联系人<br>联系方式</label>
+                            <div class="layui-input-inline">
+                                <input name="emergencyphone" id="emergencyphone" autocomplete="off" lay-verify="required" class="layui-input" type="text" value="" maxlength="11" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')">
                             </div>
                         </div>
                     </div>
@@ -72,14 +93,14 @@
                             <input name="hadress" id="hadress" autocomplete="off" class="layui-input" type="text" value="" >
                         </div>
                 </div>
-            </form>
-            <div class="layui-form-item">
-                <div class="layui-input-block">
-                    <button class="layui-btn" lay-submit="" lay-filter="updateinfo">立即修改</button>
-                    <input type="button" class="layui-btn layui-btn-danger dw-dailog" dw-url="updatepassword" dw-title="修改密码" value="修改密码">
-                    <input type="button" class="layui-btn layui-btn-warm" value="刷新" onclick="location.href='stuinfo'">
+                <br>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit="" lay-filter="updatehome">立即修改</button>
+                        <input type="button" class="layui-btn layui-btn-warm" value="刷新" onclick="location.href='/homeinfo'">
+                    </div>
                 </div>
-            </div>
+            </form>
         </div>
     </div>
 </div>
@@ -93,20 +114,23 @@
         type: 'POST',
         data:{"stuid": ${sessionScope.userinfo.stuid}},
         success: function (data) {
-            $("#stuid").val(data.homeinfo.stuid);
-            $("#name").val(data.homeinfo.stuinfo.sname);
             $("#fname").val(data.homeinfo.fname);
             $("#fphone").val(data.homeinfo.fphone);
             $("#mname").val(data.homeinfo.mname);
             $("#mphone").val(data.homeinfo.mphone);
+            $("#emergencyname").val(data.homeinfo.emergencyname);
+            $("#emergencyphone").val(data.homeinfo.emergencyphone);
             $("#hadress").val(data.homeinfo.hadress);
         }
     });
     layui.use(['form'], function(){
         var form = layui.form
-            ,$ = layui.jquery
+            ,layer = layui.layer
+            ,layedit = layui.layedit
+            ,laydate = layui.laydate
+            ,$ = layui.jquery;
 
-        form.on('submit(updateinfo)', function(data){
+        form.on('submit(updatehome)', function(data){
             var action = data.form.action;//表单提交URL地址
             console.log(JSON.stringify(data.field));//表单数据
             $.post(action,data.field,function(obj){

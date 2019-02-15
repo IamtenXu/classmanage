@@ -144,7 +144,7 @@ public class UserController {
         stuinfo.setSphoto(filename);
         stuService.updateStu(stuinfo);
         httpSession.setAttribute("userinfo",stuinfo);
-        return R.ok();
+        return R.ok("上传成功！");
     }
     public String uploadMethod(MultipartFile file) throws Exception {
         COSClientUtil cosClientUtil = new COSClientUtil();
@@ -164,7 +164,7 @@ public class UserController {
         teainfo.setTphoto(filename);
         teaService.updateTea(teainfo);
         httpSession.setAttribute("userinfo",teainfo);
-        return R.ok(filename);
+        return R.ok("上传成功！");
     }
     //学生修改个人信息
     @RequestMapping(value = "/updatestu", method = RequestMethod.POST)
@@ -235,6 +235,44 @@ public class UserController {
     public R stuhomeinfo(@RequestParam(value = "stuid",required=false,defaultValue="") String stuid) {
         Homeinfo homeinfo = homeService.queryHomeinfoByStuid(stuid);
         return R.ok().put("homeinfo", homeinfo);
+    }
+    //个人家庭信息
+    @RequestMapping(value = "/updatehome", method = RequestMethod.POST)
+    @ResponseBody
+    public R updatehome(@RequestParam String stuid,
+                        @RequestParam(value = "fname",required=false,defaultValue="") String fname,
+                        @RequestParam(value = "fphone",required=false,defaultValue="") String fphone,
+                        @RequestParam(value = "mname",required=false,defaultValue="") String mname,
+                        @RequestParam(value = "mphone",required=false,defaultValue="") String mphone,
+                        @RequestParam String emergencyname,
+                        @RequestParam String emergencyphone,
+                        @RequestParam(value = "hadress",required=false,defaultValue="") String hadress,
+                        HttpSession httpSession) {
+        if(stuid.equals("")){
+            Stuinfo stuinfo =(Stuinfo)httpSession.getAttribute("userinfo");
+            stuid= stuinfo.getStuid();
+        }
+        if(homeService.queryHomeinfoByStuid(stuid)==null){
+            if(fname.equals("")){
+                fname= null;
+            }
+            if(fphone.equals("")){
+                fphone=null;
+            }
+            if(mname.equals("")){
+                mname=null;
+            }
+            if(mphone.equals("")){
+                mphone=null;
+            }
+            if(hadress.equals("")){
+                hadress=null;
+            }
+            homeService.insertHomeinfo(stuid,fname,fphone,mname,mphone,emergencyname,emergencyphone,hadress);
+        }else{
+            homeService.updateHomeinfo(stuid,fname,fphone,mname,mphone,emergencyname,emergencyphone,hadress);
+        }
+        return R.ok();
     }
 
 

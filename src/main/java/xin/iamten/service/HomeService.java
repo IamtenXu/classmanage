@@ -10,8 +10,8 @@ public interface HomeService {
 
     List<Homeinfo> querhomelistByOthers(Homeinfo homeinfo);
 
-    boolean updateHomeinfo(Homeinfo homeinfo);
+    boolean updateHomeinfo(String stuid,String fname,String fphone,String mname,String mphone,String emergencyname,String emergencyphone,String hadress);
 
-    boolean insertHomeinfo(Homeinfo homeinfo);
+    boolean insertHomeinfo(String stuid,String fname,String fphone,String mname,String mphone,String emergencyname,String emergencyphone,String hadress);
 
 }

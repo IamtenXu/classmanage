@@ -127,7 +127,8 @@
             processData: false,
             contentType: false,
             success: function (data) {
-                alert(data.msg)
+                alert(data.msg);
+                location.reload();
             },
             error:function (XMLHttpRequest, textStatus, errorThrown) {
                 alert("请求失败！");
