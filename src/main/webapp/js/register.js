@@ -162,123 +162,123 @@ $(function(){
 	}
 
 	// 登录点击事件
-	// function sendBtn(){
-	// 	if (tab == 'account_number') {
-	// 		$(".log-btn").click(function(){
-	// 			// var type = 'phone';
-	// 			var inp = $.trim($('#num').val());
-	// 			var pass = $.trim($('#pass').val());
-	// 			if (checkAccount(inp) && checkPass(pass)) {
-	// 				var ldata = {"username":inp,"password":pass};
-	// 				if (!$('.code').hasClass('hide')) {
-	// 					code = $.trim($('#veri').val());
-	// 					if (!checkCode(code)) {
-	// 						return false;
-	// 					}
-	// 					ldata.code = code;
-	// 				}
-	// 				$.ajax({
-	// 		            url: '/user/login',
-	// 		            type: 'post',
-	// 		            // dataType: 'json',
-	// 		            // async: true,
-	// 		            data: ldata,
-	// 		            success:
-    //                     // function(data){
-	// 		            //     if (data.code == '0') {
-	// 		            //         // globalTip({'msg':'登录成功!','setTime':3,'jump':true,'URL':'http://www.ui.cn'});
-	// 		            //         globalTip(data.msg);
-	// 		            //     } else if(data.code == '2') {
-	// 		            //     	$(".log-btn").off('click').addClass("off");
-	// 		            //         $('.pass-err').removeClass('hide').find('em').text(data.msg);
-	// 		            //         $('.pass-err').find('i').attr('class', 'icon-warn').css("color","#d9585b");
-	// 		            //         $('.code').removeClass('hide');
-	// 		            //         $('.code').find('img').attr('src','/verifyCode?'+Math.random()).click(function(event) {
-	// 		            //         	$(this).attr('src', '/verifyCode?'+Math.random());
-	// 		            //         });;
-	// 		            //         return false;
-	// 		            //     } else if(data.code == '3') {
-	// 		            //     	$(".log-btn").off('click').addClass("off");
-	// 		            //         $('.img-err').removeClass('hide').find('em').text(data.msg);
-	// 		            //         $('.img-err').find('i').attr('class', 'icon-warn').css("color","#d9585b");
-	// 		            //         $('.code').removeClass('hide');
-	// 		            //         $('.code').find('img').attr('src','/verifyCode?'+Math.random()).click(function(event) {
-	// 		            //         	$(this).attr('src', '/verifyCode?'+Math.random());
-	// 		            //         });
-	// 		            //         return false;
-	// 		            //     } else if(data.code == '1'){
-	// 		            //     	$(".log-btn").off('click').addClass("off");
-	// 		            //     	$('.num-err').removeClass('hide').find('em').text(data.msg);
-	// 		            //     	$('.num-err').find('i').attr('class', 'icon-warn').css("color","#d9585b");
-	// 		            //     	return false;
-	// 		            //     }
-	// 		            // },
-    //                         function(data){
-    //                             if (data.code === 200) {
-    //                                 alert("登录成功");
-	// 								setCookie("username",data.login.username);
-	// 								setCookie("name",data.login.name);
-	// 								setCookie("login",data.login.status);
-	// 								setCookie("photo",data.login.photo);
-	// 								setCookie("role",data.login.role);
-    //                                window.location = "/iframe";
-    //                             } else if(data.code === 500) {
-    //                                 alert(data.msg);
-    //                             } else{
-	// 								alert("什么情况？");
-	// 							}
-    //                         },
-    //                     error:function(){
-    //                         alert("服务器错误");
-    //                     }
-	// 		        });
-	// 			} else {
-	// 				return false;
-	// 			}
-	// 		});
-	// 	} else {
-	// 		$(".log-btn").click(function(){
-	// 			// var type = 'phone';
-	// 			var phone = $.trim($('#num2').val());
-	// 			var pcode = $.trim($('#veri-code').val());
-	// 			if (checkPhone(phone) && checkPass(pcode)) {
-	// 				$.ajax({
-	// 		            url: '/plogin',
-	// 		            type: 'post',
-	// 		            dataType: 'json',
-	// 		            async: true,
-	// 		            data: {phone:phone,code:pcode},
-	// 		            success:function(data){
-	// 		                if (data.code === '200') {
-	// 		                	// globalTip({'msg':'登录成功!','setTime':3,'jump':true,'URL':'http://www.ui.cn'});
-	// 		                	globalTip(data.msg);
-	// 		                } else if(data.code === '1') {
-	// 		                	$(".log-btn").off('click').addClass("off");
-	// 		                    $('.num2-err').removeClass('hide').text(data.msg);
-	// 		                    return false;
-	// 		                } else if(data.code === '2') {
-	// 		                	$(".log-btn").off('click').addClass("off");
-	// 		                    $('.error').removeClass('hide').text(data.msg);
-	// 		                    return false;
-	// 		                }
-	// 		            },
-	// 		            error:function(){
-	//
-	// 		            }
-	// 		        });
-	// 			} else {
-	// 				$(".log-btn").off('click').addClass("off");
-	// 				// $('.tel-warn').removeClass('hide').text('登录失败');
-	// 				return false;
-	// 			}
-	// 		});
-	// 	}
-	// }
+	function sendBtn(){
+		if (tab == 'account_number') {
+			$(".log-btn").click(function(){
+				// var type = 'phone';
+				var inp = $.trim($('#num').val());
+				var pwd = $.trim($('#pwd').val());
+				var confirmpwd = $.trim($('#confirmpwd').val());
+				if(pwd !== confirmpwd){
+					alert("两次密码不一致，请重新输入");
+					return false;
+				}
+				if (checkAccount(inp) && checkPass(pwd)) {
+					var ldata = {"username":inp,"password":pwd};
+					if (!$('.code').hasClass('hide')) {
+						code = $.trim($('#veri').val());
+						if (!checkCode(code)) {
+							return false;
+						}
+						ldata.code = code;
+					}
+					$.ajax({
+			            url: '/user/register',
+			            type: 'post',
+			            // dataType: 'json',
+			            // async: true,
+			            data: ldata,
+			            success:
+                        // function(data){
+			            //     if (data.code == '0') {
+			            //         // globalTip({'msg':'登录成功!','setTime':3,'jump':true,'URL':'http://www.ui.cn'});
+			            //         globalTip(data.msg);
+			            //     } else if(data.code == '2') {
+			            //     	$(".log-btn").off('click').addClass("off");
+			            //         $('.pass-err').removeClass('hide').find('em').text(data.msg);
+			            //         $('.pass-err').find('i').attr('class', 'icon-warn').css("color","#d9585b");
+			            //         $('.code').removeClass('hide');
+			            //         $('.code').find('img').attr('src','/verifyCode?'+Math.random()).click(function(event) {
+			            //         	$(this).attr('src', '/verifyCode?'+Math.random());
+			            //         });;
+			            //         return false;
+			            //     } else if(data.code == '3') {
+			            //     	$(".log-btn").off('click').addClass("off");
+			            //         $('.img-err').removeClass('hide').find('em').text(data.msg);
+			            //         $('.img-err').find('i').attr('class', 'icon-warn').css("color","#d9585b");
+			            //         $('.code').removeClass('hide');
+			            //         $('.code').find('img').attr('src','/verifyCode?'+Math.random()).click(function(event) {
+			            //         	$(this).attr('src', '/verifyCode?'+Math.random());
+			            //         });
+			            //         return false;
+			            //     } else if(data.code == '1'){
+			            //     	$(".log-btn").off('click').addClass("off");
+			            //     	$('.num-err').removeClass('hide').find('em').text(data.msg);
+			            //     	$('.num-err').find('i').attr('class', 'icon-warn').css("color","#d9585b");
+			            //     	return false;
+			            //     }
+			            // },
+                            function(data){
+                                if (data.code === 200) {
+                                    alert(data.msg);
+                                   window.location = "/login";
+                                } else if(data.code === 500) {
+                                    alert(data.msg);
+                                } else{
+									alert("什么情况？");
+								}
+                            },
+                        error:function(){
+                            alert("服务器错误");
+                        }
+			        });
+				} else {
+					return false;
+				}
+			});
+		} else {
+			$(".log-btn").click(function(){
+				// var type = 'phone';
+				var phone = $.trim($('#num2').val());
+				var pcode = $.trim($('#veri-code').val());
+				if (checkPhone(phone) && checkPass(pcode)) {
+					$.ajax({
+			            url: '/plogin',
+			            type: 'post',
+			            dataType: 'json',
+			            async: true,
+			            data: {phone:phone,code:pcode},
+			            success:function(data){
+			                if (data.code === '200') {
+			                	// globalTip({'msg':'登录成功!','setTime':3,'jump':true,'URL':'http://www.ui.cn'});
+			                	globalTip(data.msg);
+			                } else if(data.code === '1') {
+			                	$(".log-btn").off('click').addClass("off");
+			                    $('.num2-err').removeClass('hide').text(data.msg);
+			                    return false;
+			                } else if(data.code === '2') {
+			                	$(".log-btn").off('click').addClass("off");
+			                    $('.error').removeClass('hide').text(data.msg);
+			                    return false;
+			                }
+			            },
+			            error:function(){
+
+			            }
+			        });
+				} else {
+					$(".log-btn").off('click').addClass("off");
+					// $('.tel-warn').removeClass('hide').text('登录失败');
+					return false;
+				}
+			});
+		}
+	}
 
 	// 登录的回车事件
 	$(window).keydown(function(event) {
     	if (event.keyCode == 13) {
-    		$('.log-btn').trigger('click');
+    		$('#register').trigger('click');
     	}
     });
 

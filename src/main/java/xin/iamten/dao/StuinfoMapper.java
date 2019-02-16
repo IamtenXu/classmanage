@@ -23,5 +23,7 @@ public interface StuinfoMapper {
 
     List<Stuinfo> selectstuByOthers(Stuinfo record);
 
+    List<Stuinfo> selectmanagerByOthers(Stuinfo record);
+
 
 }

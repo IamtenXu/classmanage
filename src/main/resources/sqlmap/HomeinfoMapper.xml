@@ -68,16 +68,16 @@
     from stuinfo,homeinfo,classinfo
     where stuinfo.stuid = homeinfo.stuid AND stuinfo.sclass = classinfo.classid
     <if test="stuinfo.classinfo.classid != null" >
-      AND classinfo.classid = #{classinfo.classid,jdbcType=CHAR}
+      AND classinfo.classid = #{stuinfo.classinfo.classid,jdbcType=CHAR}
     </if>
     <if test="stuinfo.classinfo.ccollege != null" >
-      AND classinfo.ccollege = #{classinfo.ccollege,jdbcType=VARCHAR}
+      AND classinfo.ccollege = #{stuinfo.classinfo.ccollege,jdbcType=VARCHAR}
     </if>
     <if test="stuinfo.classinfo.major != null" >
-      AND classinfo.major = #{classinfo.major,jdbcType=VARCHAR}
+      AND classinfo.major = #{stuinfo.classinfo.major,jdbcType=VARCHAR}
     </if>
     <if test="stuinfo.classinfo.cgrade != null" >
-      AND classinfo.cgrade = #{classinfo.cgrade,jdbcType=VARCHAR}
+      AND classinfo.cgrade = #{stuinfo.classinfo.cgrade,jdbcType=VARCHAR}
     </if>
   </select>
 

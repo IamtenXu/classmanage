@@ -6,6 +6,8 @@ public interface LoginuserService {
 
     Loginuser queryLoginuser(Loginuser loginuser);
 
-    Boolean updateLoginuser(Loginuser loginuser);
+    boolean updateLoginuser(Loginuser loginuser);
+
+    boolean insertLoginuser(Loginuser loginuser);
 
 }

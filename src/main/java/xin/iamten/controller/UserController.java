@@ -115,6 +115,53 @@ public class UserController {
         }
         return R.error("未知错误");
     }
+    //注册
+    @RequestMapping(value = "/register", method = RequestMethod.POST)
+    @ResponseBody
+    public R register(@RequestParam String username, @RequestParam String password) {
+        if (password.equals("")) {
+            return R.error("请输入正确格式的密码，不能为空！");
+        }
+        if(username.length()==8) {
+            Stuinfo stuinfo = new Stuinfo();
+            stuinfo.setStuid(username);
+            if (stuService.queryStu(stuinfo) == null) {
+                return R.error("请确认输入的学号是否正确，如果正确请联系辅导员，重新导入您的信息！");
+            } else {
+                stuinfo = stuService.queryStu(stuinfo);
+                Loginuser loginuser = new Loginuser();
+                loginuser.setUsername(username);
+                loginuser.setPassword(password);
+                loginuser.setRole(stuinfo.getSrole());
+                if (loginuserService.queryLoginuser(loginuser) != null) {
+                    return R.error("你的学号已被注册，如是本人注册请直接登录，如不是本人注册则尽快联系辅导员！");
+                } else {
+                    loginuserService.insertLoginuser(loginuser);
+                    return R.ok("注册成功！");
+                }
+            }
+        }else if(username.length()==5) {
+            Teainfo teainfo = new Teainfo();
+            teainfo.setTeaid(username);
+            if (teaService.queryTea(teainfo) == null) {
+                return R.error("请确认输入的工号是否正确，如果正确请联系人事处，重新导入您的信息！");
+            } else {
+                teainfo = teaService.queryTea(teainfo);
+                Loginuser loginuser = new Loginuser();
+                loginuser.setUsername(username);
+                loginuser.setPassword(password);
+                loginuser.setRole(teainfo.getTrole());
+                if (loginuserService.queryLoginuser(loginuser) != null) {
+                    return R.error("你的工号已被注册，如是本人注册请直接登录，如不是本人注册则尽快联系人事处！");
+                } else {
+                    loginuserService.insertLoginuser(loginuser);
+                    return R.ok("注册成功！");
+                }
+            }
+        }else{
+            return R.error("请重新确认您的工号/学号格式！");
+        }
+    }
     
     //修改密码
     @RequestMapping(value = "/updateallpassword", method = RequestMethod.POST)
@@ -236,7 +283,21 @@ public class UserController {
         Homeinfo homeinfo = homeService.queryHomeinfoByStuid(stuid);
         return R.ok().put("homeinfo", homeinfo);
     }
-    //个人家庭信息
+    //班级家庭信息
+    @RequestMapping(value = "/classhome", method = RequestMethod.GET)
+    @ResponseBody
+    public R classhome(@RequestParam String sclass) {
+        Classinfo classinfo = new Classinfo();
+        classinfo.setClassid(sclass);
+        Stuinfo stuinfo = new Stuinfo();
+        stuinfo.setClassinfo(classinfo);
+        Homeinfo homeinfo = new Homeinfo();
+        homeinfo.setStuinfo(stuinfo);
+        List<Homeinfo> homeinfos = homeService.querhomelistByOthers(homeinfo);
+        int count = homeinfos.size();
+        return R.ok().put("data", homeinfos).put("count",count);
+    }
+    //个人家庭信息修改
     @RequestMapping(value = "/updatehome", method = RequestMethod.POST)
     @ResponseBody
     public R updatehome(@RequestParam String stuid,

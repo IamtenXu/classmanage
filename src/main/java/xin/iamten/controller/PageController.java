@@ -8,6 +8,18 @@ import javax.servlet.http.HttpSession;
 @Controller
 public class PageController {
 
+    //登录
+    @RequestMapping("/login")
+    public String tologin(){
+        return "login";
+    }
+
+    //注册
+    @RequestMapping("/register")
+    public String toregister(){
+        return "register";
+    }
+
     //导航栏
     @RequestMapping("/iframe")
     public String toiframe(){
@@ -26,6 +38,12 @@ public class PageController {
     @RequestMapping("/homeinfo")
     public String tohomeinfo(){
         return "homeinfo";
+    }
+
+    //班长团支书学生家庭信息
+    @RequestMapping("/classhome")
+    public String toclasshome(){
+        return "classhome";
     }
 
     //学生个人信息
@@ -88,6 +106,12 @@ public class PageController {
         return "instructorclassmember";
     }
 
+    //辅导员班级家庭信息
+    @RequestMapping("/instructorclasshome")
+    public String toinstructorclasshome(){
+        return "instructorclasshome";
+    }
+
     //教务处教师信息
     @RequestMapping("/deanallteainfo")
     public String todeanallteainfo(){
@@ -98,6 +122,12 @@ public class PageController {
     @RequestMapping("/deanallstuinfo")
     public String todeanallstuinfo(){
         return "deanallstuinfo";
+    }
+
+    //教务处学生信息
+    @RequestMapping("/deanclassmanage")
+    public String todeanclassmanage(){
+        return "deanclassmanage";
     }
 
 }

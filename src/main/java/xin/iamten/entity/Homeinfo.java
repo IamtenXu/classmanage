@@ -19,6 +19,16 @@ public class Homeinfo {
 
     private Stuinfo stuinfo;
 
+//    private Classinfo classinfo;
+//
+//    public Classinfo getClassinfo() {
+//        return classinfo;
+//    }
+//
+//    public void setClassinfo(Classinfo classinfo) {
+//        this.classinfo = classinfo;
+//    }
+
     public Stuinfo getStuinfo() {
         return stuinfo;
     }

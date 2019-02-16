@@ -19,10 +19,18 @@ public class LoginuserServiceImpl implements LoginuserService {
     }
 
     @Override
-    public Boolean updateLoginuser(Loginuser loginuser) {
+    public boolean updateLoginuser(Loginuser loginuser) {
         if(loginuser==null)
             return false;
         loginuserMapper.updateByPrimaryKeySelective(loginuser);
+        return true;
+    }
+
+    @Override
+    public boolean insertLoginuser(Loginuser loginuser) {
+        if(loginuser==null)
+            return false;
+        loginuserMapper.insertSelective(loginuser);
         return true;
     }
 }

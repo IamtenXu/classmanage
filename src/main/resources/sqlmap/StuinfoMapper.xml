@@ -99,6 +99,25 @@
     </if>
   </select>
 
+  <select id="selectmanagerByOthers" resultMap="AddRoleResultMap" parameterType="xin.iamten.entity.Stuinfo" >
+    select
+    <include refid="RoleClass_Column_List" />
+    from stuinfo,roleinfo,classinfo
+    where stuinfo.srole = roleinfo.rcode AND stuinfo.sclass = classinfo.classid AND stuinfo.srole != 13
+    <if test="classinfo.classid != null" >
+      AND classinfo.classid = #{classinfo.classid,jdbcType=CHAR}
+    </if>
+    <if test="classinfo.ccollege != null" >
+      AND classinfo.ccollege = #{classinfo.ccollege,jdbcType=VARCHAR}
+    </if>
+    <if test="classinfo.major != null" >
+      AND classinfo.major = #{classinfo.major,jdbcType=VARCHAR}
+    </if>
+    <if test="classinfo.cgrade != null" >
+      AND classinfo.cgrade = #{classinfo.cgrade,jdbcType=VARCHAR}
+    </if>
+  </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from stuinfo
     where stuid = #{stuid,jdbcType=CHAR}

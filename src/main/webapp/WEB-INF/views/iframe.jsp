@@ -86,6 +86,11 @@
                         <dl class="layui-nav-child">
                             <dd><a href="/classmember" target="main_self_frame">成员列表</a></dd>
                         </dl>
+                    <c:if test="${getrole == '4'||getrole == '5'}">
+                        <dl class="layui-nav-child">
+                            <dd><a href="/classhome" target="main_self_frame">家庭信息</a></dd>
+                        </dl>
+                    </c:if>
                     </li>
                 </c:if>
                 <c:if test="${getrole == '2'}">
@@ -100,6 +105,9 @@
                         <dl class="layui-nav-child">
                             <dd><a href="/instructorclassmember" target="main_self_frame">成员列表</a></dd>
                         </dl>
+                        <dl class="layui-nav-child">
+                            <dd><a href="/instructorclasshome" target="main_self_frame">家庭信息</a></dd>
+                        </dl>
                     </li>
                 </c:if>
                 <c:if test="${getrole == '1'}">
@@ -110,6 +118,9 @@
                         </dl>
                         <dl class="layui-nav-child">
                             <dd><a href="/deanallstuinfo" target="main_self_frame">学生信息</a></dd>
+                        </dl>
+                        <dl class="layui-nav-child">
+                            <dd><a href="/deanclassmanage" target="main_self_frame">班委信息</a></dd>
                         </dl>
                     </li>
                 </c:if>

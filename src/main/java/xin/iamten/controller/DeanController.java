@@ -109,6 +109,28 @@ public class DeanController {
         int count = stuinfos.size();
         return R.ok().put("data", stuinfos).put("count",count);
     }
+    //教务处查看班委
+    @RequestMapping(value = "/classmanageinfo", method = RequestMethod.GET)
+    @ResponseBody
+    public R classmanageinfo(@RequestParam(value = "college",required=false,defaultValue="") String ccollege,
+                        @RequestParam(value = "major",required=false,defaultValue="") String major,
+                        @RequestParam(value = "cgrade",required=false,defaultValue="") String cgrade,
+                        @RequestParam(value = "classid",required=false,defaultValue="") String classid)throws Exception{
+        if(ccollege.equals("")){ ccollege = null; }
+        if(major.equals("")){ major = null; }
+        if(cgrade.equals("")){ cgrade = null; }
+        if(classid.equals("")){ classid = null; }
+        Classinfo classinfo = new Classinfo();
+        classinfo.setCcollege(ccollege);
+        classinfo.setMajor(major);
+        classinfo.setCgrade(cgrade);
+        classinfo.setClassid(classid);
+        Stuinfo stuinfo = new Stuinfo();
+        stuinfo.setClassinfo(classinfo);
+        List<Stuinfo> stuinfos=stuService.queryManageListByOthers(stuinfo);
+        int count = stuinfos.size();
+        return R.ok().put("data", stuinfos).put("count",count);
+    }
 
 
 }
