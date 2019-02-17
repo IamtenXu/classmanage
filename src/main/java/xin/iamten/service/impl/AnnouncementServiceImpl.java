@@ -28,4 +28,26 @@ public class AnnouncementServiceImpl implements AnnouncementService {
     public List<Announcement> queryBypublish(String publisher) {
         return announcementMapper.selectByPublisher(publisher);
     }
+
+    @Override
+    public List<Announcement> queryByHead(String sclass) {
+        return announcementMapper.selectByHead(sclass);
+    }
+
+    @Override
+    public boolean delById(Integer id) {
+        announcementMapper.deleteByPrimaryKey(id);
+        return true;
+    }
+
+    @Override
+    public boolean update(Announcement announcement) {
+        announcementMapper.updateByPrimaryKeySelective(announcement);
+        return true;
+    }
+
+    @Override
+    public Announcement queryByid(Integer id) {
+        return announcementMapper.selectByPrimaryKey(id);
+    }
 }

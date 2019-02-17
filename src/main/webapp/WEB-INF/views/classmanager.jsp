@@ -52,7 +52,7 @@
                 statusCode: 200 //规定成功的状态码，默认：0
             }
             ,where: {
-                sclass:${sessionScope.userinfo.sclass}
+                sclass:${sessionScope.classinfo.classid}
             }
             ,cellMinWidth: 75
             // ,cols: [[

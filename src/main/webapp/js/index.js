@@ -8,8 +8,8 @@ layui.use(['element','table','carousel'], function () {
         elem: '#test1'
         ,width: '100%' //设置容器宽度
         ,height: '100%'
-        ,arrow: 'always' //始终显示箭头
-        //,anim: 'updown' //切换动画方式
+        ,arrow: 'hover' //始终显示箭头
+        ,anim: 'default' //切换动画方式
     });
 
     table.render({

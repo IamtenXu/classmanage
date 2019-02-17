@@ -76,6 +76,25 @@ public class PageController {
         return "index";
     }
 
+    //通知
+    @RequestMapping("/announcement")
+    public String toannouncement(){
+        return "announcement";
+    }
+
+    //各班通知
+    @RequestMapping("/instrucetorannouncement")
+    public String toinstrucetorannouncement(){
+        return "instrucetorannouncement";
+    }
+
+    //修改通知
+    @RequestMapping("/updateannouncement")
+    public String updateannouncement(){
+        return "updateannouncement";
+    }
+
+
     //班委信息
     @RequestMapping("/classmanager")
     public String toclassmanager(){

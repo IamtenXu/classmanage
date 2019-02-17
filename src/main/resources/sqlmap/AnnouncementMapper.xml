@@ -50,15 +50,23 @@
     <include refid="Stu_Column_List" />
     from announcement,stuinfo
     where announcement.publisher = stuinfo.stuid AND stuinfo.sclass = #{sclass,jdbcType=VARCHAR}
-    ORDER BY `id` DESC
+    ORDER BY `atime` DESC
   </select>
 
   <select id="selectByTea" resultMap="StuTeaResultMap" parameterType="java.lang.String" >
     select
     <include refid="Tea_Column_List" />
     from announcement,teainfo,classinfo
-    where announcement.publisher = teainfo.teaid AND classinfo.classid = #{sclass,jdbcType=VARCHAR} AND classinfo.instructor = teainfo.teaid
-    ORDER BY `id` DESC
+    where announcement.publisher = teainfo.teaid AND classinfo.classid = #{sclass,jdbcType=VARCHAR} AND (classinfo.instructor = teainfo.teaid OR classinfo.headmaster = teainfo.teaid)
+    ORDER BY `atime` DESC
+  </select>
+
+  <select id="selectByHead" resultMap="StuTeaResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Tea_Column_List" />
+    from announcement,teainfo,classinfo
+    where announcement.publisher = teainfo.teaid AND classinfo.classid = #{sclass,jdbcType=VARCHAR} AND classinfo.headmaster = teainfo.teaid
+    ORDER BY `atime` DESC
   </select>
 
   <select id="selectByPublisher" resultMap="StuTeaResultMap" parameterType="java.lang.String" >
@@ -66,7 +74,7 @@
     <include refid="Tea_Column_List" />
     from announcement,teainfo
     where announcement.publisher = teainfo.teaid AND announcement.publisher = #{publisher,jdbcType=VARCHAR}
-    ORDER BY `id` DESC
+    ORDER BY `atime` DESC
   </select>
 
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
