@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="xin.iamten.dao.AnnouncementMapper" >
+  <resultMap id="BaseResultMap" type="xin.iamten.entity.Announcement" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="text" property="text" jdbcType="VARCHAR" />
+    <result column="atime" property="atime" jdbcType="VARCHAR" />
+    <result column="publisher" property="publisher" jdbcType="VARCHAR" />
+    <result column="atype" property="atype" jdbcType="CHAR" />
+  </resultMap>
+
+  <resultMap id="StuTeaResultMap" type="xin.iamten.entity.Announcement" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="title" property="title" jdbcType="VARCHAR" />
+    <result column="text" property="text" jdbcType="VARCHAR" />
+    <result column="atime" property="atime" jdbcType="VARCHAR" />
+    <result column="publisher" property="publisher" jdbcType="VARCHAR" />
+    <result column="atype" property="atype" jdbcType="CHAR" />
+    <association property="stuinfo" javaType="xin.iamten.entity.Stuinfo">
+      <id column="stuid" property="stuid" jdbcType="CHAR" />
+      <result column="sname" property="sname" jdbcType="VARCHAR" />
+    </association>
+    <association property="teainfo" javaType="xin.iamten.entity.Teainfo">
+      <id column="teaid" property="teaid" jdbcType="CHAR" />
+      <result column="tname" property="tname" jdbcType="VARCHAR" />
+    </association>
+  </resultMap>
+
+  <sql id="Stu_Column_List" >
+    announcement.*,stuinfo.*
+  </sql>
+  <sql id="Tea_Column_List" >
+    announcement.*,teainfo.*
+  </sql>
+
+  <sql id="Base_Column_List" >
+    id, title, text, atime, publisher, atype
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from announcement
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+
+  <select id="selectByClass" resultMap="StuTeaResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Stu_Column_List" />
+    from announcement,stuinfo
+    where announcement.publisher = stuinfo.stuid AND stuinfo.sclass = #{sclass,jdbcType=VARCHAR}
+    ORDER BY `id` DESC
+  </select>
+
+  <select id="selectByTea" resultMap="StuTeaResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Tea_Column_List" />
+    from announcement,teainfo,classinfo
+    where announcement.publisher = teainfo.teaid AND classinfo.classid = #{sclass,jdbcType=VARCHAR} AND classinfo.instructor = teainfo.teaid
+    ORDER BY `id` DESC
+  </select>
+
+  <select id="selectByPublisher" resultMap="StuTeaResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Tea_Column_List" />
+    from announcement,teainfo
+    where announcement.publisher = teainfo.teaid AND announcement.publisher = #{publisher,jdbcType=VARCHAR}
+    ORDER BY `id` DESC
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from announcement
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="xin.iamten.entity.Announcement" >
+    insert into announcement (id, title, text, 
+      atime, publisher, atype
+      )
+    values (#{id,jdbcType=INTEGER}, #{title,jdbcType=VARCHAR}, #{text,jdbcType=VARCHAR}, 
+      #{atime,jdbcType=VARCHAR}, #{publisher,jdbcType=VARCHAR}, #{atype,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="xin.iamten.entity.Announcement" >
+    insert into announcement
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="title != null" >
+        title,
+      </if>
+      <if test="text != null" >
+        text,
+      </if>
+      <if test="atime != null" >
+        atime,
+      </if>
+      <if test="publisher != null" >
+        publisher,
+      </if>
+      <if test="atype != null" >
+        atype,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="title != null" >
+        #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="text != null" >
+        #{text,jdbcType=VARCHAR},
+      </if>
+      <if test="atime != null" >
+        #{atime,jdbcType=VARCHAR},
+      </if>
+      <if test="publisher != null" >
+        #{publisher,jdbcType=VARCHAR},
+      </if>
+      <if test="atype != null" >
+        #{atype,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="xin.iamten.entity.Announcement" >
+    update announcement
+    <set >
+      <if test="title != null" >
+        title = #{title,jdbcType=VARCHAR},
+      </if>
+      <if test="text != null" >
+        text = #{text,jdbcType=VARCHAR},
+      </if>
+      <if test="atime != null" >
+        atime = #{atime,jdbcType=VARCHAR},
+      </if>
+      <if test="publisher != null" >
+        publisher = #{publisher,jdbcType=VARCHAR},
+      </if>
+      <if test="atype != null" >
+        atype = #{atype,jdbcType=CHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="xin.iamten.entity.Announcement" >
+    update announcement
+    set title = #{title,jdbcType=VARCHAR},
+      text = #{text,jdbcType=VARCHAR},
+      atime = #{atime,jdbcType=VARCHAR},
+      publisher = #{publisher,jdbcType=VARCHAR},
+      atype = #{atype,jdbcType=CHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

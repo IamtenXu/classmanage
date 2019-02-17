@@ -58,7 +58,7 @@
         <div class="layui-side-scroll">
             <!-- 左侧导航区域（可配合layui已有的垂直导航） -->
             <ul class="layui-nav layui-nav-tree">
-                <li class="layui-nav-item "><a href="index" target="main_self_frame">首页</a></li>
+                <li class="layui-nav-item "><a href="/index" target="main_self_frame">首页</a></li>
                 <li class="layui-nav-item">
                     <a href="javascript:;">
                         个人

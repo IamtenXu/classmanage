@@ -1,6 +1,5 @@
 package xin.iamten.controller;
 
-import org.apache.xmlbeans.impl.xb.xsdschema.Public;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,6 +38,9 @@ public class UserController {
 
     @Autowired
     private HomeService homeService;
+
+    @Autowired
+    private AnnouncementService announcementService;
 
     //登录
     @RequestMapping(value = "/login", method = RequestMethod.POST)
@@ -335,7 +337,26 @@ public class UserController {
         }
         return R.ok();
     }
-
-
+    //班级通知
+    @RequestMapping(value = "/announcementClass", method = RequestMethod.GET)
+    @ResponseBody
+    public R announcementList(@RequestParam String sclass) {
+        List<Announcement> announcements = announcementService.queryByClass(sclass);
+        return R.ok().put("data",announcements);
+    }
+    //辅导员通知T
+    @RequestMapping(value = "/announcementTea", method = RequestMethod.GET)
+    @ResponseBody
+    public R announcementTea(@RequestParam String sclass) {
+        List<Announcement> announcements = announcementService.queryByTea(sclass);
+        return R.ok().put("data",announcements);
+    }
+    //辅导员通知
+    @RequestMapping(value = "/Teaannouncement", method = RequestMethod.GET)
+    @ResponseBody
+    public R Teaannouncement(@RequestParam String publisher) {
+        List<Announcement> announcements = announcementService.queryBypublish(publisher);
+        return R.ok().put("data",announcements);
+    }
 
 }
