@@ -23,6 +23,12 @@
                 <legend>修改通知</legend>
                 <div class="layui-field-box">
                     <form class="layui-form" action="/user/updateAnnouncement">
+                        <div class="layui-form-item" style="display:none;">
+                            <label class="layui-form-label">id</label>
+                            <div class="layui-input-inline">
+                                <input type="text" id='id' name="id" required  lay-verify="required" autocomplete="off" class="layui-input">
+                            </div>
+                        </div>
                         <div class="layui-form-item">
                             <label class="layui-form-label">标题</label>
                             <div class="layui-input-inline">
@@ -38,7 +44,7 @@
                         <div class="layui-form-item">
                             <label class="layui-form-label">时间</label>
                             <div class="layui-input-inline">
-                                <input name="atime" class="layui-input" id="date" type="text" placeholder="yyyy-MM-dd HH:mm:ss" autocomplete="off" lay-verify="date">
+                                <input name="atime" class="layui-input" id="datetime" type="text" placeholder="yyyy-MM-dd HH:mm:ss" autocomplete="off" lay-verify="datetime">
                             </div>
                         </div>
                         <div class="layui-form-item">
@@ -60,6 +66,7 @@
 <script type="text/javascript" src="layui/layui.js"></script>
 <script type="text/javascript" src="js/cookie.js"></script>
 <script type="text/javascript" src="js/textarea.js"></script>
+<script type="text/javascript" src="js/time.js"></script>
 </body>
 <script>
     $.ajax({
@@ -68,6 +75,7 @@
         type: 'POST',
         data: {"id":${param.id}},
         success: function (data) {
+            $("#id").val(data.announcement.id);
             $("#title").val(data.announcement.title);
             $("#textarea").val(data.announcement.text);
         }
@@ -92,9 +100,10 @@
         });
         //执行一个laydate实例
         laydate.render({
-            elem: '#date' //指定元素
+            elem: '#datetime' //指定元素
             ,type: 'datetime'
-            ,value: new Date()
+            ,format: 'yyyy-MM-dd HH:mm:ss' //可任意组合
+            ,value: getNowFormatDate()
         });
     });
 </script>

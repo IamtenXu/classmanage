@@ -169,10 +169,6 @@
                         return false;
                     }
                 })
-                //     , function(value, index){
-                //     //这里一般是发送修改的Ajax请求
-                //     permissionedit(data,value,index,obj);
-                // };
             }else if(obj.event === 'del'){
                 layer.confirm('确定要删除这条通知吗？', function(index){
                     console.log(data);
@@ -195,59 +191,6 @@
                     });
                 });
             }
-        });
-        // function  permissionedit(data,value,index,obj) {
-        //     $.ajax({
-        //         url: "permissionedit",
-        //         type: "POST",
-        //         data:{"username":data.username,"permission":value},
-        //         dataType: "json",
-        //         success: function(data){
-        //             if(data.code===0){
-        //                 //关闭弹框
-        //                 layer.close(index);
-        //                 //同步更新表格和缓存对应的值
-        //                 obj.update({
-        //                     permission: value
-        //                 });
-        //                 layer.msg("修改成功", {icon: 6});
-        //             }else{
-        //                 layer.msg("修改失败", {icon: 5});
-        //             }
-        //         }
-        //     });
-        // }
-        $(".dw-dailog").click(function(){
-            var dw_url = $(this).attr("dw-url");//URL地址，必填
-            var dw_title = $(this).attr("dw-title");//弹出层标题，必填
-            var dw_width = $(this).attr("dw-width");//弹出层宽度，如80%或500px；如果没有默认为屏幕宽度的50%
-            var dw_height = $(this).attr("dw-height");//弹出层高度，如50%或500px；如果没有默认为屏幕高度的50%
-            if(dw_url == undefined) {
-                layer.msg("请给button加上dw-url属性");
-                return false;
-            }
-            if(dw_title == undefined) {
-                layer.msg("请给button加上dw-title属性");
-                return false;
-            }
-            if(dw_width == undefined) dw_width = '30%';
-            if(dw_height == undefined) dw_height = '60%';
-            layer.open({
-                type: 2,
-                title: dw_title,
-                shadeClose: true,
-                shade: 0.8,
-                area: [dw_width, dw_height],
-                content: dw_url,
-                end: function () {
-                    location.reload();
-                }
-                ,cancel: function () {
-                    layer.closeAll();
-                    location.reload();
-                    return false;
-                }
-            });
         });
         </c:if>
     });
