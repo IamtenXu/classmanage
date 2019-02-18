@@ -71,6 +71,7 @@
     <include refid="Role_Column_List" />
     from stuinfo,roleinfo
     where sclass = #{sclass,jdbcType=VARCHAR} AND srole != 13 AND stuinfo.srole = roleinfo.rcode
+    order by srole
   </select>
 
   <select id="selectclassmember" resultMap="AddRoleResultMap" parameterType="java.lang.String" >
@@ -78,6 +79,7 @@
     <include refid="Role_Column_List" />
     from stuinfo,roleinfo
     where sclass = #{sclass,jdbcType=VARCHAR} AND stuinfo.srole = roleinfo.rcode
+    order by stuid
   </select>
 
   <select id="selectstuByOthers" resultMap="AddRoleResultMap" parameterType="xin.iamten.entity.Stuinfo" >
