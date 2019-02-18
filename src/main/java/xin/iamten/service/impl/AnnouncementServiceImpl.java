@@ -25,8 +25,13 @@ public class AnnouncementServiceImpl implements AnnouncementService {
     }
 
     @Override
-    public List<Announcement> queryBypublish(String publisher) {
-        return announcementMapper.selectByPublisher(publisher);
+    public List<Announcement> queryBypublishTea(String publisher) {
+        return announcementMapper.selectByPublisherTea(publisher);
+    }
+
+    @Override
+    public List<Announcement> queryBypublishStu(String publisher) {
+        return announcementMapper.selectByPublisherStu(publisher);
     }
 
     @Override
@@ -49,5 +54,14 @@ public class AnnouncementServiceImpl implements AnnouncementService {
     @Override
     public Announcement queryByid(Integer id) {
         return announcementMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public boolean publish(Announcement announcement) {
+        if(announcement==null){
+            return false;
+        }
+        System.out.println(announcementMapper.insertSelective(announcement));
+        return true;
     }
 }

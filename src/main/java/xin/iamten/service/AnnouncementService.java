@@ -9,7 +9,10 @@ public interface AnnouncementService {
 
     List<Announcement> queryByTea(String classid);
 
-    List<Announcement> queryBypublish(String publisher);
+    List<Announcement> queryBypublishTea(String publisher);
+
+    List<Announcement> queryBypublishStu(String publisher);
+
 
     List<Announcement> queryByHead(String sclass);
 
@@ -18,4 +21,6 @@ public interface AnnouncementService {
     boolean update(Announcement announcement);
 
     Announcement queryByid(Integer id);
+
+    boolean publish(Announcement announcement);
 }

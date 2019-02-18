@@ -69,11 +69,19 @@
     ORDER BY `atime` DESC
   </select>
 
-  <select id="selectByPublisher" resultMap="StuTeaResultMap" parameterType="java.lang.String" >
+  <select id="selectByPublisherTea" resultMap="StuTeaResultMap" parameterType="java.lang.String" >
     select
     <include refid="Tea_Column_List" />
     from announcement,teainfo
     where announcement.publisher = teainfo.teaid AND announcement.publisher = #{publisher,jdbcType=VARCHAR}
+    ORDER BY `atime` DESC
+  </select>
+
+  <select id="selectByPublisherStu" resultMap="StuTeaResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Stu_Column_List" />
+    from announcement,stuinfo
+    where announcement.publisher = stuinfo.stuid AND announcement.publisher = #{publisher,jdbcType=VARCHAR}
     ORDER BY `atime` DESC
   </select>
 

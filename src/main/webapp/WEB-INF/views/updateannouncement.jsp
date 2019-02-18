@@ -22,7 +22,7 @@
             <fieldset class="layui-elem-field">
                 <legend>修改通知</legend>
                 <div class="layui-field-box">
-                    <form class="layui-form" action="/user/updateAnnouncement">
+                    <form class="layui-form" action="/announcement/updateAnnouncement">
                         <div class="layui-form-item" style="display:none;">
                             <label class="layui-form-label">id</label>
                             <div class="layui-input-inline">
@@ -70,7 +70,7 @@
 </body>
 <script>
     $.ajax({
-        url: '/user/announcementById',
+        url: '/announcement/announcementById',
         dataType: 'json',
         type: 'POST',
         data: {"id":${param.id}},

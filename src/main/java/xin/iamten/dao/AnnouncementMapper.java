@@ -21,7 +21,9 @@ public interface AnnouncementMapper {
 
     List<Announcement> selectByTea(String sclass);
 
-    List<Announcement> selectByPublisher(String publisher);
+    List<Announcement> selectByPublisherStu(String publisher);
+
+    List<Announcement> selectByPublisherTea(String publisher);
 
     List<Announcement> selectByHead(String sclass);
 }

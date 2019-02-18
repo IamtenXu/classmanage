@@ -22,14 +22,20 @@
     <div class="layui-header">
         <div class="layui-logo"><font size="5">班级事务处理系统</font></div>
         <!-- 头部区域（可配合layui已有的水平导航） -->
-        <c:if test="${getrole != '1'}">
             <ul class="layui-nav layui-layout-left">
+                <c:if test="${getrole != '1'&&getrole != '2'}">
                 <li class="layui-nav-item"><a href="/announcement" target="main_self_frame">通知</a></li>
+                </c:if>
             <c:if test="${getrole == '2'}">
                 <li class="layui-nav-item"><a href="/instrucetorannouncement" target="main_self_frame">各班通知</a></li>
             </c:if>
+            <c:if test="${getrole == '2'||getrole == '3'||getrole == '4'||getrole == '5'}">
+                <li class="layui-nav-item"><a href="/announcementpublish" target="main_self_frame">发布通知</a></li>
+            </c:if>
+            <c:if test="${getrole == '2'||getrole == '3'||getrole == '4'||getrole == '5'}">
+                <li class="layui-nav-item"><a href="/announcementfinished" target="main_self_frame">已发通知</a></li>
+            </c:if>
             </ul>
-        </c:if>
         <ul class="layui-nav layui-layout-right">
             <li class="layui-nav-item">
                 <c:if test="${getrole == '1'||getrole == '2'||getrole == '3'}">

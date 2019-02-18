@@ -337,59 +337,5 @@ public class UserController {
         }
         return R.ok("修改成功！");
     }
-    //班级通知
-    @RequestMapping(value = "/announcementClass", method = RequestMethod.GET)
-    @ResponseBody
-    public R announcementList(@RequestParam String sclass) {
-        List<Announcement> announcements = announcementService.queryByClass(sclass);
-        return R.ok().put("data",announcements);
-    }
-    //单个通知
-    @RequestMapping(value = "/announcementById", method = RequestMethod.POST)
-    @ResponseBody
-    public R announcementById(@RequestParam Integer id) {
-        Announcement announcement = announcementService.queryByid(id);
-        return R.ok().put("announcement",announcement);
-    }
-    //辅导员/班主任通知
-    @RequestMapping(value = "/announcementTea", method = RequestMethod.GET)
-    @ResponseBody
-    public R announcementTea(@RequestParam String sclass) {
-        List<Announcement> announcements = announcementService.queryByTea(sclass);
-        return R.ok().put("data",announcements);
-    }
-    //班主任通知
-    @RequestMapping(value = "/announcementHead", method = RequestMethod.GET)
-    @ResponseBody
-    public R announcementHead(@RequestParam String sclass) {
-        List<Announcement> announcements = announcementService.queryByHead(sclass);
-        return R.ok().put("data",announcements);
-    }
-    //辅导员已发布通知deletAnnouncement
-    @RequestMapping(value = "/Teaannouncement", method = RequestMethod.GET)
-    @ResponseBody
-    public R Teaannouncement(@RequestParam String publisher) {
-        List<Announcement> announcements = announcementService.queryBypublish(publisher);
-        return R.ok().put("data",announcements);
-    }
-    //辅导员删除已发布的通知
-    @RequestMapping(value = "/deletAnnouncement", method = RequestMethod.POST)
-    @ResponseBody
-    public R deletAnnouncement(@RequestParam Integer id) {
-        announcementService.delById(id);
-        return R.ok();
-    }
-    //辅导员修改已发布的通知
-    @RequestMapping(value = "/updateAnnouncement", method = RequestMethod.POST)
-    @ResponseBody
-    public R updateAnnouncement(@RequestParam Integer id,@RequestParam String title,@RequestParam String text,@RequestParam String atime) {
-        Announcement announcement = new Announcement();
-        announcement.setId(id);
-        announcement.setTitle(title);
-        announcement.setText(text);
-        announcement.setAtime(atime);
-        announcementService.update(announcement);
-        return R.ok();
-    }
 
 }

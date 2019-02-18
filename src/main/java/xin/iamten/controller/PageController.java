@@ -149,4 +149,16 @@ public class PageController {
         return "deanclassmanage";
     }
 
+    //发布通知
+    @RequestMapping("/announcementpublish")
+    public String toannouncementpublish(){
+        return "announcementpublish";
+    }
+
+    //发布通知
+    @RequestMapping("/announcementfinished")
+    public String toannouncementfinished(){
+        return "announcementfinished";
+    }
+
 }

@@ -72,7 +72,7 @@
         //方法级渲染
         table.render({
             elem: '#LAY_table_user'
-            ,url: '/user/announcementClass'
+            ,url: '/announcement/announcementClass'
             ,skin: 'line' //行边框风格
             ,size: 'lg' //小尺寸的表格
             // ,even: true //开启隔行背景
@@ -97,7 +97,7 @@
         });
         table.render({
             elem: '#LAY_table_tea'
-            ,url: '/user/announcementHead'
+            ,url: '/announcement/announcementHead'
             ,skin: 'line' //行边框风格
             ,size: 'lg' //小尺寸的表格
             // ,even: true //开启隔行背景
