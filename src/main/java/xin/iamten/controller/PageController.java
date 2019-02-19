@@ -161,4 +161,11 @@ public class PageController {
         return "announcementfinished";
     }
 
+    //离校登记
+    @RequestMapping("/holiday")
+    public String toholiday(){
+        return "holiday";
+    }
+
+
 }

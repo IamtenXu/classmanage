@@ -137,8 +137,9 @@
                 <li class="layui-nav-item">
                     <a href="javascript:;">班级事务</a>
                     <dl class="layui-nav-child">
-                        <dd><a href="toholiday" target="main_self_frame">法定节假日离校登记</a></dd>
-                        <dd><a href="tovacation" target="main_self_frame">寒暑假离校情况</a></dd>
+                        <c:if test="${getrole != '1'&&getrole != '2'&&getrole != '3'}">
+                            <dd><a href="/holiday" target="main_self_frame">节假日离校登记</a></dd>
+                        </c:if>
                         <dd><a href="tofuture" target="main_self_frame">实习考研情况</a></dd>
                     </dl>
                 </li>
