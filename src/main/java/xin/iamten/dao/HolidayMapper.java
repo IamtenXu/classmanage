@@ -16,4 +16,6 @@ public interface HolidayMapper {
     int updateByPrimaryKey(Holiday record);
 
     Holiday selectIson();
+
+    Holiday selectByHolidayname(String holidayname);
 }

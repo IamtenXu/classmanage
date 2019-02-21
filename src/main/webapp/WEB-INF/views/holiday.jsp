@@ -21,7 +21,7 @@
             <fieldset class="layui-elem-field layui-field-title" style="margin-top: 15px;">
                 <legend>假日离校登记</legend>
             </fieldset>
-            <form class="layui-form" action="holidaycheck" lay-filter="example">
+            <form class="layui-form" action="/holiday/holidaycheck" lay-filter="example">
                 <div class="layui-form-item">
                     <div class="layui-inline">
                         <label class="layui-form-label">节假日</label>
@@ -30,11 +30,11 @@
                         </div>
                         <label class="layui-form-label"><font color="red" size="4">*</font>离校日期</label>
                         <div class="layui-input-inline">
-                            <input name="starttime" class="layui-input" placeholder="必填" id="starttime" type="text" placeholder="yyyy-MM-dd" autocomplete="off" lay-verify="date" value="" readonly>
+                            <input name="leavetime" class="layui-input" placeholder="必填" id="starttime" type="text" placeholder="yyyy-MM-dd" autocomplete="off" lay-verify="date" value="">
                         </div>
                         <label class="layui-form-label"><font color="red" size="4">*</font>回校日期</label>
                         <div class="layui-input-inline">
-                            <input name="endtime" class="layui-input" placeholder="必填" id="endtime" type="text" placeholder="yyyy-MM-dd" autocomplete="off" lay-verify="date" value="" readonly>
+                            <input name="backtime" class="layui-input" placeholder="必填" id="endtime" type="text" placeholder="yyyy-MM-dd" autocomplete="off" lay-verify="date" value="">
                         </div>
                     </div>
                 </div>
@@ -46,15 +46,15 @@
                         </div>
                         <label class="layui-form-label">学号</label>
                         <div class="layui-input-inline">
-                            <input name="studentid"  autocomplete="off" placeholder="必填" class="layui-input" type="text" value="${sessionScope.userinfo.stuid}" readonly>
+                            <input name="stuid"  autocomplete="off" placeholder="必填" class="layui-input" type="text" value="${sessionScope.userinfo.stuid}" readonly>
                         </div>
                         <label class="layui-form-label">姓名</label>
                         <div class="layui-input-inline">
-                            <input name="myname"  autocomplete="off" placeholder="必填" class="layui-input" type="text" value="${sessionScope.userinfo.sname}" readonly>
+                            <input name="name"  autocomplete="off" placeholder="必填" class="layui-input" type="text" value="${sessionScope.userinfo.sname}" readonly>
                         </div>
                         <label class="layui-form-label"><font color="red" size="4">*</font>联系方式</label>
                         <div class="layui-input-inline">
-                            <input name="myphone"  autocomplete="off" placeholder="必填" class="layui-input" type="text" maxlength="11" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" value="${sessionScope.userinfo.sphone}" >
+                            <input name="phone"  autocomplete="off" placeholder="必填" class="layui-input" type="text" maxlength="11" onkeyup="this.value=this.value.replace(/\D/g,'')" onafterpaste="this.value=this.value.replace(/\D/g,'')" value="${sessionScope.userinfo.sphone}" >
                         </div>
                     </div>
                 </div>
@@ -62,11 +62,11 @@
                     <div class="layui-inline">
                         <label class="layui-form-label"><font color="red" size="4">*</font>节日去向</label>
                         <div class="layui-input-inline">
-                            <select name="gotowhere"  lay-verify="required">
-                                <option></option>
-                                <option>留校</option>
-                                <option>回家</option>
-                                <option>旅游</option>
+                            <select id="gotowhere" name="gotowhere"  lay-verify="required">
+                                <option value=""></option>
+                                <option value="留校">留校</option>
+                                <option value="回家">回家</option>
+                                <option value="旅游">旅游</option>
                             </select>
                         </div>
                         <label class="layui-form-label"><font color="red" size="4">*</font>目的地（省）</label>
@@ -128,6 +128,7 @@
                 ,layer = layui.layer
                 ,laydate = layui.laydate
                 ,$ = layui.jquery;
+
         $.ajax({
             url: '/user/stuhomeinfo',
             dataType: 'json',
@@ -136,16 +137,6 @@
             success: function (data) {
                 $("#emergencyname").val(data.homeinfo.emergencyname);
                 $("#emergencyphone").val(data.homeinfo.emergencyphone);
-            }
-        });
-        $.ajax({
-            url: '/holiday/holidayison',
-            dataType: 'json',
-            type: 'POST',
-            success: function (data) {
-                $("#holidayname").val(data.holiday.holidayname);
-                $("#starttime").val(data.holiday.starttime);
-                $("#endtime").val(data.holiday.endtime);
             }
         });
         $.ajax({
@@ -161,6 +152,66 @@
                 $("#area").empty();
                 $('#area').append(new Option('',''));
                 layui.form.render("select");//重新渲染 固定写法
+            }
+        });
+        $.ajax({
+            url: '/holiday/holidayison',
+            dataType: 'json',
+            type: 'POST',
+            success: function (data) {
+                $("#holidayname").val(data.holiday.holidayname);
+                $("#starttime").val(data.holiday.starttime);
+                $("#endtime").val(data.holiday.endtime);
+                $.ajax({
+                    url: '/holiday/holidaychecked',
+                    dataType: 'json',
+                    type: 'POST',
+                    data:{"stuid": ${sessionScope.userinfo.stuid},"holidayname":data.holiday.holidayname},
+                    success: function (data) {
+                        if(data.checked===1){
+                            var province = data.holidaycheck.province;
+                            var city = data.holidaycheck.city;
+                            var area = data.holidaycheck.area;
+                            $("#gotowhere").val(data.holidaycheck.gotowhere);
+                            form.render('select');
+                            $("#province").val(data.holidaycheck.province);
+                            form.render('select');
+                            $.ajax({
+                                url: '/city/cityselect',
+                                dataType: 'json',
+                                type: 'POST',
+                                data:{"provincecode": province},
+                                success: function (data) {
+                                    $("#city").empty();
+                                    $('#city').append(new Option('',''));
+                                    $.each(data.city, function (index, item) {
+                                        $('#city').append(new Option(item.name, item.code));// 下拉菜单里添加元素
+                                    });
+                                    $("#area").empty();
+                                    $('#area').append(new Option('',''));
+                                    $("#city").val(city);
+                                    layui.form.render("select");//重新渲染 固定写法
+                                }
+                            });
+                            $.ajax({
+                                url: '/city/areaselect',
+                                dataType: 'json',
+                                type: 'POST',
+                                data:{"citycode": city},
+                                success: function (data) {
+                                    $("#area").empty();
+                                    $('#area').append(new Option('',''));
+                                    $.each(data.area, function (index, item) {
+                                        $('#area').append(new Option(item.name, item.code));// 下拉菜单里添加元素
+                                    });
+                                    $("#area").val(area);
+                                    layui.form.render("select");//重新渲染 固定写法
+                                }
+                            });
+                            form.render('select');
+                        }
+                    }
+                });
             }
         });
         form.on('select(provinceFilter)', function(data){
@@ -220,15 +271,13 @@
         form.on('submit(holidaycheck)', function(data){
             var action = data.form.action;//表单提交URL地址
             console.log(JSON.stringify(data.field));//表单数据
-            var a = $("#fatherphone").val();
-            var b = $("#motherphone").val();
             var c = $("#emergencyphone").val();
             if(getByteLen(c)!==11){
                 alert("请输入正确的手机号码");
                 return false;
             }
             $.post(action, data.field, function (obj) {
-                if (obj.code !== 0) {
+                if (obj.code !== 200) {
                     alert(obj.msg);
                     return false;
                 } else {

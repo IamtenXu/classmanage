@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="xin.iamten.dao.HolidaycheckMapper" >
+  <resultMap id="BaseResultMap" type="xin.iamten.entity.Holidaycheck" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="holidayname" property="holidayname" jdbcType="VARCHAR" />
+    <result column="leavetime" property="leavetime" jdbcType="VARCHAR" />
+    <result column="backtime" property="backtime" jdbcType="VARCHAR" />
+    <result column="classid" property="classid" jdbcType="CHAR" />
+    <result column="stuid" property="stuid" jdbcType="CHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="phone" property="phone" jdbcType="CHAR" />
+    <result column="gotowhere" property="gotowhere" jdbcType="VARCHAR" />
+    <result column="province" property="province" jdbcType="VARCHAR" />
+    <result column="city" property="city" jdbcType="VARCHAR" />
+    <result column="area" property="area" jdbcType="VARCHAR" />
+    <result column="emergencyname" property="emergencyname" jdbcType="VARCHAR" />
+    <result column="emergencyphone" property="emergencyphone" jdbcType="CHAR" />
+    <result column="note" property="note" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, holidayname, leavetime, backtime, classid, stuid, name, phone, gotowhere, province, 
+    city, area, emergencyname, emergencyphone, note
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select
+    <include refid="Base_Column_List" />
+    from holidaycheck
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <select id="selectByHolidaynameAndStuid" resultMap="BaseResultMap" parameterType="xin.iamten.entity.Holidaycheck" >
+    select
+    <include refid="Base_Column_List" />
+    from holidaycheck
+    where holidayname = #{holidayname,jdbcType=VARCHAR} AND stuid = #{stuid,jdbcType=VARCHAR}
+  </select>
+  <select id="selectByHolidayname" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Base_Column_List" />
+    from holidaycheck
+    where holidayname = #{holidayname,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from holidaycheck
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="xin.iamten.entity.Holidaycheck" >
+    insert into holidaycheck (id, holidayname, leavetime, 
+      backtime, classid, stuid, 
+      name, phone, gotowhere, 
+      province, city, area, 
+      emergencyname, emergencyphone, note
+      )
+    values (#{id,jdbcType=INTEGER}, #{holidayname,jdbcType=VARCHAR}, #{leavetime,jdbcType=VARCHAR}, 
+      #{backtime,jdbcType=VARCHAR}, #{classid,jdbcType=CHAR}, #{stuid,jdbcType=CHAR}, 
+      #{name,jdbcType=VARCHAR}, #{phone,jdbcType=CHAR}, #{gotowhere,jdbcType=VARCHAR}, 
+      #{province,jdbcType=VARCHAR}, #{city,jdbcType=VARCHAR}, #{area,jdbcType=VARCHAR}, 
+      #{emergencyname,jdbcType=VARCHAR}, #{emergencyphone,jdbcType=CHAR}, #{note,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="xin.iamten.entity.Holidaycheck" >
+    insert into holidaycheck
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="holidayname != null" >
+        holidayname,
+      </if>
+      <if test="leavetime != null" >
+        leavetime,
+      </if>
+      <if test="backtime != null" >
+        backtime,
+      </if>
+      <if test="classid != null" >
+        classid,
+      </if>
+      <if test="stuid != null" >
+        stuid,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="phone != null" >
+        phone,
+      </if>
+      <if test="gotowhere != null" >
+        gotowhere,
+      </if>
+      <if test="province != null" >
+        province,
+      </if>
+      <if test="city != null" >
+        city,
+      </if>
+      <if test="area != null" >
+        area,
+      </if>
+      <if test="emergencyname != null" >
+        emergencyname,
+      </if>
+      <if test="emergencyphone != null" >
+        emergencyphone,
+      </if>
+      <if test="note != null" >
+        note,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="holidayname != null" >
+        #{holidayname,jdbcType=VARCHAR},
+      </if>
+      <if test="leavetime != null" >
+        #{leavetime,jdbcType=VARCHAR},
+      </if>
+      <if test="backtime != null" >
+        #{backtime,jdbcType=VARCHAR},
+      </if>
+      <if test="classid != null" >
+        #{classid,jdbcType=CHAR},
+      </if>
+      <if test="stuid != null" >
+        #{stuid,jdbcType=CHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=CHAR},
+      </if>
+      <if test="gotowhere != null" >
+        #{gotowhere,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyname != null" >
+        #{emergencyname,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyphone != null" >
+        #{emergencyphone,jdbcType=CHAR},
+      </if>
+      <if test="note != null" >
+        #{note,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="xin.iamten.entity.Holidaycheck" >
+    update holidaycheck
+    <set >
+      <if test="holidayname != null" >
+        holidayname = #{holidayname,jdbcType=VARCHAR},
+      </if>
+      <if test="leavetime != null" >
+        leavetime = #{leavetime,jdbcType=VARCHAR},
+      </if>
+      <if test="backtime != null" >
+        backtime = #{backtime,jdbcType=VARCHAR},
+      </if>
+      <if test="classid != null" >
+        classid = #{classid,jdbcType=CHAR},
+      </if>
+      <if test="stuid != null" >
+        stuid = #{stuid,jdbcType=CHAR},
+      </if>
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        phone = #{phone,jdbcType=CHAR},
+      </if>
+      <if test="gotowhere != null" >
+        gotowhere = #{gotowhere,jdbcType=VARCHAR},
+      </if>
+      <if test="province != null" >
+        province = #{province,jdbcType=VARCHAR},
+      </if>
+      <if test="city != null" >
+        city = #{city,jdbcType=VARCHAR},
+      </if>
+      <if test="area != null" >
+        area = #{area,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyname != null" >
+        emergencyname = #{emergencyname,jdbcType=VARCHAR},
+      </if>
+      <if test="emergencyphone != null" >
+        emergencyphone = #{emergencyphone,jdbcType=CHAR},
+      </if>
+      <if test="note != null" >
+        note = #{note,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="xin.iamten.entity.Holidaycheck" >
+    update holidaycheck
+    set holidayname = #{holidayname,jdbcType=VARCHAR},
+      leavetime = #{leavetime,jdbcType=VARCHAR},
+      backtime = #{backtime,jdbcType=VARCHAR},
+      classid = #{classid,jdbcType=CHAR},
+      stuid = #{stuid,jdbcType=CHAR},
+      name = #{name,jdbcType=VARCHAR},
+      phone = #{phone,jdbcType=CHAR},
+      gotowhere = #{gotowhere,jdbcType=VARCHAR},
+      province = #{province,jdbcType=VARCHAR},
+      city = #{city,jdbcType=VARCHAR},
+      area = #{area,jdbcType=VARCHAR},
+      emergencyname = #{emergencyname,jdbcType=VARCHAR},
+      emergencyphone = #{emergencyphone,jdbcType=CHAR},
+      note = #{note,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

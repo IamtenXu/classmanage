@@ -12,10 +12,16 @@
     id, holidayname, starttime, endtime, ison
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+  select
+  <include refid="Base_Column_List" />
+  from holiday
+  where id = #{id,jdbcType=INTEGER}
+</select>
+  <select id="selectByHolidayname" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select
     <include refid="Base_Column_List" />
     from holiday
-    where id = #{id,jdbcType=INTEGER}
+    where holidayname = #{holidayname,jdbcType=VARCHAR}
   </select>
   <select id="selectIson" resultMap="BaseResultMap">
     select

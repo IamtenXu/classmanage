@@ -147,9 +147,8 @@
                     <a href="javascript:;">管理</a>
                     <dl class="layui-nav-child">
                         <dd><a href="tomembermanage" target="main_self_frame">成员管理</a></dd>
-                        <dd><a href="toservicemanage" target="main_self_frame">接口管理</a></dd>
+                        <dd><a href="/holidayset" target="main_self_frame">节日设置</a></dd>
                         <dd><a href="toholidaymanage" target="main_self_frame">离校登记管理</a></dd>
-                        <dd><a href="tovacationmanage" target="main_self_frame">寒暑假离校情况管理</a></dd>
                         <dd><a href="tofuturemanage" target="main_self_frame">实习考研情况管理</a></dd>
                     </dl>
                 </li>
