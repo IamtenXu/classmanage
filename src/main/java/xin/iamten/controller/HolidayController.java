@@ -13,6 +13,7 @@ import xin.iamten.service.HolidayService;
 import xin.iamten.utils.R;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 @Controller
 @RequestMapping("/holiday")
@@ -115,6 +116,18 @@ public class HolidayController {
         }else{
             return R.ok();
         }
+    }
+
+    //节假日离校登记
+    @RequestMapping(value = "/holidaymanage", method = RequestMethod.GET)
+    @ResponseBody
+    public R holidaymanage(@RequestParam String classid,@RequestParam String holidayname){
+        Holidaycheck holidaycheck = new Holidaycheck();
+        holidaycheck.setClassid(classid);
+        Holiday holiday = holidayService.queryIson();
+        holidaycheck.setHolidayname(holiday.getHolidayname());
+        List<Holidaycheck> holidaycheckList = holidayService.queryHCListByHolidayname(holidaycheck);
+        return R.ok().put("data",holidaycheckList);
     }
 
 }

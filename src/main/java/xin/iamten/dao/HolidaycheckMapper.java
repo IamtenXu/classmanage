@@ -17,7 +17,7 @@ public interface HolidaycheckMapper {
 
     int updateByPrimaryKey(Holidaycheck record);
 
-    List<Holidaycheck> selectByHolidayname(String holidayname);
+    List<Holidaycheck> selectByHolidayname(Holidaycheck holidaycheck);
 
     Holidaycheck selectByHolidaynameAndStuid(Holidaycheck holidaycheck);
 }

@@ -48,8 +48,8 @@ public class HolidayServiceImpl implements HolidayService {
     }
 
     @Override
-    public List<Holidaycheck> queryHCListByHolidayname(String holidayname) {
-        return holidaycheckMapper.selectByHolidayname(holidayname);
+    public List<Holidaycheck> queryHCListByHolidayname(Holidaycheck holidaycheck) {
+        return holidaycheckMapper.selectByHolidayname(holidaycheck);
     }
 
     @Override

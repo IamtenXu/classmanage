@@ -22,6 +22,13 @@
     id, holidayname, leavetime, backtime, classid, stuid, name, phone, gotowhere, province, 
     city, area, emergencyname, emergencyphone, note
   </sql>
+
+  <sql id="Where_Column_List" >
+    holidaycheck.id, holidaycheck.holidayname, holidaycheck.leavetime, holidaycheck.backtime, holidaycheck.classid, holidaycheck.stuid,
+    holidaycheck.name, holidaycheck.phone, holidaycheck.gotowhere,
+   province.name as province,city.name as city, area.name as area, holidaycheck.emergencyname, holidaycheck.emergencyphone, holidaycheck.note
+  </sql>
+
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select
     <include refid="Base_Column_List" />
@@ -34,11 +41,12 @@
     from holidaycheck
     where holidayname = #{holidayname,jdbcType=VARCHAR} AND stuid = #{stuid,jdbcType=VARCHAR}
   </select>
-  <select id="selectByHolidayname" resultMap="BaseResultMap" parameterType="java.lang.String" >
+  <select id="selectByHolidayname" resultMap="BaseResultMap" parameterType="xin.iamten.entity.Holidaycheck" >
     select
-    <include refid="Base_Column_List" />
-    from holidaycheck
-    where holidayname = #{holidayname,jdbcType=VARCHAR}
+    <include refid="Where_Column_List" />
+    from holidaycheck,province,city,area
+    where holidaycheck.holidayname = #{holidayname,jdbcType=VARCHAR} AND holidaycheck.classid = #{classid,jdbcType=CHAR}
+    AND holidaycheck.province = province.code AND holidaycheck.city = city.code AND holidaycheck.area = area.code
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from holidaycheck

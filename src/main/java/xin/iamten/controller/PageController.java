@@ -173,5 +173,11 @@ public class PageController {
         return "holidayset";
     }
 
+    //离校登记
+    @RequestMapping("/holidaymanage")
+    public String toholidaymanage(){
+        return "holidaymanage";
+    }
+
 
 }

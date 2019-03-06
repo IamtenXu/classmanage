@@ -143,15 +143,22 @@
                         <dd><a href="tofuture" target="main_self_frame">实习考研情况</a></dd>
                     </dl>
                 </li>
-                <li class="layui-nav-item">
-                    <a href="javascript:;">管理</a>
-                    <dl class="layui-nav-child">
-                        <dd><a href="tomembermanage" target="main_self_frame">成员管理</a></dd>
-                        <dd><a href="/holidayset" target="main_self_frame">节日设置</a></dd>
-                        <dd><a href="toholidaymanage" target="main_self_frame">离校登记管理</a></dd>
-                        <dd><a href="tofuturemanage" target="main_self_frame">实习考研情况管理</a></dd>
-                    </dl>
-                </li>
+                <c:if test="${getrole == '2'||getrole == '4'||getrole == '5'}">
+                    <li class="layui-nav-item">
+                        <a href="javascript:;">管理</a>
+                        <dl class="layui-nav-child">
+                            <dd><a href="tomembermanage" target="main_self_frame">成员管理</a></dd>
+                            <dd><a href="/holidayset" target="main_self_frame">节日设置</a></dd>
+                            <c:if test="${getrole == '4'||getrole == '5'}">
+                            <dd><a href="/holidaymanage" target="main_self_frame">离校登记管理</a></dd>
+                            </c:if>
+                            <c:if test="${getrole == '2'}">
+                                <dd><a href="/instructorholidaymanage" target="main_self_frame">离校登记管理</a></dd>
+                            </c:if>
+                            <dd><a href="tofuturemanage" target="main_self_frame">实习考研情况管理</a></dd>
+                        </dl>
+                    </li>
+                </c:if>
             </ul>
         </div>
     </div>

@@ -15,7 +15,7 @@ public interface HolidayService {
 
     boolean updateHoliday(Holiday holiday);
 
-    List<Holidaycheck> queryHCListByHolidayname(String holidayname);
+    List<Holidaycheck> queryHCListByHolidayname(Holidaycheck holidaycheck);
 
     Holidaycheck queryHCByHolidaynameAndStuid(Holidaycheck holidaycheck);
 
