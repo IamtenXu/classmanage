@@ -25,7 +25,13 @@
             <form class="layui-form">
                 <div class="layui-form-item">
                     <div class="layui-inline">
-                        <label class="layui-form-label">当前统计<br>节日</label>
+                        <label class="layui-form-label">节日</label>
+                        <div class="layui-input-inline">
+                            <select name="holiday"  lay-verify="required" id="holiday" lay-filter="holidayFilter">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                        <label class="layui-form-label">当前节日</label>
                         <div class="layui-input-inline">
                             <input name="holidaying" class="layui-input" placeholder="必填" id="holidaying" type="text" autocomplete="off" value="" readonly>
                         </div>
@@ -51,17 +57,31 @@
     layui.use(['element','table','form'], function(){
         var element = layui.element
             ,$ = layui.jquery
-            ,table = layui.table;
-        var holiday;
+            ,form = layui.form
+            ,table = layui.table
+            ,holidayname;
         $.ajax({
             url: '/holiday/holidayison',
             dataType: 'json',
             type: 'POST',
+            async:false,
             success: function (data) {
-                holiday = data.holiday.holidayname;
+                holidayname = data.holiday.holidayname;
                 $("#holidaying").val(data.holiday.holidayname);
                 $("#starttime").val(data.holiday.starttime);
                 $("#endtime").val(data.holiday.endtime);
+            }
+        });
+        //添加下拉框选项
+        $.ajax({
+            url: '/holiday/holidayselect',
+            dataType: 'json',
+            type: 'POST',
+            success: function (data) {
+                $.each(data.holiday, function (index, item) {
+                    $('#holiday').append(new Option(item.holidayname, item.holidayname));// 下拉菜单里添加元素
+                });
+                layui.form.render("select");//重新渲染 固定写法
             }
         });
         //方法级渲染
@@ -73,41 +93,49 @@
             }
             ,where: {
                 classid:${sessionScope.classinfo.classid}
-                ,holidayname:$("#holidaying").val()
+                ,holidayname:holidayname
             }
-            ,cellMinWidth: 75
+            ,cellMinWidth: 60
             ,cols: [[
                 // {checkbox: true, fixed: true},
                 {field:'stuid',  sort: true, title: '学号'}
-                ,{field:'name',  title: '姓名'}
-                ,{field:'leavetime',  sort: true, title: '性别'}
-                ,{field:'sbirthday',  sort: true, align: 'left', title: '出生日期'}
-                ,{field:'spolitical', align: 'left', title: '政治面貌'}
-                ,{field:'sphone', title: '手机号码'}
-                ,{field:'sadress', align: 'left', title: '寝室'}
+                ,{field:'name',  title: '姓名', width: 60}
+                ,{field:'leavetime', title: '离校时间'}
+                ,{field:'backtime',  title: '返校时间'}
+                ,{field:'phone', title: '手机号码'}
+                ,{field:'gotowhere', title: '去向',width: 60}
+                ,{field:'province',  sort: true, title: '省'}
+                ,{field:'city',   sort: true,title: '市'}
+                ,{field:'area',   sort: true,title: '县/区/县级市'}
+                ,{field:'emergencyname', align: 'left', title: '紧急联系人'}
+                ,{field:'emergencyphone', title: '紧急联系人联系方式'}
+                ,{field:'note', align: 'left', title: '备注'}
             ]]
             ,id: 'testReload'
             ,page: true
-            ,height: 'full-100'
+            ,height: 'full-140'
             ,limit: 50
         });
-        var $ = layui.$, active = {
-            reload: function(){
-                var demoReload = $('#demoReload');
-                //执行重载
-                table.reload('testReload', {
-                    page: {
-                        curr: 1 //重新从第 1 页开始
-                    }
-                    ,where: {
-                        name:demoReload.val()
-                    }
-                });
-            }
-        };
-        $('.demoTable .layui-btn').on('click', function(){
-            var type = $(this).data('type');
-            active[type] ? active[type].call(this) : '';
+        form.on('select(holidayFilter)', function(data){
+            table.reload('testReload', {
+                page: {
+                    curr: 1 //重新从第 1 页开始
+                }
+                ,where: {
+                    holidayname:data.value
+                }
+            });
+            $.ajax({
+                url: '/holiday/holidaytime',
+                dataType: 'json',
+                type: 'POST',
+                data:{"holidayname": data.value},
+                success: function (data) {
+                    $("#holidaying").val(data.holiday.holidayname);
+                    $("#starttime").val(data.holiday.starttime);
+                    $("#endtime").val(data.holiday.endtime);
+                }
+            });
         });
     });
 </script>

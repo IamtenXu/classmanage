@@ -119,7 +119,6 @@
                 ,{field:'sphoto', title: '照片',templet: '<div><img src="{{d.sphoto}}"></div>'}
             ]]
             ,id: 'testReload'
-            ,page: true
             ,height: 'full-140'
             ,limit: 50
         });
@@ -143,10 +142,7 @@
                 }
             });
             table.reload('testReload', {
-                page: {
-                    curr: 1 //重新从第 1 页开始
-                }
-                ,where: {
+                where: {
                     college:data.value
                     ,major:''
                     ,cgrade:''
@@ -172,10 +168,7 @@
                 }
             });
             table.reload('testReload', {
-                page: {
-                    curr: 1 //重新从第 1 页开始
-                }
-                ,where: {
+                where: {
                     college:$('#college').val()
                     ,major:data.value
                     ,cgrade:''
@@ -199,10 +192,7 @@
                 }
             });
             table.reload('testReload', {
-                page: {
-                    curr: 1 //重新从第 1 页开始
-                }
-                ,where: {
+                where: {
                     college:$('#college').val()
                     ,major:$('#major').val()
                     ,cgrade:data.value
@@ -212,10 +202,7 @@
         });
         form.on('select(classidFilter)', function(data){
             table.reload('testReload', {
-                page: {
-                    curr: 1 //重新从第 1 页开始
-                }
-                ,where: {
+                where: {
                     college:$('#college').val()
                     ,major:$('#major').val()
                     ,cgrade:$('#grade').val()

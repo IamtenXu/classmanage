@@ -45,8 +45,11 @@
     select
     <include refid="Where_Column_List" />
     from holidaycheck,province,city,area
-    where holidaycheck.holidayname = #{holidayname,jdbcType=VARCHAR} AND holidaycheck.classid = #{classid,jdbcType=CHAR}
-    AND holidaycheck.province = province.code AND holidaycheck.city = city.code AND holidaycheck.area = area.code
+    where
+    <if test="holidayname != null" >
+      holidaycheck.holidayname = #{holidayname,jdbcType=VARCHAR} AND
+    </if>
+    holidaycheck.classid = #{classid,jdbcType=CHAR} AND holidaycheck.province = province.code AND holidaycheck.city = city.code AND holidaycheck.area = area.code
   </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from holidaycheck

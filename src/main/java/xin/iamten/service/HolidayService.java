@@ -23,4 +23,6 @@ public interface HolidayService {
 
     boolean updateHolidaycheck(Holidaycheck holidaycheck);
 
+    List<Holiday> queryAllHoliday();
+
 }

@@ -75,4 +75,9 @@ public class HolidayServiceImpl implements HolidayService {
         return false;
     }
 
+    @Override
+    public List<Holiday> queryAllHoliday() {
+        return holidayMapper.selectAllHoliday();
+    }
+
 }

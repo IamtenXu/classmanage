@@ -2,6 +2,8 @@ package xin.iamten.dao;
 
 import xin.iamten.entity.Holiday;
 
+import java.util.List;
+
 public interface HolidayMapper {
     int deleteByPrimaryKey(Integer id);
 
@@ -18,4 +20,6 @@ public interface HolidayMapper {
     Holiday selectIson();
 
     Holiday selectByHolidayname(String holidayname);
+
+    List<Holiday> selectAllHoliday();
 }

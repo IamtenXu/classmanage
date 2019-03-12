@@ -29,6 +29,11 @@
     from holiday
     where ison = 1
   </select>
+  <select id="selectAllHoliday" resultMap="BaseResultMap">
+    select
+    <include refid="Base_Column_List" />
+    from holiday
+  </select>
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from holiday
     where id = #{id,jdbcType=INTEGER}

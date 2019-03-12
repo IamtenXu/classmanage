@@ -28,6 +28,12 @@ public class HolidayController {
         Holiday holiday = holidayService.queryIson();
         return R.ok().put("holiday",holiday);
     }
+    @RequestMapping(value = "/holidaytime", method = RequestMethod.POST)
+    @ResponseBody
+    public R holidaytime(@RequestParam String holidayname) {
+        Holiday holiday = holidayService.queryByHolidayname(holidayname);
+        return R.ok().put("holiday",holiday);
+    }
     @RequestMapping(value = "/holidayset", method = RequestMethod.POST)
     @ResponseBody
     public R holidayset(@RequestParam String year,
@@ -62,7 +68,7 @@ public class HolidayController {
         holidayService.insertHoliday(holiday);
         return R.ok();
     }
-    //节假日离校登记holidaychecked
+    //节假日离校登记
     @RequestMapping(value = "/holidaycheck", method = RequestMethod.POST)
     @ResponseBody
     public R holidaycheck(@RequestParam String holidayname, @RequestParam String leavetime, @RequestParam String backtime,
@@ -87,21 +93,22 @@ public class HolidayController {
             holidaycheck.setNote(note);
             holidayService.updateHolidaycheck(holidaycheck);
             return R.ok();
+        }else {
+            holidaycheck.setLeavetime(leavetime);
+            holidaycheck.setBacktime(backtime);
+            holidaycheck.setClassid(classid);
+            holidaycheck.setName(name);
+            holidaycheck.setPhone(phone);
+            holidaycheck.setGotowhere(gotowhere);
+            holidaycheck.setProvince(province);
+            holidaycheck.setCity(city);
+            holidaycheck.setArea(area);
+            holidaycheck.setEmergencyname(emergencyname);
+            holidaycheck.setEmergencyphone(emergencyphone);
+            holidaycheck.setNote(note);
+            holidayService.insertHolidaycheck(holidaycheck);
+            return R.ok();
         }
-        holidaycheck.setLeavetime(leavetime);
-        holidaycheck.setBacktime(backtime);
-        holidaycheck.setClassid(classid);
-        holidaycheck.setName(name);
-        holidaycheck.setPhone(phone);
-        holidaycheck.setGotowhere(gotowhere);
-        holidaycheck.setProvince(province);
-        holidaycheck.setCity(city);
-        holidaycheck.setArea(area);
-        holidaycheck.setEmergencyname(emergencyname);
-        holidaycheck.setEmergencyphone(emergencyphone);
-        holidaycheck.setNote(note);
-        holidayService.insertHolidaycheck(holidaycheck);
-        return R.ok();
     }
     //节假日离校登记
     @RequestMapping(value = "/holidaychecked", method = RequestMethod.POST)
@@ -118,16 +125,24 @@ public class HolidayController {
         }
     }
 
-    //节假日离校登记
+    //节假日离校登记管理
     @RequestMapping(value = "/holidaymanage", method = RequestMethod.GET)
     @ResponseBody
-    public R holidaymanage(@RequestParam String classid,@RequestParam String holidayname){
+    public R holidaymanage(@RequestParam String classid,@RequestParam(value = "holidayname",required=false,defaultValue="") String holidayname){
+        if(holidayname.equals("")){ holidayname = null; }
         Holidaycheck holidaycheck = new Holidaycheck();
         holidaycheck.setClassid(classid);
-        Holiday holiday = holidayService.queryIson();
-        holidaycheck.setHolidayname(holiday.getHolidayname());
+        holidaycheck.setHolidayname(holidayname);
         List<Holidaycheck> holidaycheckList = holidayService.queryHCListByHolidayname(holidaycheck);
-        return R.ok().put("data",holidaycheckList);
+        int count = holidaycheckList.size();
+        return R.ok().put("data",holidaycheckList).put("count",count);
+    }
+    //节日下拉框
+    @RequestMapping(value = "/holidayselect", method = RequestMethod.POST)
+    @ResponseBody
+    public R holidayselect(){
+        List<Holiday> holidayList = holidayService.queryAllHoliday();
+        return R.ok().put("holiday",holidayList);
     }
 
 }
