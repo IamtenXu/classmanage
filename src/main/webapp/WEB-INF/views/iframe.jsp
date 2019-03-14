@@ -134,20 +134,25 @@
                         </dl>
                     </li>
                 </c:if>
+                <c:if test="${getrole != '1'&&getrole != '2'&&getrole != '3'}">
                 <li class="layui-nav-item">
                     <a href="javascript:;">班级事务</a>
                     <dl class="layui-nav-child">
-                        <c:if test="${getrole != '1'&&getrole != '2'&&getrole != '3'}">
                             <dd><a href="/holiday" target="main_self_frame">节假日离校登记</a></dd>
-                        </c:if>
                         <dd><a href="tofuture" target="main_self_frame">实习考研情况</a></dd>
                     </dl>
                 </li>
+                </c:if>
                 <c:if test="${getrole == '2'||getrole == '4'||getrole == '5'}">
                     <li class="layui-nav-item">
                         <a href="javascript:;">管理</a>
                         <dl class="layui-nav-child">
-                            <dd><a href="tomembermanage" target="main_self_frame">成员管理</a></dd>
+                            <c:if test="${getrole == '1'}">
+                            <dd><a href="/deanmembermanage" target="main_self_frame">学生信息管理</a></dd>
+                            </c:if>
+                            <c:if test="${getrole == '2'}">
+                                <dd><a href="/instructormembermanage" target="main_self_frame">学生信息管理</a></dd>
+                            </c:if>
                             <dd><a href="/holidayset" target="main_self_frame">节日设置</a></dd>
                             <c:if test="${getrole == '4'||getrole == '5'}">
                             <dd><a href="/holidaymanage" target="main_self_frame">离校登记管理</a></dd>

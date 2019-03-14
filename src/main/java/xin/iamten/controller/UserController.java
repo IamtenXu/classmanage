@@ -234,6 +234,24 @@ public class UserController {
         stuService.updateStu(stuinfo);
         return R.ok("修改成功！");
     }
+    //修改学生信息
+    @RequestMapping(value = "/teaupdatestu", method = RequestMethod.POST)
+    @ResponseBody
+    public R teaupdatestu(@RequestParam String stuid, @RequestParam String sbirthday,@RequestParam String ssex, @RequestParam String students,@RequestParam String militarists,
+                       @RequestParam String sphone,@RequestParam String semail,@RequestParam String dormitory){
+        Stuinfo stuinfo = new Stuinfo();
+        stuinfo.setStuid(stuid);
+        stuinfo=stuService.queryStu(stuinfo);
+        stuinfo.setSbirthday(sbirthday);
+        stuinfo.setSsex(ssex);
+        stuinfo.setStudents(students);
+        stuinfo.setSpolitical(militarists);
+        stuinfo.setSphone(sphone);
+        stuinfo.setSemail(semail);
+        stuinfo.setSadress(dormitory);
+        stuService.updateStu(stuinfo);
+        return R.ok("修改成功！");
+    }
     //老师修改个人信息
     @RequestMapping(value = "/updatetea", method = RequestMethod.POST)
     @ResponseBody
@@ -284,6 +302,15 @@ public class UserController {
     public R stuhomeinfo(@RequestParam(value = "stuid",required=false,defaultValue="") String stuid) {
         Homeinfo homeinfo = homeService.queryHomeinfoByStuid(stuid);
         return R.ok().put("homeinfo", homeinfo);
+    }
+    //个人信息
+    @RequestMapping(value = "/stuinfoByStuid", method = RequestMethod.POST)
+    @ResponseBody
+    public R stuinfoByStuid(@RequestParam String stuid) {
+        Stuinfo stuinfo = new Stuinfo();
+        stuinfo.setStuid(stuid);
+        stuinfo = stuService.queryStu(stuinfo);
+        return R.ok().put("stuinfo", stuinfo);
     }
     //班级家庭信息
     @RequestMapping(value = "/classhome", method = RequestMethod.GET)

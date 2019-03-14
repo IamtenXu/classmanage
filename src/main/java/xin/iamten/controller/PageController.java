@@ -173,10 +173,34 @@ public class PageController {
         return "holidayset";
     }
 
-    //离校登记
+    //离校登记管理
     @RequestMapping("/holidaymanage")
     public String toholidaymanage(){
         return "holidaymanage";
+    }
+
+    //离校登记管理
+    @RequestMapping("/instructorholidaymanage")
+    public String toinstructorholidaymanage(){
+        return "instructorholidaymanage";
+    }
+
+    //人员管理
+    @RequestMapping("/instructormembermanage")
+    public String toinstructormembermanage(){
+        return "instructormembermanage";
+    }
+
+    //人员管理
+    @RequestMapping("/deanmembermanage")
+    public String todeanmembermanage(){
+        return "deanmembermanage";
+    }
+
+    //人员管理
+    @RequestMapping("/updatemember")
+    public String toupdatemember(){
+        return "updatemember";
     }
 
 

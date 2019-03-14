@@ -25,15 +25,17 @@
             <form class="layui-form">
                 <div class="layui-form-item">
                     <div class="layui-inline">
+                        <label class="layui-form-label">班级号</label>
+                        <div class="layui-input-inline">
+                            <select name="classid"  lay-verify="required" id="classid" lay-filter="classidFilter">
+                                <option value=""></option>
+                            </select>
+                        </div>
                         <label class="layui-form-label">节日</label>
                         <div class="layui-input-inline">
                             <select name="holiday"  lay-verify="required" id="holiday" lay-filter="holidayFilter">
                                 <option value=""></option>
                             </select>
-                        </div>
-                        <label class="layui-form-label">当前节日</label>
-                        <div class="layui-input-inline">
-                            <input name="holidaying" class="layui-input" placeholder="必填" id="holidaying" type="text" autocomplete="off" value="" readonly>
                         </div>
                         <label class="layui-form-label">开始日期</label>
                         <div class="layui-input-inline">
@@ -60,6 +62,19 @@
             ,form = layui.form
             ,table = layui.table
             ,holidayname;
+
+        //添加下拉框选项
+        $.ajax({
+            url: '/instructor/instructorselect',
+            dataType: 'json',
+            type: 'get',
+            success: function (data) {
+                $.each(data.classinfo, function (index, item) {
+                    $('#classid').append(new Option(item.classid, item.classid));// 下拉菜单里添加元素
+                });
+                layui.form.render("select");//重新渲染 固定写法
+            }
+        });
         $.ajax({
             url: '/holiday/holidayison',
             dataType: 'json',
@@ -92,8 +107,8 @@
                 statusCode: 200 //规定成功的状态码，默认：0
             }
             ,where: {
-                classid:${sessionScope.classinfo.classid}
-                ,holidayname:holidayname
+                classid:$('#classid').val()
+                ,holidayname:$('#holiday').val()
             }
             ,cellMinWidth: 60
             ,cols: [[
@@ -131,9 +146,18 @@
                 type: 'POST',
                 data:{"holidayname": data.value},
                 success: function (data) {
-                    $("#holidaying").val(data.holiday.holidayname);
                     $("#starttime").val(data.holiday.starttime);
                     $("#endtime").val(data.holiday.endtime);
+                }
+            });
+        });
+        form.on('select(classidFilter)', function(data){
+            table.reload('testReload', {
+                page: {
+                    curr: 1 //重新从第 1 页开始
+                }
+                ,where: {
+                    classid:data.value
                 }
             });
         });

@@ -80,12 +80,12 @@
             ,cellMinWidth: 75
             ,cols: [[
                 // {checkbox: true, fixed: true},
-                {field:'stuid',  sort: true, title: '学号'}
-                ,{field:'sname',  title: '姓名'}
-                ,{field:'ssex',  sort: true, title: '性别'}
+                {field:'stuid',  sort: true, title: '学号',width: 100}
+                ,{field:'sname',  title: '姓名',width: 80}
+                ,{field:'ssex',  sort: true, title: '性别',width: 80}
                 ,{field:'students',  sort: true, title: '生源地'}
                 ,{field:'sbirthday',  sort: true, align: 'left', title: '出生日期'}
-                ,{field:'spolitical', align: 'left', title: '政治面貌'}
+                ,{field:'spolitical', sort: true,align: 'left', title: '政治面貌',width: 100}
                 ,{field:'sphone', title: '手机号码'}
                 ,{field:'sadress', align: 'left', title: '寝室'}
                 ,{field:'sphoto', title: '照片',templet: '<div><img src="{{d.sphoto}}"></div>'}

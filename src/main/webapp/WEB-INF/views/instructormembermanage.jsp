@@ -7,12 +7,11 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<c:set var="getrole" scope="page" value="${sessionScope.userinfo.roleinfo.rcode}"/>
 <html>
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>通知</title>
+    <title>班级成员</title>
     <link rel="stylesheet" href="layui/css/layui.css">
     <style type="text/css">
         .layui-table-cell {
@@ -26,10 +25,22 @@
     <div>
         <!-- 内容主体区域 -->
         <div>
-            <fieldset class="layui-elem-field layui-field-title">
-                <legend>已发布通知</legend>
+            <fieldset class="layui-elem-field layui-field-title" style="margin-top: 15px;">
+                <legend>班级成员</legend>
             </fieldset>
-            <table class="layui-table" id="LAY_table_tea" lay-filter="demo"></table>
+            <form class="layui-form" action="" lay-filter="example">
+                <div class="layui-form-item">
+                    <div class="layui-inline">
+                        <label class="layui-form-label">班级号</label>
+                        <div class="layui-input-inline">
+                            <select name="classid"  lay-verify="required" id="classid" lay-filter="classidFilter">
+                                <option value=""></option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+            </form>
+            <table class="layui-table" id="LAY_table_user" lay-filter="demo"></table>
         </div>
     </div>
 </div>
@@ -37,69 +48,68 @@
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="layui/layui.js"></script>
 <script id="barDemo" type="text/html">
-    <a class="layui-btn layui-btn-warm layui-btn-xs dw-dailog" lay-event="update" dw-url="/updateannouncement" dw-title="修改通知">修改</a>
+    <a class="layui-btn layui-btn-warm layui-btn-xs dw-dailog" lay-event="update" dw-url="/updatemember" dw-title="修改学生信息">修改</a>
     <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
 </script>
 <script>
-    layui.use(['element','table'], function(){
+    layui.use(['element','table','form'], function(){
         var element = layui.element
-            ,table = layui.table;
-        <c:if test="${getrole == '2'||getrole == '3'}">
+            ,table = layui.table
+            ,form = layui.form
+            ,$ = layui.jquery;
+
+
+        //添加下拉框选项
+        $.ajax({
+            url: '/instructor/instructorselect',
+            dataType: 'json',
+            type: 'get',
+            success: function (data) {
+                $.each(data.classinfo, function (index, item) {
+                    $('#classid').append(new Option(item.classid, item.classid));// 下拉菜单里添加元素
+                });
+                layui.form.render("select");//重新渲染 固定写法
+            }
+        });
+        //方法级渲染
         table.render({
-            elem: '#LAY_table_tea'
-            ,url: '/announcement/Teaannouncement'
-            ,skin: 'line' //行边框风格
-            ,size: 'lg' //小尺寸的表格
-            // ,even: true //开启隔行背景
+            elem: '#LAY_table_user'
+            ,url: '/user/classmember'
             ,response: {
                 statusCode: 200 //规定成功的状态码，默认：0
             }
             ,where: {
-                publisher:${sessionScope.userinfo.teaid}
+                sclass:$('#classid').val()
             }
             ,cellMinWidth: 75
             ,cols: [[
                 // {checkbox: true, fixed: true},
-                {field:'atime',  sort: true, title: '时间',width: 160}
-                ,{field:'title',  title: '标题',width: 160}
-                ,{field:'text',   title: '正文'}
-                ,{field:'stuinfo',  sort: true, align: 'left', title: '发布人',templet: '<div>{{d.teainfo.tname}}</div>',width: 160}
+                {field:'stuid',  sort: true, title: '学号',width: 100}
+                ,{field:'sname',  title: '姓名',width: 80}
+                ,{field:'ssex',  sort: true, title: '性别',width: 80}
+                ,{field:'students',  sort: true, title: '生源地'}
+                ,{field:'sbirthday',  sort: true, align: 'left', title: '出生日期'}
+                ,{field:'spolitical', sort: true,align: 'left', title: '政治面貌',width: 100}
+                ,{field:'sphone', title: '手机号码'}
+                ,{field:'sadress', align: 'left', title: '寝室'}
+                ,{field:'sphoto', title: '照片',templet: '<div><img src="{{d.sphoto}}"></div>'}
                 ,{fixed: 'right', title: '操作',width:150, align:'center', toolbar: '#barDemo'}
             ]]
             ,id: 'testReload'
-            // ,page: true
-            ,height: 'full-80'
+            ,page: true
+            ,height: 'full-140'
             ,limit: 50
         });
-        </c:if>
-        <c:if test="${getrole == '4'||getrole == '5'}">
-        table.render({
-            elem: '#LAY_table_tea'
-            ,url: '/announcement/Stuannouncement'
-            ,skin: 'line' //行边框风格
-            ,size: 'lg' //小尺寸的表格
-            // ,even: true //开启隔行背景
-            ,response: {
-                statusCode: 200 //规定成功的状态码，默认：0
-            }
-            ,where: {
-                publisher:${sessionScope.userinfo.stuid}
-            }
-            ,cellMinWidth: 75
-            ,cols: [[
-                // {checkbox: true, fixed: true},
-                {field:'atime',  sort: true, title: '时间',width: 160}
-                ,{field:'title',  title: '标题',width: 160}
-                ,{field:'text',   title: '正文'}
-                ,{field:'stuinfo',  sort: true, align: 'left', title: '发布人',templet: '<div>{{d.stuinfo.sname}}</div>',width: 160}
-                ,{fixed: 'right', title: '操作',width:150, align:'center', toolbar: '#barDemo'}
-            ]]
-            ,id: 'testReload'
-            // ,page: true
-            ,height: 'full-80'
-            ,limit: 50
+        form.on('select(classidFilter)', function(data){
+            table.reload('testReload', {
+                page: {
+                    curr: 1 //重新从第 1 页开始
+                }
+                ,where: {
+                    sclass:$('#classid').val()
+                }
+            });
         });
-        </c:if>
         table.on('tool(demo)', function(obj) {
             var data = obj.data;
             if(obj.event === 'update'){
@@ -116,14 +126,14 @@
                     return false;
                 }
                 if(dw_width == undefined) dw_width = '30%';
-                if(dw_height == undefined) dw_height = '62%';
+                if(dw_height == undefined) dw_height = '80%';
                 layer.open({
                     type: 2,
                     title: dw_title,
                     shadeClose: true,
                     shade: 0.8,
                     area: [dw_width, dw_height],
-                    content: dw_url+"?id="+data.id,
+                    content: dw_url+"?stuid="+data.stuid,
                     end: function () {
                         location.reload();
                     }
