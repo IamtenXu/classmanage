@@ -6,6 +6,8 @@ import java.util.List;
 
 public interface TeaService {
 
+    int insertforeach(List<Teainfo> list);
+
     Teainfo queryTea(Teainfo teainfo);
 
     List<Teainfo> queryTeaList();

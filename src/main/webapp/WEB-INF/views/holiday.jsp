@@ -190,7 +190,7 @@
                                     $("#area").empty();
                                     $('#area').append(new Option('',''));
                                     $("#city").val(city);
-                                    layui.form.render("select");//重新渲染 固定写法
+                                    form.render("select");//重新渲染 固定写法
                                 }
                             });
                             $.ajax({
@@ -205,10 +205,10 @@
                                         $('#area').append(new Option(item.name, item.code));// 下拉菜单里添加元素
                                     });
                                     $("#area").val(area);
-                                    layui.form.render("select");//重新渲染 固定写法
+                                    form.render("select");//重新渲染 固定写法
                                 }
                             });
-                            form.render('select');
+                            form.render("select");//重新渲染 固定写法
                         }
                     }
                 });

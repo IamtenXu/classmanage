@@ -15,6 +15,11 @@ public class ClassServiceImpl implements ClassService {
     private ClassinfoMapper classinfoMapper;
 
     @Override
+    public int insertforeach(List<Classinfo> list) {
+        return classinfoMapper.insertforeach(list);
+    }
+
+    @Override
     public Classinfo queryClassinfo(String classsid) {
         return classinfoMapper.selectByPrimaryKey(classsid);
     }
@@ -47,5 +52,10 @@ public class ClassServiceImpl implements ClassService {
     @Override
     public List<Classinfo> queryClassByGrade(String grade,String major) {
         return classinfoMapper.selectClassByGradeAndMajor(grade,major);
+    }
+
+    @Override
+    public List<Classinfo> queryAll() {
+        return classinfoMapper.selectAll();
     }
 }

@@ -42,6 +42,10 @@
     WHERE cgrade = #{cgrade,jdbcType=VARCHAR} AND major = #{major,jdbcType=VARCHAR}
   </select>
 
+  <select id="selectAll" resultMap="BaseResultMap" >
+    select * from classinfo
+  </select>
+
   <select id="selectByHeadmaster" resultMap="BaseResultMap" parameterType="java.lang.String" >
     select
     <include refid="Base_Column_List" />
@@ -68,6 +72,27 @@
       #{cgrade,jdbcType=CHAR}, #{instructor,jdbcType=CHAR}, #{headmaster,jdbcType=CHAR}
       )
   </insert>
+
+  <insert id="insertforeach" parameterType="java.util.List" useGeneratedKeys="false">
+    insert IGNORE into classinfo (classid, ccollege, major,
+    cgrade, instructor, headmaster
+    )
+    values
+    <foreach collection="list" item="item" index="index" separator=",">
+      (
+      #{item.classid},
+      #{item.ccollege},
+      #{item.major},
+      #{item.cgrade},
+      #{item.instructor},
+      #{item.headmaster}
+      )
+    </foreach>
+    ON DUPLICATE KEY UPDATE
+    ccollege = values(ccollege),ccollege = values(ccollege),major = values(major),cgrade = values(cgrade),instructor = values(instructor),
+    headmaster = values(headmaster)
+  </insert>
+
   <insert id="insertSelective" parameterType="xin.iamten.entity.Classinfo" >
     insert into classinfo
     <trim prefix="(" suffix=")" suffixOverrides="," >

@@ -15,6 +15,11 @@ public class TeaServiceImpl implements TeaService {
     private TeainfoMapper teainfoMapper;
 
     @Override
+    public int insertforeach(List<Teainfo> list) {
+        return teainfoMapper.insertforeach(list);
+    }
+
+    @Override
     public Teainfo queryTea(Teainfo teainfo) {
         return teainfoMapper.selectByPrimaryKey(teainfo.getTeaid());
     }

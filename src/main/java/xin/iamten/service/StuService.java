@@ -22,4 +22,8 @@ public interface StuService {
 
     boolean deletStu(Stuinfo stuinfo);
 
+    int insertforeach(List<Stuinfo> list);
+
+    Stuinfo queryByClassRole(Stuinfo stuinfo);
+
 }

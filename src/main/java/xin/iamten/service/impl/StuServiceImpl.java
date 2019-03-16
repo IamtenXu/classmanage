@@ -56,4 +56,14 @@ public class StuServiceImpl implements StuService {
     public boolean deletStu(Stuinfo stuinfo) {
         return false;
     }
+
+    @Override
+    public int insertforeach(List<Stuinfo> list) {
+        return stuinfoMapper.insertforeach(list);
+    }
+
+    @Override
+    public Stuinfo queryByClassRole(Stuinfo stuinfo) {
+        return stuinfoMapper.selectByClassRole(stuinfo);
+    }
 }

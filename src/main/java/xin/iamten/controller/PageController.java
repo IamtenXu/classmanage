@@ -155,7 +155,7 @@ public class PageController {
         return "announcementpublish";
     }
 
-    //发布通知
+    //已发布的通知
     @RequestMapping("/announcementfinished")
     public String toannouncementfinished(){
         return "announcementfinished";
@@ -192,15 +192,27 @@ public class PageController {
     }
 
     //人员管理
-    @RequestMapping("/deanmembermanage")
-    public String todeanmembermanage(){
-        return "deanmembermanage";
+    @RequestMapping("/deaninfomanage")
+    public String todeaninfomanage(){
+        return "deaninfomanage";
     }
 
     //人员管理
     @RequestMapping("/updatemember")
     public String toupdatemember(){
         return "updatemember";
+    }
+
+    //教务处班级信息管理
+    @RequestMapping("/deanclassinfo")
+    public String todeanclassinfo(){
+        return "deanclassinfo";
+    }
+
+    //辅导员班级信息管理
+    @RequestMapping("/instructormanageset")
+    public String toinstructormanageset(){
+        return "instructormanageset";
     }
 
 

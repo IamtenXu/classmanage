@@ -62,6 +62,7 @@
     select
     <include refid="Role_Column_List" />
     from teainfo,roleinfo
+    where teainfo.trole = roleinfo.rcode
   </select>
 
   <select id="selectAllCollege" resultMap="BaseResultMap">
@@ -73,6 +74,34 @@
     delete from teainfo
     where teaid = #{teaid,jdbcType=CHAR}
   </delete>
+
+  <insert id="insertforeach" parameterType="java.util.List" useGeneratedKeys="false">
+    insert IGNORE into teainfo (teaid, tname, tsex,
+    tbirthday, tpolitical, title,
+    tphone, temail, trole,
+    tphoto, taddress, tcollege
+    )
+    values
+    <foreach collection="list" item="item" index="index" separator=",">
+      (
+      #{item.teaid},
+      #{item.tname},
+      #{item.tsex},
+      #{item.tbirthday},
+      #{item.tpolitical},
+      #{item.title},
+      #{item.tphone},
+      #{item.temail},
+      #{item.trole},
+      #{item.tphoto},
+      #{item.taddress},
+      #{item.tcollege}
+      )
+    </foreach>
+    on duplicate key update
+    tname = values(tname),tcollege = values(tcollege),trole = values(trole)
+  </insert>
+
   <insert id="insert" parameterType="xin.iamten.entity.Teainfo" >
     insert into teainfo (teaid, tname, tsex, 
       tbirthday, tpolitical, title, 

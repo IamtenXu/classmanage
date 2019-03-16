@@ -108,7 +108,7 @@
                 // {checkbox: true, fixed: true},
                 {field:'sclass',  sort: true, title: '班级'}
                 ,{field:'stuid',  sort: true, title: '学号'}
-                ,{field:'roleinfo', width: 80,sort: true, align: 'left', title: '职务',templet: '<div>{{d.roleinfo.rname}}</div>'}
+                ,{field:'roleinfo', width: 100,sort: true, align: 'left', title: '职务',templet: '<div>{{d.roleinfo.rname}}</div>'}
                 ,{field:'sname', width: 90, title: '姓名'}
                 ,{field:'ssex',  width: 80, sort: true, title: '性别'}
                 ,{field:'students',  sort: true, title: '生源地'}

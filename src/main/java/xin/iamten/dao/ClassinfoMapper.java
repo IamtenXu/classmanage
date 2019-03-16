@@ -10,6 +10,8 @@ public interface ClassinfoMapper {
 
     int insert(Classinfo record);
 
+    int insertforeach(List<Classinfo> list);
+
     int insertSelective(Classinfo record);
 
     Classinfo selectByPrimaryKey(String classid);
@@ -26,6 +28,7 @@ public interface ClassinfoMapper {
     List<Classinfo> selectMajorByCollege(String college);
     List<Classinfo> selectGradeByMajor(String major);
     List<Classinfo> selectClassByGradeAndMajor(@Param("cgrade")String cgrade,@Param("major")String major);
+    List<Classinfo> selectAll();
 
 
 }

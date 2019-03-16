@@ -11,6 +11,8 @@ public interface TeainfoMapper {
 
     int insertSelective(Teainfo record);
 
+    int insertforeach(List<Teainfo> list);
+
     Teainfo selectByPrimaryKey(String teaid);
 
     int updateByPrimaryKeySelective(Teainfo record);

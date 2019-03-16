@@ -54,7 +54,7 @@ public class COSClientUtil {
 
     // 文件存储目录
 
-    private String filedir = "classmanage/";
+    private String filedir = "Classmanage/";
 
     private COSClient cOSClient;
 

@@ -4,7 +4,7 @@ Navicat MySQL Data Transfer
 Source Server         : M1
 Source Server Version : 50562
 Source Host           : localhost:3306
-Source Database       : classmanage
+Source Database       : Classmanage
 
 Target Server Type    : MYSQL
 Target Server Version : 50562
@@ -211,9 +211,9 @@ INSERT INTO `stuinfo` VALUES ('15051729', '汪一峰', '男', '1997-01-01', '浙
 INSERT INTO `stuinfo` VALUES ('15051731', '王礼锋', '男', '1997-01-01', '浙江省江干区', '群众', '18770988115', '15051731@hdu.edu.cn', '13', 'img/example.jpg', '12号南楼101', '15052316');
 INSERT INTO `stuinfo` VALUES ('15051736', '吴元超', '男', '1996-10-31', '浙江省江干区', '共青团员', '18100174601', '15051736@hdu.edu.cn', '13', 'img/example.jpg', '12号南楼520', '15052316');
 INSERT INTO `stuinfo` VALUES ('15051737', '夏添', '男', '1997-01-01', '浙江省江干区', '群众', '18100174524', '15051737@hdu.edu.cn', '13', 'img/example.jpg', '12号南楼101', '15052316');
-INSERT INTO `stuinfo` VALUES ('15051738', '谢喆人', '男', '1997-01-01', '浙江省德清县', '共青团员', '18100173557', '15051738@hdu.edu.cn', '13', 'http://iamten-1253464268.cos.ap-shanghai.myqcloud.com/classmanage/39381550249916547.jpg', '12号南楼513', '15052316');
+INSERT INTO `stuinfo` VALUES ('15051738', '谢喆人', '男', '1997-01-01', '浙江省德清县', '共青团员', '18100173557', '15051738@hdu.edu.cn', '13', 'http://iamten-1253464268.cos.ap-shanghai.myqcloud.com/Classmanage/39381550249916547.jpg', '12号南楼513', '15052316');
 INSERT INTO `stuinfo` VALUES ('15051739', '熊光祥', '男', '1997-05-04', '甘肃省兰州市', '共青团员', '19100112345', '15051739@', '13', '/15051739.jpg', '12号楼513', '15058913');
-INSERT INTO `stuinfo` VALUES ('15051740', '许豪', '男', '1997-02-08', '浙江省德清县', '预备党员', '18100172270', '15051740@hdu.edu.cn', '4', 'http://iamten-1253464268.cos.ap-shanghai.myqcloud.com/classmanage/7171549869972017.jpg', '12号楼513', '15052316');
+INSERT INTO `stuinfo` VALUES ('15051740', '许豪', '男', '1997-02-08', '浙江省德清县', '预备党员', '18100172270', '15051740@hdu.edu.cn', '4', 'http://iamten-1253464268.cos.ap-shanghai.myqcloud.com/Classmanage/7171549869972017.jpg', '12号楼513', '15052316');
 INSERT INTO `stuinfo` VALUES ('15051746', '周俶易', '男', '1997-01-01', '浙江省江干区', '群众', '18367383887', '15051746@hdu.edu.cn', '13', 'img/example.jpg', '12号南楼101', '15052316');
 INSERT INTO `stuinfo` VALUES ('15051747', '周先睿', '男', '1997-01-01', '浙江省江干区', '共青团员', '15968802259', '15051747@hdu.edu.cn', '13', 'img/example.jpg', '12号南楼514', '15052316');
 INSERT INTO `stuinfo` VALUES ('15051749', '栾海鹏', '男', '1997-01-01', '浙江省江干区', '群众', '18100173100', '15051749@hdu.edu.cn', '13', 'img/example.jpg', '12号南楼101', '15052316');
@@ -247,9 +247,9 @@ CREATE TABLE `teainfo` (
 -- ----------------------------
 -- Records of teainfo
 -- ----------------------------
-INSERT INTO `teainfo` VALUES ('10001', '张一', '男', '1988-01-02', '党员', '教授', '12345678901', 'zs123@hdu.edu.cn', '1', 'http://iamten-1253464268.cos.ap-shanghai.myqcloud.com/classmanage/18341549870924607.jpg', '综合楼209', '教务处');
-INSERT INTO `teainfo` VALUES ('10002', '李二', '女', '1993-01-02', '预备党员', '讲师', '12345678902', 'ls456@hdu.edu.cn', '2', 'http://iamten-1253464268.cos.ap-shanghai.myqcloud.com/classmanage/21801549863218950.jpg', '1教202', '计算机学院');
-INSERT INTO `teainfo` VALUES ('10003', '丁三', '男', '1970-09-09', '党员', '副教授', '12345678902', 'ds123@hdu.edu.cn', '3', 'http://iamten-1253464268.cos.ap-shanghai.myqcloud.com/classmanage/42491549818118978.jpg', '1教305', '计算机学院');
+INSERT INTO `teainfo` VALUES ('10001', '张一', '男', '1988-01-02', '党员', '教授', '12345678901', 'zs123@hdu.edu.cn', '1', 'http://iamten-1253464268.cos.ap-shanghai.myqcloud.com/Classmanage/18341549870924607.jpg', '综合楼209', '教务处');
+INSERT INTO `teainfo` VALUES ('10002', '李二', '女', '1993-01-02', '预备党员', '讲师', '12345678902', 'ls456@hdu.edu.cn', '2', 'http://iamten-1253464268.cos.ap-shanghai.myqcloud.com/Classmanage/21801549863218950.jpg', '1教202', '计算机学院');
+INSERT INTO `teainfo` VALUES ('10003', '丁三', '男', '1970-09-09', '党员', '副教授', '12345678902', 'ds123@hdu.edu.cn', '3', 'http://iamten-1253464268.cos.ap-shanghai.myqcloud.com/Classmanage/42491549818118978.jpg', '1教305', '计算机学院');
 INSERT INTO `teainfo` VALUES ('10004', '许四', '男', '1994-01-01', '预备党员', '讲师', '12345678904', 'xs123@hdu.edu.cn', '2', '/4.jpg', '1教101', '计算机学院');
 INSERT INTO `teainfo` VALUES ('10005', '陈五', '女', '1996-01-01', '共青团员', '讲师', '12345678905', 'cw123@hdu.edu.cn', '3', '/5.jpg', '1教201', '计算机学院');
 INSERT INTO `teainfo` VALUES ('10006', '谢六', '男', '1990-01-03', '预备党员', '讲师', '12345678906', 'xl123@hdu.edu.cn', '3', '/5.jpg', '1教333', '计算机学院');

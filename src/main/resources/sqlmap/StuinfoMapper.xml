@@ -74,12 +74,26 @@
     order by srole
   </select>
 
+  <select id="selectByClassRole" resultMap="BaseResultMap" parameterType="xin.iamten.entity.Stuinfo" >
+    select
+    <include refid="Base_Column_List" />
+    from stuinfo
+    where sclass = #{sclass,jdbcType=VARCHAR} AND srole = #{srole,jdbcType=INTEGER}
+  </select>
+
   <select id="selectclassmember" resultMap="AddRoleResultMap" parameterType="java.lang.String" >
     select
     <include refid="Role_Column_List" />
     from stuinfo,roleinfo
     where sclass = #{sclass,jdbcType=VARCHAR} AND stuinfo.srole = roleinfo.rcode
     order by stuid
+  </select>
+
+  <select id="selectAll" resultMap="AddRoleResultMap">
+    select
+    <include refid="RoleClass_Column_List" />
+    from stuinfo,roleinfo,classinfo
+    where stuinfo.srole = roleinfo.rcode AND stuinfo.sclass = classinfo.classid
   </select>
 
   <select id="selectstuByOthers" resultMap="AddRoleResultMap" parameterType="xin.iamten.entity.Stuinfo" >
@@ -136,6 +150,33 @@
       #{sphoto,jdbcType=VARCHAR}, #{sadress,jdbcType=VARCHAR}, #{sclass,jdbcType=CHAR}
       )
   </insert>
+
+  <insert id="insertforeach" parameterType="java.util.List" useGeneratedKeys="false">
+    insert IGNORE into stuinfo (stuid, sname, ssex,
+    sbirthday, students, spolitical,
+    sphone, semail, srole,
+    sphoto, sadress, sclass)
+    values
+    <foreach collection="list" item="item" index="index" separator=",">
+      (
+      #{item.stuid},
+      #{item.sname},
+      #{item.ssex},
+      #{item.sbirthday},
+      #{item.students},
+      #{item.spolitical},
+      #{item.sphone},
+      #{item.semail},
+      #{item.srole},
+      #{item.sphoto},
+      #{item.sadress},
+      #{item.sclass}
+      )
+    </foreach>
+    on duplicate key update
+    sname = values(sname),sclass = values(sclass)
+  </insert>
+
   <insert id="insertSelective" parameterType="xin.iamten.entity.Stuinfo" >
     insert into stuinfo
     <trim prefix="(" suffix=")" suffixOverrides="," >

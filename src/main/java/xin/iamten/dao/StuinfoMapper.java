@@ -9,9 +9,13 @@ public interface StuinfoMapper {
 
     int insert(Stuinfo record);
 
+    int insertforeach(List<Stuinfo> list);
+
     int insertSelective(Stuinfo record);
 
     Stuinfo selectByPrimaryKey(String stuid);
+
+    Stuinfo selectByClassRole(Stuinfo stuinfo);
 
     int updateByPrimaryKeySelective(Stuinfo record);
 
@@ -24,6 +28,8 @@ public interface StuinfoMapper {
     List<Stuinfo> selectstuByOthers(Stuinfo record);
 
     List<Stuinfo> selectmanagerByOthers(Stuinfo record);
+
+    List<Stuinfo> selectAll();
 
 
 }
