@@ -158,6 +158,7 @@
             url: '/holiday/holidayison',
             dataType: 'json',
             type: 'POST',
+            async : false,
             success: function (data) {
                 $("#holidayname").val(data.holiday.holidayname);
                 $("#starttime").val(data.holiday.starttime);
@@ -180,6 +181,7 @@
                                 url: '/city/cityselect',
                                 dataType: 'json',
                                 type: 'POST',
+                                async : false,
                                 data:{"provincecode": province},
                                 success: function (data) {
                                     $("#city").empty();
@@ -197,6 +199,7 @@
                                 url: '/city/areaselect',
                                 dataType: 'json',
                                 type: 'POST',
+                                async : false,
                                 data:{"citycode": city},
                                 success: function (data) {
                                     $("#area").empty();
@@ -298,5 +301,4 @@
 
     })
 </script>
-
 </html>

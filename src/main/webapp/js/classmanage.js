@@ -89,4 +89,32 @@ layui.use(['form'], function(){
             });
         }
     });
+    form.on('submit(manageset)', function(data){
+        var arr=$('#setform').serializeArray();
+        console.log(arr);
+        var arrval = [];
+        for(var i=0;i<arr.length;i++){
+            var getvalue = arr[i].value;
+            arrval.push(getvalue);
+        }
+        console.log(arrval);
+        if(isRepeat(arrval)){
+            alert("请勿一人担任多职务！");
+            return false;
+        }else{
+            var action = data.form.action;//表单提交URL地址
+            console.log(JSON.stringify(data.field));//表单数据
+            $.post(action,data.field,function(obj){
+                if(obj.code!==200){
+                    alert(obj.msg);
+                    return false;
+                }else{
+                    alert("设置成功!");
+                    // location.reload();
+                    return false;
+                }
+            });
+            return false;//注释掉这行代码后，表单将会以普通方式提交表单，否则以ajax方式提交表单
+        }
+    });
 });

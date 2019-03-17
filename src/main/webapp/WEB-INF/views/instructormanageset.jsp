@@ -23,7 +23,7 @@
                 <legend>班委设置</legend>
             </fieldset>
 
-            <form class="layui-form" action="" lay-filter="example">
+            <form class="layui-form" action="/instructor/instructormanageset" id="setform" lay-filter="example">
                 <div class="layui-form-item">
                     <div class="layui-inline">
                         <label class="layui-form-label">班级号</label>
@@ -124,6 +124,11 @@
                         </div>
                     </div>
                 </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit="" lay-filter="manageset">立即设置</button>
+                    </div>
+                </div>
             </form>
         </div>
     </div>
@@ -132,4 +137,5 @@
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript" src="layui/layui.js"></script>
 <script type="text/javascript" src="js/classmanage.js"></script>
+<script type="text/javascript" src="js/useful.js"></script>
 </html>
