@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="xin.iamten.dao.PracticeMapper" >
+  <resultMap id="BaseResultMap" type="xin.iamten.entity.Practice" >
+    <id column="stuid" property="stuid" jdbcType="CHAR" />
+    <result column="company" property="company" jdbcType="VARCHAR" />
+    <result column="starttime" property="starttime" jdbcType="VARCHAR" />
+    <result column="endtime" property="endtime" jdbcType="VARCHAR" />
+    <result column="isrent" property="isrent" jdbcType="CHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <resultMap id="AddStuResultMap" type="xin.iamten.entity.Practice" >
+    <id column="stuid" property="stuid" jdbcType="CHAR" />
+    <result column="company" property="company" jdbcType="VARCHAR" />
+    <result column="starttime" property="starttime" jdbcType="VARCHAR" />
+    <result column="endtime" property="endtime" jdbcType="VARCHAR" />
+    <result column="isrent" property="isrent" jdbcType="CHAR" />
+    <result column="address" property="address" jdbcType="VARCHAR" />
+
+    <association property="stuinfo" javaType="xin.iamten.entity.Stuinfo">
+      <id column="stuid" property="stuid" jdbcType="CHAR" />
+      <result column="sname" property="sname" jdbcType="VARCHAR" />
+      <result column="ssex" property="ssex" jdbcType="CHAR" />
+      <result column="sbirthday" property="sbirthday" jdbcType="VARCHAR" />
+      <result column="students" property="students" jdbcType="VARCHAR" />
+      <result column="spolitical" property="spolitical" jdbcType="VARCHAR" />
+      <result column="sphone" property="sphone" jdbcType="CHAR" />
+      <result column="semail" property="semail" jdbcType="VARCHAR" />
+      <result column="srole" property="srole" jdbcType="INTEGER" />
+      <result column="sphoto" property="sphoto" jdbcType="VARCHAR" />
+      <result column="sadress" property="sadress" jdbcType="VARCHAR" />
+      <result column="sclass" property="sclass" jdbcType="CHAR" />
+      <association property="classinfo" javaType="xin.iamten.entity.Classinfo">
+        <id column="classid" property="classid" jdbcType="CHAR" />
+        <result column="ccollege" property="ccollege" jdbcType="VARCHAR" />
+        <result column="major" property="major" jdbcType="VARCHAR" />
+        <result column="cgrade" property="cgrade" jdbcType="CHAR" />
+        <result column="instructor" property="instructor" jdbcType="CHAR" />
+        <result column="headmaster" property="headmaster" jdbcType="CHAR" />
+      </association>
+    </association>
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    stuid, company, starttime, endtime, isrent, address
+  </sql>
+
+  <sql id="Stu_Column_List" >
+    practice.*,stuinfo.*,classinfo.*
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from practice
+    where stuid = #{stuid,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from practice
+    where stuid = #{stuid,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="xin.iamten.entity.Practice" >
+    insert into practice (stuid, company, starttime, 
+      endtime, isrent, address
+      )
+    values (#{stuid,jdbcType=CHAR}, #{company,jdbcType=VARCHAR}, #{starttime,jdbcType=VARCHAR}, 
+      #{endtime,jdbcType=VARCHAR}, #{isrent,jdbcType=CHAR}, #{address,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="xin.iamten.entity.Practice" >
+    insert into practice
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="stuid != null" >
+        stuid,
+      </if>
+      <if test="company != null" >
+        company,
+      </if>
+      <if test="starttime != null" >
+        starttime,
+      </if>
+      <if test="endtime != null" >
+        endtime,
+      </if>
+      <if test="isrent != null" >
+        isrent,
+      </if>
+      <if test="address != null" >
+        address,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="stuid != null" >
+        #{stuid,jdbcType=CHAR},
+      </if>
+      <if test="company != null" >
+        #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="starttime != null" >
+        #{starttime,jdbcType=VARCHAR},
+      </if>
+      <if test="endtime != null" >
+        #{endtime,jdbcType=VARCHAR},
+      </if>
+      <if test="isrent != null" >
+        #{isrent,jdbcType=CHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="xin.iamten.entity.Practice" >
+    update practice
+    <set >
+      <if test="company != null" >
+        company = #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="starttime != null" >
+        starttime = #{starttime,jdbcType=VARCHAR},
+      </if>
+      <if test="endtime != null" >
+        endtime = #{endtime,jdbcType=VARCHAR},
+      </if>
+      <if test="isrent != null" >
+        isrent = #{isrent,jdbcType=CHAR},
+      </if>
+      <if test="address != null" >
+        address = #{address,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where stuid = #{stuid,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="xin.iamten.entity.Practice" >
+    update practice
+    set company = #{company,jdbcType=VARCHAR},
+      starttime = #{starttime,jdbcType=VARCHAR},
+      endtime = #{endtime,jdbcType=VARCHAR},
+      isrent = #{isrent,jdbcType=CHAR},
+      address = #{address,jdbcType=VARCHAR}
+    where stuid = #{stuid,jdbcType=CHAR}
+  </update>
+</mapper>

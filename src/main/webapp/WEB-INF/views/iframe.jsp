@@ -141,8 +141,10 @@
                 <li class="layui-nav-item">
                     <a href="javascript:;">班级事务</a>
                     <dl class="layui-nav-child">
-                            <dd><a href="/holiday" target="main_self_frame">节假日离校登记</a></dd>
-                        <dd><a href="tofuture" target="main_self_frame">实习考研情况</a></dd>
+                        <dd><a href="/holiday" target="main_self_frame">节假日离校登记</a></dd>
+                        <dd><a href="/practice" target="main_self_frame">实习登记</a></dd>
+                        <dd><a href="/work" target="main_self_frame">工作登记</a></dd>
+                        <dd><a href="/postgraduate" target="main_self_frame">考研登记</a></dd>
                     </dl>
                 </li>
                 </c:if>

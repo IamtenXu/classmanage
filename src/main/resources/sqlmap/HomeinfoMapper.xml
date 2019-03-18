@@ -44,7 +44,6 @@
         <result column="headmaster" property="headmaster" jdbcType="CHAR" />
       </association>
     </association>
-
   </resultMap>
 
   <sql id="Base_Column_List" >
