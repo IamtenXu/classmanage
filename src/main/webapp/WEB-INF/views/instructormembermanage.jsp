@@ -49,7 +49,7 @@
 <script type="text/javascript" src="layui/layui.js"></script>
 <script id="barDemo" type="text/html">
     <a class="layui-btn layui-btn-warm layui-btn-xs dw-dailog" lay-event="update" dw-url="/updatemember" dw-title="修改学生信息">修改</a>
-    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="del">删除</a>
+    <a class="layui-btn layui-btn-danger layui-btn-xs" lay-event="reset">重置密码</a>
 </script>
 <script>
     layui.use(['element','table','form'], function(){
@@ -91,9 +91,9 @@
                 ,{field:'sbirthday',  sort: true, align: 'left', title: '出生日期'}
                 ,{field:'spolitical', sort: true,align: 'left', title: '政治面貌',width: 100}
                 ,{field:'sphone', title: '手机号码'}
-                ,{field:'sadress', align: 'left', title: '寝室'}
+                ,{field:'sadress', align: 'left', title: '寝室',width: 80}
                 ,{field:'sphoto', title: '照片',templet: '<div><img src="{{d.sphoto}}"></div>'}
-                ,{fixed: 'right', title: '操作',width:150, align:'center', toolbar: '#barDemo'}
+                ,{fixed: 'right', title: '操作',width:140, align:'center', toolbar: '#barDemo'}
             ]]
             ,id: 'testReload'
             ,page: true
@@ -143,23 +143,23 @@
                         return false;
                     }
                 })
-            }else if(obj.event === 'del'){
-                layer.confirm('确定要删除这条通知吗？', function(index){
+            }else if(obj.event === 'reset'){
+                layer.confirm('确定要重置此学生登录密码吗？', function(index){
                     console.log(data);
                     $.ajax({
-                        url: "/announcement/deletAnnouncement",
+                        url: "/instructor/resetpassword",
                         type: "POST",
-                        data:{"id":data.id},
+                        data:{"stuid":data.stuid},
                         dataType: "json",
                         success: function(data){
                             if(data.code===200){
-                                //删除这一行
-                                obj.del();
+                                // //删除这一行
+                                // obj.del();
                                 //关闭弹框
                                 layer.close(index);
-                                layer.msg("删除成功", {icon: 6});
+                                layer.msg("重置成功", {icon: 6});
                             }else{
-                                layer.msg("删除失败", {icon: 5});
+                                layer.msg("重置失败", {icon: 5});
                             }
                         }
                     });

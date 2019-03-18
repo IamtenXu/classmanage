@@ -57,7 +57,7 @@
             </div>
             <div class="r-forget cl">
                 <a href="/register" class="z">账号注册</a>
-                <a href="getpass.html" class="y">忘记密码</a>
+                <a href="javascript:void(0);" onclick="forget()" class="y">忘记密码</a>
             </div>
             <button class="lang-btn off log-btn">登录</button>
             <div class="third-party">
@@ -73,5 +73,10 @@
 <script src="js/agree.js"></script>
 <script src="js/login.js"></script>
 <script src="js/cookie.js"></script>
+<script>
+    function forget() {
+        alert("请联系辅导员，进行密码重置！");
+    }
+</script>
 </body>
 </html>

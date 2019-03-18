@@ -215,5 +215,23 @@ public class PageController {
         return "instructormanageset";
     }
 
+    //实习登记
+    @RequestMapping("/practice")
+    public String topractice(){
+        return "practice";
+    }
+
+    //工作登记
+    @RequestMapping("/work")
+    public String towork(){
+        return "work";
+    }
+
+    //考研登记
+    @RequestMapping("/postgraduate")
+    public String topostgraduate(){
+        return "postgraduate";
+    }
+
 
 }
