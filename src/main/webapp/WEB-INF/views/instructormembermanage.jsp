@@ -87,13 +87,13 @@
                 {field:'stuid',  sort: true, title: '学号',width: 100}
                 ,{field:'sname',  title: '姓名',width: 80}
                 ,{field:'ssex',  sort: true, title: '性别',width: 80}
-                ,{field:'students',  sort: true, title: '生源地'}
-                ,{field:'sbirthday',  sort: true, align: 'left', title: '出生日期'}
+                ,{field:'students',  sort: true, title: '生源地',width: 120}
+                ,{field:'sbirthday',  sort: true, align: 'left', title: '出生日期',width: 120}
                 ,{field:'spolitical', sort: true,align: 'left', title: '政治面貌',width: 100}
-                ,{field:'sphone', title: '手机号码'}
-                ,{field:'sadress', align: 'left', title: '寝室',width: 80}
+                ,{field:'sphone', title: '手机号码',width: 120}
+                ,{field:'sadress', align: 'left', title: '寝室',width: 120}
                 ,{field:'sphoto', title: '照片',templet: '<div><img src="{{d.sphoto}}"></div>'}
-                ,{fixed: 'right', title: '操作',width:140, align:'center', toolbar: '#barDemo'}
+                ,{fixed: 'right', title: '操作',width: 180, align:'center', toolbar: '#barDemo'}
             ]]
             ,id: 'testReload'
             ,page: true

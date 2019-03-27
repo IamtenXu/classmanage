@@ -221,10 +221,16 @@ public class PageController {
         return "practice";
     }
 
-    //实习登记
+    //实习登记管理
     @RequestMapping("/practicemanage")
     public String topracticemanage(){
         return "practicemanage";
+    }
+
+    //工作登记
+    @RequestMapping("/workmanage")
+    public String toworkmanage(){
+        return "workmanage";
     }
 
     //工作登记
@@ -249,6 +255,18 @@ public class PageController {
     @RequestMapping("/instructorpracticemanage")
     public String toinstructorpracticemanage(){
         return "instructorpracticemanage";
+    }
+
+    //班委工作分析
+    @RequestMapping("/workanalysis")
+    public String toworkanalysis(){
+        return "workanalysis";
+    }
+
+    //辅导员工作分析
+    @RequestMapping("/instructorworkmanage")
+    public String toinstructorworkmanage(){
+        return "instructorworkmanage";
     }
 
 

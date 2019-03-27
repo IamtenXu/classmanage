@@ -12,7 +12,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>实习情况分析</title>
+    <title>工作情况分析</title>
     <link rel="stylesheet" href="layui/css/layui.css">
 </head>
 <body>
@@ -20,7 +20,7 @@
     <div class="layui-row">
         <div class="layui-col-lg12">
             <fieldset class="layui-elem-field">
-                <legend>实习情况分析</legend>
+                <legend>工作情况分析</legend>
                 <div class="layui-field-box">
                     <c:if test="${getrole == '2'}">
                         <form class="layui-form">
@@ -67,15 +67,15 @@
         });
         form.on('select(classidFilter)', function(){
             $.ajax({
-                url: '/practice/analysislist',
+                url: '/work/analysislist',
                 dataType: 'json',
                 type: 'POST',
                 async : false,
                 data:{"classid":$('#classid').val()},
                 success: function (data) {
                     $('#formcontainer').empty();
-                    $('#formcontainer').append("<label><font size='5'> 实习总人数为<strong> "+data.sum+"</strong> 人，"+"班级共<strong> "+data.all+"</strong>人，实习比例为<strong> "+data.practicepercent+"</strong></font></label><br>");
-                    $.each(data.practiceAnalyses, function (index, item) {
+                    $('#formcontainer').append("<label><font size='5'> 工作总人数为<strong> "+data.sum+"</strong>人，"+"班级共<strong> "+data.all+"</strong>人，找到工作的比例为<strong> "+data.workpercent+"</strong></font></label><br>");
+                    $.each(data.workAnalyses, function (index, item) {
                         $('#formcontainer').append(" <br><label><strong> "+(index+1)+" "+item.company+"(共"+item.num+"人) 占"+item.percent+"</strong></label><br>\n" +
                             "                        <div class=\"layui-progress layui-progress-big\" lay-showPercent=\"true\" lay-filter=\"demo"+index+"\">\n" +
                             "                            <div class=\"layui-progress-bar layui-bg-blue\" lay-percent=\""+item.percent+"\"></div>\n" +
@@ -89,14 +89,14 @@
     });
     <c:if test="${getrole != '2'}">
     $.ajax({
-        url: '/practice/analysislist',
+        url: '/work/analysislist',
         dataType: 'json',
         type: 'POST',
         async : false,
         data:{"classid":${sessionScope.classinfo.classid}},
         success: function (data) {
-            $('#formcontainer').append("<label><font size='5'> 实习总人数为<strong> "+data.sum+"</strong> 人，"+"班级共<strong> "+data.all+"</strong>人，实习比例为<strong> "+data.practicepercent+"</strong></font></label><br>");
-            $.each(data.practiceAnalyses, function (index, item) {
+            $('#formcontainer').append("<label><font size='5'> 工作总人数为<strong> "+data.sum+"</strong>人，"+"班级共<strong> "+data.all+"</strong>人，找到工作的比例为<strong> "+data.workpercent+"</strong></font></label><br>");
+            $.each(data.workAnalyses, function (index, item) {
                 $('#formcontainer').append(" <br><label><strong> "+(index+1)+" "+item.company+"(共"+item.num+"人)"+"</strong></label><br>\n" +
                     "                        <div class=\"layui-progress layui-progress-big\" lay-showPercent=\"true\">\n" +
                     "                            <div class=\"layui-progress-bar layui-bg-blue\" lay-percent=\""+item.percent+"\"></div>\n" +

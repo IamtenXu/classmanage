@@ -156,15 +156,17 @@
                             <dd><a href="/deaninfomanage" target="main_self_frame">信息管理</a></dd>
                             </c:if>
                             <c:if test="${getrole == '2'}">
-                                <dd><a href="/instructormembermanage" target="main_self_frame">学生信息管理</a></dd>
                                 <dd><a href="/instructormanageset" target="main_self_frame">班委设置</a></dd>
                                 <dd><a href="/holidayset" target="main_self_frame">节日设置</a></dd>
+                                <dd><a href="/instructormembermanage" target="main_self_frame">学生信息管理</a></dd>
                                 <dd><a href="/instructorholidaymanage" target="main_self_frame">离校登记管理</a></dd>
                                 <dd><a href="/instructorpracticemanage" target="main_self_frame">实习情况管理</a></dd>
+                                <dd><a href="/instructorworkmanage" target="main_self_frame">工作情况情况管理</a></dd>
                             </c:if>
                             <c:if test="${getrole == '4'||getrole == '5'}">
                                 <dd><a href="/holidaymanage" target="main_self_frame">离校登记管理</a></dd>
                                 <dd><a href="/practicemanage" target="main_self_frame">实习情况管理</a></dd>
+                                <dd><a href="/workmanage" target="main_self_frame">工作情况情况管理</a></dd>
                             </c:if>
                         </dl>
                     </li>

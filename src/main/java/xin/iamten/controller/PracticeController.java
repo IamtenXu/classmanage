@@ -8,9 +8,12 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import xin.iamten.entity.Practice;
 import xin.iamten.entity.PracticeAnalysis;
+import xin.iamten.entity.Stuinfo;
 import xin.iamten.service.PracticeService;
+import xin.iamten.service.StuService;
 import xin.iamten.utils.R;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Controller
@@ -19,6 +22,8 @@ public class PracticeController {
 
     @Autowired
     private PracticeService practiceService;
+    @Autowired
+    private StuService stuService;
 
     //获取某学生实习信息
     @RequestMapping(value = "/findpractice", method = RequestMethod.POST)
@@ -65,17 +70,30 @@ public class PracticeController {
     @RequestMapping(value = "/analysislist", method = RequestMethod.POST)
     @ResponseBody
     public R analysislist(@RequestParam String classid) {
+        Stuinfo stuinfo = new Stuinfo();
+        stuinfo.setSclass(classid);
         List<PracticeAnalysis> practiceAnalyses = practiceService.queryListPAnalysis(classid);
+        List<Stuinfo> stuinfos = stuService.queryStuList(stuinfo);
+        int all=stuinfos.size();
         int sum=0;
         for(int i=0;i<practiceAnalyses.size();i++){
             sum += practiceAnalyses.get(i).getNum();
         }
+        float practicePercent = ((float) sum/all)*100;
+        if(all==0||sum==0){
+            practicePercent=0;
+        }
+        BigDecimal practicePercent2 = new BigDecimal(practicePercent);
+        practicePercent = practicePercent2.setScale(2,BigDecimal.ROUND_HALF_UP).floatValue();
+        String practicepercent = practicePercent+"%";
         for(int i=0;i<practiceAnalyses.size();i++){
             float percent = ((float) practiceAnalyses.get(i).getNum() / sum) * 100;
+            BigDecimal percent2 = new BigDecimal(percent);
+            percent = percent2.setScale(2,BigDecimal.ROUND_HALF_UP).floatValue();
             String percentSring = percent+"%";
             practiceAnalyses.get(i).setPercent(percentSring);
         }
-        return R.ok().put("practiceAnalyses",practiceAnalyses).put("sum",sum);
+        return R.ok().put("practiceAnalyses",practiceAnalyses).put("sum",sum).put("practicepercent",practicepercent).put("all",all);
     }
 
 
