@@ -10,6 +10,11 @@
     <result column="address" property="address" jdbcType="VARCHAR" />
   </resultMap>
 
+    <resultMap id="PracticeAnalysisMap" type="xin.iamten.entity.PracticeAnalysis" >
+        <id column="company" property="company" jdbcType="VARCHAR" />
+        <result column="num" property="num" jdbcType="INTEGER" />
+    </resultMap>
+
   <resultMap id="AddStuResultMap" type="xin.iamten.entity.Practice" >
     <id column="stuid" property="stuid" jdbcType="CHAR" />
     <result column="company" property="company" jdbcType="VARCHAR" />
@@ -56,6 +61,22 @@
     from practice
     where stuid = #{stuid,jdbcType=CHAR}
   </select>
+
+  <select id="selectByClassid" resultMap="AddStuResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Stu_Column_List" />
+    from practice,classinfo,stuinfo
+    where stuinfo.sclass = #{classid,jdbcType=CHAR} AND practice.stuid = stuinfo.stuid AND stuinfo.sclass = classinfo.classid
+  </select>
+
+    <select id="selectPracticeAnalysis" resultMap="PracticeAnalysisMap" parameterType="java.lang.String" >
+        select p.company,count(p.stuid) as num
+        from practice p,stuinfo s
+        where p.stuid = s.stuid AND s.sclass = #{classid,jdbcType=CHAR}
+        group by p.company
+        order by num DESC;
+    </select>
+
   <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
     delete from practice
     where stuid = #{stuid,jdbcType=CHAR}

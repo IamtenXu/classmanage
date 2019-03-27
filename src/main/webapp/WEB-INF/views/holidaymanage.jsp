@@ -37,11 +37,11 @@
                         </div>
                         <label class="layui-form-label">开始日期</label>
                         <div class="layui-input-inline">
-                            <input name="starttime" class="layui-input" id="starttime" type="text" autocomplete="off" lay-verify="date" value="">
+                            <input name="starttime" class="layui-input" id="starttime" type="text" autocomplete="off" lay-verify="date" value="" readonly>
                         </div>
                         <label class="layui-form-label">结束日期</label>
                         <div class="layui-input-inline">
-                            <input name="endtime" class="layui-input" id="endtime" type="text" autocomplete="off" lay-verify="date" value="">
+                            <input name="endtime" class="layui-input" id="endtime" type="text" autocomplete="off" lay-verify="date" value="" readonly>
                         </div>
                     </div>
                 </div>
@@ -112,16 +112,13 @@
                 ,{field:'note', align: 'left', title: '备注'}
             ]]
             ,id: 'testReload'
-            ,page: true
+            // ,page: true
             ,height: 'full-140'
             ,limit: 50
         });
         form.on('select(holidayFilter)', function(data){
             table.reload('testReload', {
-                page: {
-                    curr: 1 //重新从第 1 页开始
-                }
-                ,where: {
+                where: {
                     holidayname:data.value
                 }
             });

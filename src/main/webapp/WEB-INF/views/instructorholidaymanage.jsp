@@ -75,6 +75,19 @@
                 layui.form.render("select");//重新渲染 固定写法
             }
         });
+        //添加下拉框选项
+        $.ajax({
+            url: '/holiday/holidayselect',
+            dataType: 'json',
+            type: 'POST',
+            async:false,
+            success: function (data) {
+                $.each(data.holiday, function (index, item) {
+                    $('#holiday').append(new Option(item.holidayname, item.holidayname));// 下拉菜单里添加元素
+                });
+                layui.form.render("select");//重新渲染 固定写法
+            }
+        });
         $.ajax({
             url: '/holiday/holidayison',
             dataType: 'json',
@@ -82,21 +95,10 @@
             async:false,
             success: function (data) {
                 holidayname = data.holiday.holidayname;
-                $("#holidaying").val(data.holiday.holidayname);
+                $("#holiday").val(data.holiday.holidayname);
+                layui.form.render("select");//重新渲染 固定写法
                 $("#starttime").val(data.holiday.starttime);
                 $("#endtime").val(data.holiday.endtime);
-            }
-        });
-        //添加下拉框选项
-        $.ajax({
-            url: '/holiday/holidayselect',
-            dataType: 'json',
-            type: 'POST',
-            success: function (data) {
-                $.each(data.holiday, function (index, item) {
-                    $('#holiday').append(new Option(item.holidayname, item.holidayname));// 下拉菜单里添加元素
-                });
-                layui.form.render("select");//重新渲染 固定写法
             }
         });
         //方法级渲染

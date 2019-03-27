@@ -159,15 +159,12 @@
                                 <dd><a href="/instructormembermanage" target="main_self_frame">学生信息管理</a></dd>
                                 <dd><a href="/instructormanageset" target="main_self_frame">班委设置</a></dd>
                                 <dd><a href="/holidayset" target="main_self_frame">节日设置</a></dd>
+                                <dd><a href="/instructorholidaymanage" target="main_self_frame">离校登记管理</a></dd>
+                                <dd><a href="/instructorpracticemanage" target="main_self_frame">实习情况管理</a></dd>
                             </c:if>
                             <c:if test="${getrole == '4'||getrole == '5'}">
-                            <dd><a href="/holidaymanage" target="main_self_frame">离校登记管理</a></dd>
-                            </c:if>
-                            <c:if test="${getrole == '2'}">
-                                <dd><a href="/instructorholidaymanage" target="main_self_frame">离校登记管理</a></dd>
-                            </c:if>
-                            <c:if test="${getrole == '2'||getrole == '4'||getrole == '5'}">
-                                <dd><a href="tofuturemanage" target="main_self_frame">实习考研情况管理</a></dd>
+                                <dd><a href="/holidaymanage" target="main_self_frame">离校登记管理</a></dd>
+                                <dd><a href="/practicemanage" target="main_self_frame">实习情况管理</a></dd>
                             </c:if>
                         </dl>
                     </li>
@@ -176,7 +173,7 @@
         </div>
     </div>
     <div class="layui-body">
-        <iframe src="index" name="main_self_frame" frameborder="0" class="layadmin-iframe"></iframe>
+        <iframe src="/index" name="main_self_frame" frameborder="0" class="layadmin-iframe"></iframe>
     </div>
 
     <div class="layui-footer">

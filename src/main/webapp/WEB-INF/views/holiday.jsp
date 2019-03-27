@@ -11,7 +11,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <title>假日离校等级</title>
+    <title>假日离校登记</title>
     <link rel="stylesheet" href="layui/css/layui.css">
 </head>
 <body>

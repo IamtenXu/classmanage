@@ -4,7 +4,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import xin.iamten.dao.PracticeMapper;
 import xin.iamten.entity.Practice;
+import xin.iamten.entity.PracticeAnalysis;
 import xin.iamten.service.PracticeService;
+
+import java.util.List;
 
 @Service
 public class PracticeServiceImpl implements PracticeService {
@@ -13,21 +16,30 @@ public class PracticeServiceImpl implements PracticeService {
     private PracticeMapper practiceMapper;
 
     @Override
-    public int insertOne(Practice practice) {
+    public int insertOneP(Practice practice) {
         return practiceMapper.insertSelective(practice);
     }
 
     @Override
-    public Practice queryOne(String stuid) {
+    public Practice queryOneP(String stuid) {
         return practiceMapper.selectByPrimaryKey(stuid);
     }
 
     @Override
-    public boolean updateOne(Practice practice) {
+    public boolean updateOneP(Practice practice) {
         if(practice == null){
             return false;
         }
         practiceMapper.updateByPrimaryKeySelective(practice);
         return true;
+    }
+    @Override
+    public List<Practice> queryListP(String classid){
+        return practiceMapper.selectByClassid(classid);
+    }
+
+    @Override
+    public List<PracticeAnalysis> queryListPAnalysis(String classid) {
+        return practiceMapper.selectPracticeAnalysis(classid);
     }
 }

@@ -2,12 +2,19 @@ package xin.iamten.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import xin.iamten.entity.Practice;
+import xin.iamten.entity.PracticeAnalysis;
+
+import java.util.List;
 
 public interface PracticeService {
 
-    int insertOne(Practice practice);
+    int insertOneP(Practice practice);
 
-    Practice queryOne(String stuid);
+    Practice queryOneP(String stuid);
 
-    boolean updateOne(Practice practice);
+    boolean updateOneP(Practice practice);
+
+    List<Practice> queryListP(String classid);
+
+    List<PracticeAnalysis> queryListPAnalysis(String classid);
 }

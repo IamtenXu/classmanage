@@ -7,13 +7,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="148c5529-e527-48fa-9e84-a27a96c209cc" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/xin/iamten/service/PracticeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/xin/iamten/service/impl/PracticeServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/xin/iamten/controller/PracticeController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/xin/iamten/entity/PracticeAnalysis.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/instructorpracticemanage.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/practice.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/practiceanalysis.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/practicemanage.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/xin/iamten/controller/InstructorContorller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xin/iamten/controller/InstructorContorller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/xin/iamten/controller/PageController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xin/iamten/controller/PageController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/instructormembermanage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/instructormembermanage.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xin/iamten/dao/PracticeMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xin/iamten/dao/PracticeMapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xin/iamten/service/PracticeService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xin/iamten/service/PracticeService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/xin/iamten/service/impl/PracticeServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/xin/iamten/service/impl/PracticeServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/sqlmap/PracticeMapper.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/sqlmap/PracticeMapper.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/holiday.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/holiday.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/holidaymanage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/holidaymanage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/iframe.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/iframe.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/instructorholidaymanage.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/instructorholidaymanage.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/generator.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/generator.properties" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,47 +37,87 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/iframe.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="146" column="50" selection-start-line="146" selection-start-column="38" selection-end-line="146" selection-end-column="50" />
+            <state relative-caret-position="2983">
+              <caret line="157" column="28" selection-start-line="157" selection-start-column="28" selection-end-line="157" selection-end-column="59" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/instructormembermanage.jsp">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/practicemanage.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-839">
-              <caret line="100" column="22" lean-forward="true" selection-start-line="100" selection-start-column="22" selection-end-line="100" selection-end-column="22" />
+            <state relative-caret-position="2014">
+              <caret line="106" column="11" selection-start-line="106" selection-start-column="11" selection-end-line="106" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/controller/InstructorContorller.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/controller/PracticeController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-250">
-              <caret line="70" column="56" lean-forward="true" selection-start-line="70" selection-start-column="56" selection-end-line="70" selection-end-column="56" />
+            <state relative-caret-position="1254">
+              <caret line="77" column="78" selection-start-line="77" selection-start-column="78" selection-end-line="77" selection-end-column="78" />
               <folding>
-                <element signature="e#2725#2847#1" />
-                <element signature="e#2933#3057#1" />
-                <element signature="e#3144#3267#1" />
-                <element signature="e#3353#3476#1" />
-                <element signature="e#3562#3687#1" />
-                <element signature="e#3773#3897#1" />
-                <element signature="e#3983#4101#1" />
-                <element signature="e#4188#4309#1" />
-                <element signature="e#4396#4515#1" />
-                <element signature="e#4602#4730#1" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/controller/PageController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1140">
-              <caret line="60" column="18" lean-forward="true" selection-start-line="60" selection-start-column="18" selection-end-line="60" selection-end-column="18" />
+            <state relative-caret-position="3211">
+              <caret line="250" column="40" selection-start-line="250" selection-start-column="16" selection-end-line="250" selection-end-column="40" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#toindex#0;class#PageController#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/instructorpracticemanage.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="589">
+              <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/practiceanalysis.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="798">
+              <caret line="81" column="62" selection-start-line="81" selection-start-column="62" selection-end-line="81" selection-end-column="62" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/instructorholidaymanage.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="532">
+              <caret line="88" column="13" lean-forward="true" selection-start-line="88" selection-start-column="13" selection-end-line="88" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/stuinfo.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1729">
+              <caret line="91" column="67" selection-start-line="91" selection-start-column="24" selection-end-line="91" selection-end-column="67" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/holiday.jsp">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="703">
+              <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
             </state>
           </provider>
         </entry>
@@ -80,8 +130,8 @@
         <option value="Jsp File" />
         <option value="CSS File" />
         <option value="JavaScript File" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -101,6 +151,7 @@
       <find>id</find>
       <find>stu</find>
       <find>4</find>
+      <find>render</find>
     </findStrings>
     <replaceStrings>
       <replace>S</replace>
@@ -126,17 +177,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/xin/iamten/service/impl/HolidayServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/sqlmap/HolidaycheckMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/xin/iamten/controller/HolidayController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/holidaymanage.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/instructorholidaymanage.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/instructorclassmember.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/announcementfinished.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/xin/iamten/controller/UserController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/updatemember.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/xin/iamten/entity/ExcelBean.java" />
-        <option value="$PROJECT_DIR$/src/main/java/xin/iamten/service/impl/ExcelServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/xin/iamten/service/ExcelService.java" />
         <option value="$PROJECT_DIR$/src/main/java/xin/iamten/dao/TeainfoMapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/xin/iamten/service/TeaService.java" />
@@ -161,22 +201,33 @@
         <option value="$PROJECT_DIR$/src/main/java/xin/iamten/service/StuService.java" />
         <option value="$PROJECT_DIR$/src/main/java/xin/iamten/service/impl/StuServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/holiday.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/holiday.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/instructormanageset.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/useful.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/classmanage.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/iframe.jsp" />
         <option value="$PROJECT_DIR$/src/main/resources/generator.properties" />
         <option value="$PROJECT_DIR$/src/main/java/xin/iamten/entity/Practice.java" />
         <option value="$PROJECT_DIR$/src/main/resources/sqlmap/HomeinfoMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/resources/sqlmap/PracticeMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/xin/iamten/controller/PageController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/xin/iamten/service/PracticeService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/xin/iamten/service/impl/PracticeServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/xin/iamten/utils/UpdateManage.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/instructormembermanage.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/xin/iamten/controller/InstructorContorller.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/holiday.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/practice.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/practicemanager.jsp" />
+        <option value="$PROJECT_DIR$/src/main/resources/spring/applicationContext.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/xin/iamten/dao/PracticeMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/xin/iamten/entity/PracticeAnalysis.java" />
+        <option value="$PROJECT_DIR$/src/main/java/xin/iamten/service/PracticeService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/xin/iamten/service/impl/PracticeServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/xin/iamten/controller/PracticeController.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/sqlmap/PracticeMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/holidaymanage.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/iframe.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/xin/iamten/controller/PageController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/practicemanage.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/instructorpracticemanage.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/practiceanalysis.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/instructorholidaymanage.jsp" />
       </list>
     </option>
   </component>
@@ -217,9 +268,9 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="width" value="977" />
-    <option name="height" value="1038" />
+    <option name="x" value="-10" />
+    <option name="width" value="980" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -351,14 +402,6 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="webapp" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="iamten" type="b2602c69:ProjectViewProjectNode" />
-              <item name="classmanage" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="webapp" type="462c0819:PsiDirectoryNode" />
               <item name="WEB-INF" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -381,7 +424,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1552891126302" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1553593939827" />
     <property name="last_opened_file_path" value="E:/Javaworkplace/iamten" />
     <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
@@ -549,7 +592,16 @@
       <workItem from="1552637695979" duration="3560000" />
       <workItem from="1552723345336" duration="22873000" />
       <workItem from="1552798300021" duration="11297000" />
-      <workItem from="1552878046738" duration="9378000" />
+      <workItem from="1552878046738" duration="9704000" />
+      <workItem from="1552900263110" duration="611000" />
+      <workItem from="1552958553034" duration="135000" />
+      <workItem from="1552975317279" duration="223000" />
+      <workItem from="1552995220333" duration="112000" />
+      <workItem from="1553495100576" duration="10308000" />
+      <workItem from="1553506409658" duration="189000" />
+      <workItem from="1553506622625" duration="994000" />
+      <workItem from="1553567378290" duration="18405000" />
+      <workItem from="1553649638687" duration="1752000" />
     </task>
     <task id="LOCAL-00001" summary="修改mybatis一些配置">
       <created>1548085461375</created>
@@ -831,11 +883,18 @@
       <option name="project" value="LOCAL" />
       <updated>1552879398363</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="简化代码，增加辅导员重置密码功能">
+      <created>1552891164742</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1552891164742</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="327382000" />
+    <option name="totallyTimeSpent" value="360437000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -850,7 +909,7 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24865952" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24128686" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -860,7 +919,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49932975" weight="0.3286119" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.6414209" visible="true" weight="0.36827195" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.7298928" visible="true" weight="0.36827195" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49798927" weight="0.19263457" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -868,7 +927,7 @@
       <window_info anchor="bottom" id="Spring" order="7" sideWeight="0.49932975" weight="0.3286119" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.3585791" side_tool="true" weight="0.36827195" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.27010724" side_tool="true" weight="0.36827195" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49932975" weight="0.33002833" />
@@ -885,7 +944,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="8" weight="0.25" />
     </layout>
     <layout-to-restore>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22587131" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23793566" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="Image Layers" order="3" />
@@ -895,7 +954,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" sideWeight="0.49932975" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.64209116" visible="true" weight="0.3512748" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.7298928" visible="true" weight="0.36827195" />
       <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49798927" weight="0.19263457" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -903,7 +962,7 @@
       <window_info anchor="bottom" id="Spring" order="7" sideWeight="0.49932975" weight="0.3286119" />
       <window_info anchor="bottom" id="Terminal" order="8" weight="0.3286119" />
       <window_info anchor="bottom" id="Docker" order="9" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.35790884" side_tool="true" visible="true" weight="0.3512748" />
+      <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.27010724" side_tool="true" weight="0.36827195" />
       <window_info anchor="bottom" id="Java Enterprise" order="11" weight="0.3286119" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
       <window_info anchor="bottom" id="Version Control" order="13" sideWeight="0.49932975" weight="0.33002833" />
@@ -964,7 +1023,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="完成班委信息和成员列表查看" />
     <MESSAGE value="导航栏头像按钮" />
     <MESSAGE value="完成辅导员通过select查询班级信息、班委信息、班级成员（照片未处理）" />
     <MESSAGE value="完成辅导员通过select查询班级成员的照片处理&#10;完成教务处按照学院搜索老师功能" />
@@ -989,7 +1047,8 @@
     <MESSAGE value="完成教务处信息导入以及信息更新，未完成辅导员班委修改，离校登记area有时没法绑上select的BUG" />
     <MESSAGE value="完成辅导员班委修改，离校登记area有时没法绑上select的BUG" />
     <MESSAGE value="初始化practice" />
-    <option name="LAST_COMMIT_MESSAGE" value="初始化practice" />
+    <MESSAGE value="简化代码，增加辅导员重置密码功能" />
+    <option name="LAST_COMMIT_MESSAGE" value="简化代码，增加辅导员重置密码功能" />
   </component>
   <component name="XDebuggerManager">
     <watches-manager>
@@ -999,261 +1058,11 @@
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/service/ClassService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="342">
-          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/dao/ClassinfoMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="30" column="32" lean-forward="true" selection-start-line="30" selection-start-column="32" selection-end-line="30" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/instructorclassinfo.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1061">
-          <caret line="111" column="11" lean-forward="true" selection-start-line="111" selection-start-column="11" selection-end-line="111" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/deanclassmanage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="114" column="79" lean-forward="true" selection-start-line="114" selection-start-column="79" selection-end-line="114" selection-end-column="79" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/stuinfo.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="603">
-          <caret line="128" column="37" selection-start-line="128" selection-start-column="37" selection-end-line="128" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/TeainfoMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="380">
-          <caret line="101" column="75" lean-forward="true" selection-start-line="101" selection-start-column="75" selection-end-line="101" selection-end-column="75" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/teainfo.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="13" column="12" selection-start-line="13" selection-start-column="12" selection-end-line="13" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/upload.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-38">
-          <caret line="43" column="24" lean-forward="true" selection-start-line="43" selection-start-column="24" selection-end-line="43" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/deanclassinfo.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="186" column="21" lean-forward="true" selection-start-line="186" selection-start-column="21" selection-end-line="186" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/deaninfomanage.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-593">
-          <caret line="26" column="52" lean-forward="true" selection-start-line="26" selection-start-column="52" selection-end-line="26" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/entity/City.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/controller/DeanController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1786">
-          <caret line="107" column="8" selection-start-line="107" selection-start-column="8" selection-end-line="107" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/dao/StuinfoMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="17" column="29" selection-start-line="17" selection-start-column="12" selection-end-line="17" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/entity/Classmanage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="31" lean-forward="true" selection-start-line="10" selection-start-column="31" selection-end-line="10" selection-end-column="31" />
-          <folding>
-            <element signature="e#412#413#0" expanded="true" />
-            <element signature="e#442#443#0" expanded="true" />
-            <element signature="e#488#489#0" expanded="true" />
-            <element signature="e#526#527#0" expanded="true" />
-            <element signature="e#561#562#0" expanded="true" />
-            <element signature="e#591#592#0" expanded="true" />
-            <element signature="e#638#639#0" expanded="true" />
-            <element signature="e#676#677#0" expanded="true" />
-            <element signature="e#713#714#0" expanded="true" />
-            <element signature="e#745#746#0" expanded="true" />
-            <element signature="e#796#797#0" expanded="true" />
-            <element signature="e#838#839#0" expanded="true" />
-            <element signature="e#874#875#0" expanded="true" />
-            <element signature="e#905#906#0" expanded="true" />
-            <element signature="e#954#955#0" expanded="true" />
-            <element signature="e#994#995#0" expanded="true" />
-            <element signature="e#1030#1031#0" expanded="true" />
-            <element signature="e#1061#1062#0" expanded="true" />
-            <element signature="e#1110#1111#0" expanded="true" />
-            <element signature="e#1150#1151#0" expanded="true" />
-            <element signature="e#1184#1185#0" expanded="true" />
-            <element signature="e#1213#1214#0" expanded="true" />
-            <element signature="e#1258#1259#0" expanded="true" />
-            <element signature="e#1294#1295#0" expanded="true" />
-            <element signature="e#1325#1326#0" expanded="true" />
-            <element signature="e#1351#1352#0" expanded="true" />
-            <element signature="e#1390#1391#0" expanded="true" />
-            <element signature="e#1420#1421#0" expanded="true" />
-            <element signature="e#1458#1459#0" expanded="true" />
-            <element signature="e#1491#1492#0" expanded="true" />
-            <element signature="e#1544#1545#0" expanded="true" />
-            <element signature="e#1588#1589#0" expanded="true" />
-            <element signature="e#1625#1626#0" expanded="true" />
-            <element signature="e#1657#1658#0" expanded="true" />
-            <element signature="e#1708#1709#0" expanded="true" />
-            <element signature="e#1750#1751#0" expanded="true" />
-            <element signature="e#1782#1783#0" expanded="true" />
-            <element signature="e#1809#1810#0" expanded="true" />
-            <element signature="e#1850#1851#0" expanded="true" />
-            <element signature="e#1882#1883#0" expanded="true" />
-            <element signature="e#1923#1924#0" expanded="true" />
-            <element signature="e#1959#1960#0" expanded="true" />
-            <element signature="e#2018#2019#0" expanded="true" />
-            <element signature="e#2068#2069#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/deanallstuinfo.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="244">
-          <caret line="195" column="37" selection-start-line="195" selection-start-column="37" selection-end-line="195" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/holiday.js" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/holiday.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="302" column="9" selection-start-line="302" selection-start-column="9" selection-end-line="302" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/holidayset.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="101" column="8" lean-forward="true" selection-start-line="101" selection-start-column="8" selection-end-line="115" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/entity/Loginuser.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-19">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/controller/UserController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1786">
-          <caret line="216" column="5" lean-forward="true" selection-start-line="216" selection-start-column="5" selection-end-line="216" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/service/impl/LoginuserServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/generator.properties">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="323">
-          <caret line="17" column="14" selection-start-line="17" selection-start-column="14" selection-end-line="17" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/service/impl/StuServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="66" selection-start-line="66" selection-end-line="66" />
-          <folding>
-            <element signature="e#891#892#0" expanded="true" />
-            <element signature="e#954#955#0" expanded="true" />
-            <element signature="e#1549#1550#0" expanded="true" />
-            <element signature="e#1605#1606#0" expanded="true" />
-            <element signature="e#1738#1739#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/useful.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/classmanage.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="97" column="34" selection-start-line="97" selection-start-column="34" selection-end-line="97" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/instructormanageset.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="301">
           <caret line="141" selection-start-line="141" selection-end-line="141" />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/entity/Practice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
-          <folding>
-            <element signature="e#257#258#0" expanded="true" />
-            <element signature="e#287#288#0" expanded="true" />
-            <element signature="e#334#335#0" expanded="true" />
-            <element signature="e#372#373#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/dao/PracticeMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="4" column="17" selection-start-line="4" selection-start-column="17" selection-end-line="4" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/HolidaycheckMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-228" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/HolidayMapper.xml">
@@ -1300,38 +1109,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/service/impl/PracticeServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
-          <folding>
-            <element signature="e#233#234#0" expanded="true" />
-            <element signature="e#257#258#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/service/PracticeService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="5" column="27" lean-forward="true" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/controller/PageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="358">
-          <caret line="222" lean-forward="true" selection-start-line="222" selection-end-line="222" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#toindex#0;class#PageController#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/utils/ClassTea.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
@@ -1357,16 +1134,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/utils/UpdateManage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="37" column="5" lean-forward="true" selection-start-line="13" selection-start-column="4" selection-end-line="37" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/utils/UpdateManage.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/controller/ExcelController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1414">
@@ -1377,41 +1145,27 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="85" column="11" lean-forward="true" selection-start-line="85" selection-start-column="11" selection-end-line="85" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/PracticeMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/instructorclassmanager.jsp">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/iframe.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/login.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="146" column="50" selection-start-line="146" selection-start-column="38" selection-end-line="146" selection-end-column="50" />
+        <state relative-caret-position="171">
+          <caret line="225" column="36" selection-start-line="225" selection-start-column="36" selection-end-line="225" selection-end-column="52" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/instructormembermanage.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-839">
-          <caret line="100" column="22" lean-forward="true" selection-start-line="100" selection-start-column="22" selection-end-line="100" selection-end-column="22" />
+        <state relative-caret-position="1140">
+          <caret line="60" column="18" lean-forward="true" selection-start-line="60" selection-start-column="18" selection-end-line="60" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/controller/InstructorContorller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-250">
-          <caret line="70" column="56" lean-forward="true" selection-start-line="70" selection-start-column="56" selection-end-line="70" selection-end-column="56" />
+        <state relative-caret-position="228">
+          <caret line="30" column="38" lean-forward="true" selection-start-line="30" selection-start-column="38" selection-end-line="30" selection-end-column="38" />
           <folding>
             <element signature="e#2725#2847#1" />
             <element signature="e#2933#3057#1" />
@@ -1427,17 +1181,252 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/login.js">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/css/base.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="225" column="36" selection-start-line="225" selection-start-column="36" selection-end-line="225" selection-end-column="52" />
+        <state relative-caret-position="304">
+          <caret line="154" column="20" lean-forward="true" selection-start-line="154" selection-start-column="20" selection-end-line="154" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/controller/AnnouncementController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="60" column="18" lean-forward="true" selection-start-line="60" selection-start-column="18" selection-end-line="60" selection-end-column="18" />
+        <state relative-caret-position="228">
+          <caret line="22" column="4" lean-forward="true" selection-start-line="22" selection-start-column="4" selection-end-line="28" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/service/impl/LoginuserServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/homeinfo.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1995" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/entity/Practice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="26" lean-forward="true" selection-start-column="26" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://E:/Java/apache-maven-3.3.3/repo/org/springframework/spring-webmvc/4.2.5.RELEASE/spring-webmvc-4.2.5.RELEASE.jar!/org/springframework/web/servlet/config/spring-mvc-4.2.xsd">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="jar://E:/Java/apache-maven-3.3.3/repo/org/springframework/spring-beans/4.2.5.RELEASE/spring-beans-4.2.5.RELEASE.jar!/org/springframework/beans/factory/xml/spring-beans-3.2.xsd">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-741" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/dao/HolidaycheckMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="6" column="17" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/HolidaycheckMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="4" column="51" selection-start-line="4" selection-start-column="44" selection-end-line="4" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/classinfo.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2">
+          <caret line="86" column="19" lean-forward="true" selection-start-line="86" selection-start-column="19" selection-end-line="86" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/holidayset.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="339">
+          <caret line="100" column="11" lean-forward="true" selection-start-line="91" selection-start-column="8" selection-end-line="100" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/announcement.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-953" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/announcementfinished.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="125" column="29" lean-forward="true" selection-start-line="125" selection-start-column="29" selection-end-line="125" selection-end-column="50" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/practice.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="209">
+          <caret line="43" column="30" lean-forward="true" selection-start-line="43" selection-start-column="30" selection-end-line="43" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/updateannouncement.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="743">
+          <caret line="76" column="34" lean-forward="true" selection-start-line="76" selection-start-column="34" selection-end-line="76" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/service/impl/PracticeServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="21" selection-start-column="21" selection-end-column="21" />
+          <folding>
+            <element signature="e#951#952#0" expanded="true" />
+            <element signature="e#1013#1014#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/entity/PracticeAnalysis.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="26" column="25" selection-start-line="26" selection-start-column="25" selection-end-line="26" selection-end-column="25" />
+          <folding>
+            <element signature="e#487#488#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/service/PracticeService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="10" column="38" lean-forward="true" selection-start-line="10" selection-start-column="38" selection-end-line="10" selection-end-column="38" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/deanallteainfo.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-592">
+          <caret line="67" column="19" lean-forward="true" selection-start-line="65" selection-start-column="16" selection-end-line="67" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/deanallstuinfo.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3803" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/sqlmap/PracticeMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="76" column="26" lean-forward="true" selection-start-line="76" selection-start-column="26" selection-end-line="76" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/instructormembermanage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="53">
+          <caret line="102" column="8" selection-start-line="102" selection-start-column="8" selection-end-line="111" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/holidaymanage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="912">
+          <caret line="120" column="16" selection-start-line="120" selection-start-column="16" selection-end-line="120" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/dao/PracticeMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" lean-forward="true" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/iframe.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2983">
+          <caret line="157" column="28" selection-start-line="157" selection-start-column="28" selection-end-line="157" selection-end-column="59" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/practicemanage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2014">
+          <caret line="106" column="11" selection-start-line="106" selection-start-column="11" selection-end-line="106" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/controller/PracticeController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1254">
+          <caret line="77" column="78" selection-start-line="77" selection-start-column="78" selection-end-line="77" selection-end-column="78" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/xin/iamten/controller/PageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3211">
+          <caret line="250" column="40" selection-start-line="250" selection-start-column="16" selection-end-line="250" selection-end-column="40" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#toindex#0;class#PageController#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/instructorpracticemanage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="31" column="37" selection-start-line="31" selection-start-column="37" selection-end-line="31" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/stuinfo.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1729">
+          <caret line="91" column="67" selection-start-line="91" selection-start-column="24" selection-end-line="91" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/holiday.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="703">
+          <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/practiceanalysis.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="798">
+          <caret line="81" column="62" selection-start-line="81" selection-start-column="62" selection-end-line="81" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/instructorholidaymanage.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="532">
+          <caret line="88" column="13" lean-forward="true" selection-start-line="88" selection-start-column="13" selection-end-line="88" selection-end-column="13" />
         </state>
       </provider>
     </entry>

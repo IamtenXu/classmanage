@@ -1,6 +1,9 @@
 package xin.iamten.dao;
 
 import xin.iamten.entity.Practice;
+import xin.iamten.entity.PracticeAnalysis;
+
+import java.util.List;
 
 public interface PracticeMapper {
     int deleteByPrimaryKey(String stuid);
@@ -14,4 +17,8 @@ public interface PracticeMapper {
     int updateByPrimaryKeySelective(Practice record);
 
     int updateByPrimaryKey(Practice record);
+
+    List<Practice> selectByClassid(String classid);
+
+    List<PracticeAnalysis> selectPracticeAnalysis(String classid);
 }
