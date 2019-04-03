@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="xin.iamten.dao.SchoolMapper" >
+  <resultMap id="BaseResultMap" type="xin.iamten.entity.School" >
+    <id column="stuid" property="stuid" jdbcType="CHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="school" property="school" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <resultMap id="PracticeAnalysisMap" type="xin.iamten.entity.PracticeAnalysis" >
+    <id column="school" property="company" jdbcType="VARCHAR" />
+    <result column="num" property="num" jdbcType="INTEGER" />
+  </resultMap>
+
+  <resultMap id="AddStuResultMap" type="xin.iamten.entity.School" >
+    <id column="stuid" property="stuid" jdbcType="CHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+    <result column="school" property="school" jdbcType="VARCHAR" />
+
+    <association property="stuinfo" javaType="xin.iamten.entity.Stuinfo">
+      <id column="stuid" property="stuid" jdbcType="CHAR" />
+      <result column="sname" property="sname" jdbcType="VARCHAR" />
+      <result column="ssex" property="ssex" jdbcType="CHAR" />
+      <result column="sbirthday" property="sbirthday" jdbcType="VARCHAR" />
+      <result column="students" property="students" jdbcType="VARCHAR" />
+      <result column="spolitical" property="spolitical" jdbcType="VARCHAR" />
+      <result column="sphone" property="sphone" jdbcType="CHAR" />
+      <result column="semail" property="semail" jdbcType="VARCHAR" />
+      <result column="srole" property="srole" jdbcType="INTEGER" />
+      <result column="sphoto" property="sphoto" jdbcType="VARCHAR" />
+      <result column="sadress" property="sadress" jdbcType="VARCHAR" />
+      <result column="sclass" property="sclass" jdbcType="CHAR" />
+      <association property="classinfo" javaType="xin.iamten.entity.Classinfo">
+        <id column="classid" property="classid" jdbcType="CHAR" />
+        <result column="ccollege" property="ccollege" jdbcType="VARCHAR" />
+        <result column="major" property="major" jdbcType="VARCHAR" />
+        <result column="cgrade" property="cgrade" jdbcType="CHAR" />
+        <result column="instructor" property="instructor" jdbcType="CHAR" />
+        <result column="headmaster" property="headmaster" jdbcType="CHAR" />
+      </association>
+    </association>
+  </resultMap>
+
+  <sql id="Base_Column_List" >
+    stuid, status, school
+  </sql>
+
+  <sql id="Stu_Column_List" >
+    school.*,stuinfo.*,classinfo.*
+  </sql>
+
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from school
+    where stuid = #{stuid,jdbcType=CHAR}
+  </select>
+
+  <select id="selectSchoolAnalysis" resultMap="PracticeAnalysisMap" parameterType="java.lang.String" >
+        select w.school,count(w.stuid) as num
+        from school w,stuinfo s
+        where w.stuid = s.stuid AND s.sclass = #{classid,jdbcType=CHAR} AND w.status != 0
+        group by w.school
+        order by num DESC;
+   </select>
+
+  <select id="selectList" resultMap="AddStuResultMap" parameterType="java.lang.String" >
+    select
+    <include refid="Stu_Column_List" />
+    from school,classinfo,stuinfo
+    where stuinfo.sclass = #{classid,jdbcType=CHAR} AND school.stuid = stuinfo.stuid AND stuinfo.sclass = classinfo.classid
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from school
+    where stuid = #{stuid,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="xin.iamten.entity.School" >
+    insert into school (stuid, status, school
+      )
+    values (#{stuid,jdbcType=CHAR}, #{status,jdbcType=VARCHAR}, #{school,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="xin.iamten.entity.School" >
+    insert into school
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="stuid != null" >
+        stuid,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="school != null" >
+        school,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="stuid != null" >
+        #{stuid,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="school != null" >
+        #{school,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="xin.iamten.entity.School" >
+    update school
+    <set >
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="school != null" >
+        school = #{school,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where stuid = #{stuid,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="xin.iamten.entity.School" >
+    update school
+    set status = #{status,jdbcType=VARCHAR},
+      school = #{school,jdbcType=VARCHAR}
+    where stuid = #{stuid,jdbcType=CHAR}
+  </update>
+</mapper>

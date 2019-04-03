@@ -144,7 +144,7 @@
                         <dd><a href="/holiday" target="main_self_frame">节假日离校登记</a></dd>
                         <dd><a href="/practice" target="main_self_frame">实习登记</a></dd>
                         <dd><a href="/work" target="main_self_frame">工作登记</a></dd>
-                        <dd><a href="/postgraduate" target="main_self_frame">考研登记</a></dd>
+                        <dd><a href="/school" target="main_self_frame">考研登记</a></dd>
                     </dl>
                 </li>
                 </c:if>
@@ -161,11 +161,13 @@
                                 <dd><a href="/instructormembermanage" target="main_self_frame">学生信息管理</a></dd>
                                 <dd><a href="/instructorholidaymanage" target="main_self_frame">离校登记管理</a></dd>
                                 <dd><a href="/instructorpracticemanage" target="main_self_frame">实习情况管理</a></dd>
+                                <dd><a href="/instructorschoolmanage" target="main_self_frame">考研情况管理</a></dd>
                                 <dd><a href="/instructorworkmanage" target="main_self_frame">工作情况情况管理</a></dd>
                             </c:if>
                             <c:if test="${getrole == '4'||getrole == '5'}">
                                 <dd><a href="/holidaymanage" target="main_self_frame">离校登记管理</a></dd>
                                 <dd><a href="/practicemanage" target="main_self_frame">实习情况管理</a></dd>
+                                <dd><a href="/schoolmanage" target="main_self_frame">考研情况管理</a></dd>
                                 <dd><a href="/workmanage" target="main_self_frame">工作情况情况管理</a></dd>
                             </c:if>
                         </dl>

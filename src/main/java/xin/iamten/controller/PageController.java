@@ -234,15 +234,22 @@ public class PageController {
     }
 
     //工作登记
+    @RequestMapping("/schoolmanage")
+    public String toschoolmanage(){
+        return "schoolmanage";
+    }
+
+
+    //工作登记
     @RequestMapping("/work")
     public String towork(){
         return "work";
     }
 
     //考研登记
-    @RequestMapping("/postgraduate")
-    public String topostgraduate(){
-        return "postgraduate";
+    @RequestMapping("/school")
+    public String toschool(){
+        return "school";
     }
 
     //班委实习分析
@@ -263,10 +270,22 @@ public class PageController {
         return "workanalysis";
     }
 
+    //班委工作分析
+    @RequestMapping("/schoolanalysis")
+    public String toschoolanalysis(){
+        return "schoolanalysis";
+    }
+
     //辅导员工作分析
     @RequestMapping("/instructorworkmanage")
     public String toinstructorworkmanage(){
         return "instructorworkmanage";
+    }
+
+    //辅导员工作分析
+    @RequestMapping("/instructorschoolmanage")
+    public String toinstructorschoolmanage(){
+        return "instructorschoolmanage";
     }
 
 
