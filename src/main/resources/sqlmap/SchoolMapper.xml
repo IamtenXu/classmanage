@@ -59,7 +59,23 @@
   <select id="selectSchoolAnalysis" resultMap="PracticeAnalysisMap" parameterType="java.lang.String" >
         select w.school,count(w.stuid) as num
         from school w,stuinfo s
+        where w.stuid = s.stuid AND s.sclass = #{classid,jdbcType=CHAR}
+        group by w.school
+        order by num DESC;
+   </select>
+
+  <select id="selectSchoolfirstAnalysis" resultMap="PracticeAnalysisMap" parameterType="java.lang.String" >
+        select w.school,count(w.stuid) as num
+        from school w,stuinfo s
         where w.stuid = s.stuid AND s.sclass = #{classid,jdbcType=CHAR} AND w.status != 0
+        group by w.school
+        order by num DESC;
+   </select>
+
+  <select id="selectSchoolsecondAnalysis" resultMap="PracticeAnalysisMap" parameterType="java.lang.String" >
+        select w.school,count(w.stuid) as num
+        from school w,stuinfo s
+        where w.stuid = s.stuid AND s.sclass = #{classid,jdbcType=CHAR} AND w.status = 2
         group by w.school
         order by num DESC;
    </select>

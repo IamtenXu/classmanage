@@ -162,13 +162,13 @@
                                 <dd><a href="/instructorholidaymanage" target="main_self_frame">离校登记管理</a></dd>
                                 <dd><a href="/instructorpracticemanage" target="main_self_frame">实习情况管理</a></dd>
                                 <dd><a href="/instructorschoolmanage" target="main_self_frame">考研情况管理</a></dd>
-                                <dd><a href="/instructorworkmanage" target="main_self_frame">工作情况情况管理</a></dd>
+                                <dd><a href="/instructorworkmanage" target="main_self_frame">工作情况管理</a></dd>
                             </c:if>
                             <c:if test="${getrole == '4'||getrole == '5'}">
                                 <dd><a href="/holidaymanage" target="main_self_frame">离校登记管理</a></dd>
                                 <dd><a href="/practicemanage" target="main_self_frame">实习情况管理</a></dd>
                                 <dd><a href="/schoolmanage" target="main_self_frame">考研情况管理</a></dd>
-                                <dd><a href="/workmanage" target="main_self_frame">工作情况情况管理</a></dd>
+                                <dd><a href="/workmanage" target="main_self_frame">工作情况管理</a></dd>
                             </c:if>
                         </dl>
                     </li>

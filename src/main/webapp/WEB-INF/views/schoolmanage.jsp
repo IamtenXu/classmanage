@@ -22,7 +22,7 @@
             <fieldset class="layui-elem-field layui-field-title" style="margin-top: 15px;">
                 <legend>工作信息</legend>
             </fieldset>
-            &nbsp;&nbsp;&nbsp;&nbsp;<button class="layui-btn dw-dailog" dw-url="/schoolanalysis" dw-title="考研情况分析">分析</button>
+            &nbsp;&nbsp;&nbsp;&nbsp;<button class="layui-btn dw-dailog" dw-url="/schoolanalysis" dw-title="报名情况分析">报名情况</button><button class="layui-btn dw-dailog" dw-url="/schoolfirstanalysis" dw-title="笔试情况分析">笔试情况</button><button class="layui-btn dw-dailog" dw-url="/schoolsecondanalysis" dw-title="面试情况分析">面试情况</button>
             <table class="layui-table" id="LAY_table_user" lay-filter="user"></table>
         </div>
     </div>
@@ -86,7 +86,7 @@
                 return false;
             }
             if(dw_width == undefined) dw_width = '60%';
-            if(dw_height == undefined) dw_height = '80%';
+            if(dw_height == undefined) dw_height = '100%';
             layer.open({
                 type: 2,
                 title: dw_title,

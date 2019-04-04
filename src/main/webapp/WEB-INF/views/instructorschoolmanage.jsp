@@ -32,7 +32,13 @@
                             </select>
                         </div>
                         <div class="layui-input-inline">
-                            <button class="layui-btn dw-dailog" dw-url="/schoolanalysis" dw-title="工作情况分析" type = "button">分析</button>
+                            <button class="layui-btn dw-dailog" dw-url="/schoolanalysis" dw-title="报名情况分析" type = "button">报名情况</button>
+                        </div>
+                        <div class="layui-input-inline">
+                            <button class="layui-btn dw-dailog" dw-url="/schoolfirstanalysis" dw-title="笔试情况分析" type = "button">笔试情况</button>
+                        </div>
+                        <div class="layui-input-inline">
+                            <button class="layui-btn dw-dailog" dw-url="/schoolsecondanalysis" dw-title="面试情况分析" type = "button">面试情况</button>
                         </div>
                     </div>
                 </div>
@@ -122,7 +128,7 @@
                 return false;
             }
             if(dw_width == undefined) dw_width = '60%';
-            if(dw_height == undefined) dw_height = '80%';
+            if(dw_height == undefined) dw_height = '100%';
             layer.open({
                 type: 2,
                 title: dw_title,

@@ -15,6 +15,10 @@ public interface SchoolService {
 
     List<School> queryList(String classid);
 
+    List<PracticeAnalysis> queryListPAnalysisFirst(String classid);
+
     List<PracticeAnalysis> queryListPAnalysis(String classid);
+
+    List<PracticeAnalysis> queryListPAnalysisSecond(String classid);
 
 }

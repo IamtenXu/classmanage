@@ -86,7 +86,7 @@
                 return false;
             }
             if(dw_width == undefined) dw_width = '60%';
-            if(dw_height == undefined) dw_height = '80%';
+            if(dw_height == undefined) dw_height = '100%';
             layer.open({
                 type: 2,
                 title: dw_title,

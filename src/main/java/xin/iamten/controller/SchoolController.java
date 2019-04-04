@@ -93,5 +93,65 @@ public class SchoolController {
         return R.ok().put("schoolAnalyses",schoolAnalyses).put("sum",sum).put("schoolpercent",schoolpercent).put("all",all);
     }
 
+    //获取所有学生实习公司统计
+    @RequestMapping(value = "/analysislistfirst", method = RequestMethod.POST)
+    @ResponseBody
+    public R analysislistfirst(@RequestParam String classid) {
+        Stuinfo stuinfo = new Stuinfo();
+        stuinfo.setSclass(classid);
+        List<PracticeAnalysis> schoolAnalyses = schoolService.queryListPAnalysisFirst(classid);
+        List<PracticeAnalysis> stuinfos = schoolService.queryListPAnalysis(classid);
+        int all=stuinfos.size();
+        int sum=0;
+        for(int i=0;i<schoolAnalyses.size();i++){
+            sum += schoolAnalyses.get(i).getNum();
+        }
+        float schoolPercent = ((float) sum/all)*100;
+        if(all==0||sum==0){
+            schoolPercent=0;
+        }
+        BigDecimal schoolPercent2 = new BigDecimal(schoolPercent);
+        schoolPercent = schoolPercent2.setScale(2,BigDecimal.ROUND_HALF_UP).floatValue();
+        String schoolpercent = schoolPercent+"%";
+        for(int i=0;i<schoolAnalyses.size();i++){
+            float percent = ((float) schoolAnalyses.get(i).getNum() / sum) * 100;
+            BigDecimal percent2 = new BigDecimal(percent);
+            percent = percent2.setScale(2,BigDecimal.ROUND_HALF_UP).floatValue();
+            String percentSring = percent+"%";
+            schoolAnalyses.get(i).setPercent(percentSring);
+        }
+        return R.ok().put("schoolAnalyses",schoolAnalyses).put("sum",sum).put("schoolpercent",schoolpercent).put("all",all);
+    }
+
+    //获取所有学生实习公司统计
+    @RequestMapping(value = "/analysislistsecond", method = RequestMethod.POST)
+    @ResponseBody
+    public R analysislistsecond(@RequestParam String classid) {
+        Stuinfo stuinfo = new Stuinfo();
+        stuinfo.setSclass(classid);
+        List<PracticeAnalysis> schoolAnalyses = schoolService.queryListPAnalysisSecond(classid);
+        List<PracticeAnalysis> stuinfos = schoolService.queryListPAnalysis(classid);
+        int all=stuinfos.size();
+        int sum=0;
+        for(int i=0;i<schoolAnalyses.size();i++){
+            sum += schoolAnalyses.get(i).getNum();
+        }
+        float schoolPercent = ((float) sum/all)*100;
+        if(all==0||sum==0){
+            schoolPercent=0;
+        }
+        BigDecimal schoolPercent2 = new BigDecimal(schoolPercent);
+        schoolPercent = schoolPercent2.setScale(2,BigDecimal.ROUND_HALF_UP).floatValue();
+        String schoolpercent = schoolPercent+"%";
+        for(int i=0;i<schoolAnalyses.size();i++){
+            float percent = ((float) schoolAnalyses.get(i).getNum() / sum) * 100;
+            BigDecimal percent2 = new BigDecimal(percent);
+            percent = percent2.setScale(2,BigDecimal.ROUND_HALF_UP).floatValue();
+            String percentSring = percent+"%";
+            schoolAnalyses.get(i).setPercent(percentSring);
+        }
+        return R.ok().put("schoolAnalyses",schoolAnalyses).put("sum",sum).put("schoolpercent",schoolpercent).put("all",all);
+    }
+
 
 }

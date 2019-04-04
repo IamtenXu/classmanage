@@ -36,7 +36,17 @@ public class SchoolServiceImpl implements SchoolService {
     }
 
     @Override
+    public List<PracticeAnalysis> queryListPAnalysisFirst(String classid) {
+        return schoolMapper.selectSchoolfirstAnalysis(classid);
+    }
+
+    @Override
     public List<PracticeAnalysis> queryListPAnalysis(String classid) {
         return schoolMapper.selectSchoolAnalysis(classid);
+    }
+
+    @Override
+    public List<PracticeAnalysis> queryListPAnalysisSecond(String classid) {
+        return schoolMapper.selectSchoolsecondAnalysis(classid);
     }
 }

@@ -67,14 +67,14 @@
         });
         form.on('select(classidFilter)', function(){
             $.ajax({
-                url: '/school/analysislist',
+                url: '/school/analysislistsecond',
                 dataType: 'json',
                 type: 'POST',
                 async : false,
                 data:{"classid":$('#classid').val()},
                 success: function (data) {
                     $('#formcontainer').empty();
-                    $('#formcontainer').append("<label><font size='5'> 考研总人数为<strong> "+data.sum+"</strong>人，"+"班级共<strong> "+data.all+"</strong>人，考研的比例为<strong> "+data.schoolpercent+"</strong></font></label><br>");
+                    $('#formcontainer').append("<label><font size='5'> 通过面试人数为<strong> "+data.sum+"</strong>人，"+"面试人数为<strong> "+data.all+"</strong>人，通过比例为<strong> "+data.schoolpercent+"</strong></font></label><br>");
                     $.each(data.schoolAnalyses, function (index, item) {
                         $('#formcontainer').append(" <br><label><strong> "+(index+1)+" "+item.company+"(共"+item.num+"人) 占"+item.percent+"</strong></label><br>\n" +
                             "                        <div class=\"layui-progress layui-progress-big\" lay-showPercent=\"true\" lay-filter=\"demo"+index+"\">\n" +
@@ -89,13 +89,13 @@
     });
     <c:if test="${getrole != '2'}">
     $.ajax({
-        url: '/school/analysislist',
+        url: '/school/analysislistsecond',
         dataType: 'json',
         type: 'POST',
         async : false,
         data:{"classid":${sessionScope.classinfo.classid}},
         success: function (data) {
-            $('#formcontainer').append("<label><font size='5'> 考研总人数为<strong> "+data.sum+"</strong>人，"+"班级共<strong> "+data.all+"</strong>人，考研的比例为<strong> "+data.schoolpercent+"</strong></font></label><br>");
+            $('#formcontainer').append("<label><font size='5'> 通过面试人数为<strong> "+data.sum+"</strong>人，"+"面试人数为<strong> "+data.all+"</strong>人，通过比例为<strong> "+data.schoolpercent+"</strong></font></label><br>");
             $.each(data.schoolAnalyses, function (index, item) {
                 $('#formcontainer').append(" <br><label><strong> "+(index+1)+" "+item.company+"(共"+item.num+"人)"+"</strong></label><br>\n" +
                     "                        <div class=\"layui-progress layui-progress-big\" lay-showPercent=\"true\">\n" +

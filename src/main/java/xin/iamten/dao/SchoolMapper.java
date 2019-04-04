@@ -21,4 +21,8 @@ public interface SchoolMapper {
     List<School> selectList(String classid);
 
     List<PracticeAnalysis> selectSchoolAnalysis(String classid);
+
+    List<PracticeAnalysis> selectSchoolfirstAnalysis(String classid);
+
+    List<PracticeAnalysis> selectSchoolsecondAnalysis(String classid);
 }

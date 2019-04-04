@@ -276,6 +276,18 @@ public class PageController {
         return "schoolanalysis";
     }
 
+    //班委工作分析
+    @RequestMapping("/schoolfirstanalysis")
+    public String toschoolfirstanalysis(){
+        return "schoolfirstanalysis";
+    }
+
+    //班委工作分析
+    @RequestMapping("/schoolsecondanalysis")
+    public String toschoolsecondanalysis(){
+        return "schoolsecondanalysis";
+    }
+
     //辅导员工作分析
     @RequestMapping("/instructorworkmanage")
     public String toinstructorworkmanage(){
