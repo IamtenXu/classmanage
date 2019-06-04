@@ -101,7 +101,10 @@ public class SchoolController {
         stuinfo.setSclass(classid);
         List<PracticeAnalysis> schoolAnalyses = schoolService.queryListPAnalysisFirst(classid);
         List<PracticeAnalysis> stuinfos = schoolService.queryListPAnalysis(classid);
-        int all=stuinfos.size();
+        int all=0;
+        for(int i=0;i<stuinfos.size();i++){
+            all += stuinfos.get(i).getNum();
+        }
         int sum=0;
         for(int i=0;i<schoolAnalyses.size();i++){
             sum += schoolAnalyses.get(i).getNum();
@@ -130,8 +133,11 @@ public class SchoolController {
         Stuinfo stuinfo = new Stuinfo();
         stuinfo.setSclass(classid);
         List<PracticeAnalysis> schoolAnalyses = schoolService.queryListPAnalysisSecond(classid);
-        List<PracticeAnalysis> stuinfos = schoolService.queryListPAnalysis(classid);
-        int all=stuinfos.size();
+        List<PracticeAnalysis> stuinfos = schoolService.queryListPAnalysisFirst(classid);
+        int all=0;
+        for(int i=0;i<stuinfos.size();i++){
+            all += stuinfos.get(i).getNum();
+        }
         int sum=0;
         for(int i=0;i<schoolAnalyses.size();i++){
             sum += schoolAnalyses.get(i).getNum();
